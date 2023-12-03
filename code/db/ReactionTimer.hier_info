@@ -1,0 +1,9 @@
+|T_FF
+T => Q_temp.IN1
+T => Q~reg0.ENA
+T => Q_temp.ENA
+clock => Q~reg0.CLK
+clock => Q_temp.CLK
+Q << Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
