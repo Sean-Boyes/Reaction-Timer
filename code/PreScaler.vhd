@@ -46,7 +46,7 @@ elsiF speed = 2  then
 		ntemp <= ntemp + 1;
 	End if;
 
-elsiF speed = 1 then
+elsiF speed = 3 then
 		stemp<=(others=>'0');
 		ntemp<=(others=>'0');
 	if rising_edge(clkI) and ftemp = "001001100010010110100000" Then
