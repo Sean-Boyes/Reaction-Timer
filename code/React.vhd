@@ -35,12 +35,22 @@ architecture behavior of react is
 			 );
 	end component;
 	
+	component StateDetermination IS
+	port(
+			Input : in std_logic_vector(4 downto 0);
+			State : out std_logic_Vector(2 downto 0)
+	);
+	end component;
+
+	
 	signal out_CLK : std_logic;
 	signal SInput : std_logic_vector(4 downto 0);
+	signal state : std_logic_vector(2 downto 0);
 	
 	begin
 		SInput <= (SW(17 downto 17) & KEY(3 downto 0));
 		PreScalar_instance0 : PreScaler port map (SW(2 downto 0), clock_50, out_CLK);
+		stateDet_instance0 : stateDetermination port map(sInput, state);
 		
 		
 		

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ReactionTimer
-Mon Dec  4 00:57:36 2023
+Mon Dec  4 01:03:38 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -14,10 +14,11 @@ Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Port Connectivity Checks: "PreScaler:PreScalar_instance0"
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+  9. Port Connectivity Checks: "StateDetermination:stateDet_instance0"
+ 10. Port Connectivity Checks: "PreScaler:PreScalar_instance0"
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -44,7 +45,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Dec  4 00:57:36 2023          ;
+; Analysis & Synthesis Status        ; Successful - Mon Dec  4 01:03:38 2023          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; ReactionTimer                                  ;
 ; Top-level Entity Name              ; React                                          ;
@@ -163,15 +164,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                   ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path            ; Library ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------+---------+
-; encoder32.vhd                    ; yes             ; User VHDL File  ; D:/252/ReactionTimer/code/encoder32.vhd ;         ;
-; PreScaler.vhd                    ; yes             ; User VHDL File  ; D:/252/ReactionTimer/code/PreScaler.vhd ;         ;
-; React.vhd                        ; yes             ; User VHDL File  ; D:/252/ReactionTimer/code/React.vhd     ;         ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                            ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                     ; Library ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------+---------+
+; encoder32.vhd                    ; yes             ; User VHDL File  ; D:/252/ReactionTimer/code/encoder32.vhd          ;         ;
+; PreScaler.vhd                    ; yes             ; User VHDL File  ; D:/252/ReactionTimer/code/PreScaler.vhd          ;         ;
+; React.vhd                        ; yes             ; User VHDL File  ; D:/252/ReactionTimer/code/React.vhd              ;         ;
+; StateDetermination.vhd           ; yes             ; User VHDL File  ; D:/252/ReactionTimer/code/StateDetermination.vhd ;         ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------+---------+
 
 
 +------------------------------------------------------+
@@ -230,6 +232,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "StateDetermination:stateDet_instance0"                                               ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; state ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +----------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "PreScaler:PreScalar_instance0"                                                      ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
@@ -269,7 +280,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Mon Dec  4 00:57:31 2023
+    Info: Processing started: Mon Dec  4 01:03:33 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ReactionTimer -c ReactionTimer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
@@ -319,15 +330,34 @@ Warning (10541): VHDL Signal Declaration warning at React.vhd(9): used implicit 
 Warning (10541): VHDL Signal Declaration warning at React.vhd(9): used implicit default value for signal "HEX6" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/252/ReactionTimer/code/React.vhd Line: 9
 Warning (10541): VHDL Signal Declaration warning at React.vhd(9): used implicit default value for signal "HEX7" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/252/ReactionTimer/code/React.vhd Line: 9
 Warning (10541): VHDL Signal Declaration warning at React.vhd(9): used implicit default value for signal "HEX8" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/252/ReactionTimer/code/React.vhd Line: 9
-Warning (10036): Verilog HDL or VHDL warning at React.vhd(38): object "out_CLK" assigned a value but never read File: D:/252/ReactionTimer/code/React.vhd Line: 38
-Warning (10036): Verilog HDL or VHDL warning at React.vhd(39): object "SInput" assigned a value but never read File: D:/252/ReactionTimer/code/React.vhd Line: 39
-Info (12128): Elaborating entity "PreScaler" for hierarchy "PreScaler:PreScalar_instance0" File: D:/252/ReactionTimer/code/React.vhd Line: 43
+Warning (10036): Verilog HDL or VHDL warning at React.vhd(46): object "out_CLK" assigned a value but never read File: D:/252/ReactionTimer/code/React.vhd Line: 46
+Warning (10036): Verilog HDL or VHDL warning at React.vhd(48): object "state" assigned a value but never read File: D:/252/ReactionTimer/code/React.vhd Line: 48
+Info (12128): Elaborating entity "PreScaler" for hierarchy "PreScaler:PreScalar_instance0" File: D:/252/ReactionTimer/code/React.vhd Line: 52
 Warning (10631): VHDL Process Statement warning at PreScaler.vhd(26): inferring latch(es) for signal or variable "clkO", which holds its previous value in one or more paths through the process File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 26
 Info (10041): Inferred latch for "clkO" at PreScaler.vhd(26) File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 26
 Info (12128): Elaborating entity "encoder32" for hierarchy "PreScaler:PreScalar_instance0|encoder32:instance1" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 25
 Warning (10631): VHDL Process Statement warning at encoder32.vhd(14): inferring latch(es) for signal or variable "eout", which holds its previous value in one or more paths through the process File: D:/252/ReactionTimer/code/encoder32.vhd Line: 14
 Info (10041): Inferred latch for "eout[0]" at encoder32.vhd(14) File: D:/252/ReactionTimer/code/encoder32.vhd Line: 14
 Info (10041): Inferred latch for "eout[1]" at encoder32.vhd(14) File: D:/252/ReactionTimer/code/encoder32.vhd Line: 14
+Info (12128): Elaborating entity "StateDetermination" for hierarchy "StateDetermination:stateDet_instance0" File: D:/252/ReactionTimer/code/React.vhd Line: 53
+Warning (10492): VHDL Process Statement warning at StateDetermination.vhd(21): signal "StateTemp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 21
+Warning (10492): VHDL Process Statement warning at StateDetermination.vhd(26): signal "StateTemp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 26
+Warning (10492): VHDL Process Statement warning at StateDetermination.vhd(30): signal "StateTemp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 30
+Warning (10492): VHDL Process Statement warning at StateDetermination.vhd(35): signal "StateTemp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 35
+Warning (10492): VHDL Process Statement warning at StateDetermination.vhd(39): signal "StateTemp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 39
+Warning (10492): VHDL Process Statement warning at StateDetermination.vhd(44): signal "StateTemp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 44
+Warning (10492): VHDL Process Statement warning at StateDetermination.vhd(48): signal "StateTemp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 48
+Warning (10492): VHDL Process Statement warning at StateDetermination.vhd(53): signal "StateTemp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 53
+Warning (10492): VHDL Process Statement warning at StateDetermination.vhd(57): signal "StateTemp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 57
+Warning (10492): VHDL Process Statement warning at StateDetermination.vhd(62): signal "StateTemp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 62
+Warning (10492): VHDL Process Statement warning at StateDetermination.vhd(66): signal "StateTemp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 66
+Warning (10492): VHDL Process Statement warning at StateDetermination.vhd(71): signal "StateTemp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 71
+Warning (10492): VHDL Process Statement warning at StateDetermination.vhd(75): signal "StateTemp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 75
+Warning (10492): VHDL Process Statement warning at StateDetermination.vhd(80): signal "StateTemp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 80
+Warning (10631): VHDL Process Statement warning at StateDetermination.vhd(16): inferring latch(es) for signal or variable "StateTemp", which holds its previous value in one or more paths through the process File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 16
+Info (10041): Inferred latch for "StateTemp[0]" at StateDetermination.vhd(16) File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 16
+Info (10041): Inferred latch for "StateTemp[1]" at StateDetermination.vhd(16) File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 16
+Info (10041): Inferred latch for "StateTemp[2]" at StateDetermination.vhd(16) File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 16
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX0[0]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
     Warning (13410): Pin "HEX0[1]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
@@ -421,10 +451,10 @@ Warning (21074): Design contains 23 input pin(s) that do not drive logic
 Info (21057): Implemented 86 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 23 input pins
     Info (21059): Implemented 63 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 102 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 117 warnings
     Info: Peak virtual memory: 4810 megabytes
-    Info: Processing ended: Mon Dec  4 00:57:36 2023
+    Info: Processing ended: Mon Dec  4 01:03:38 2023
     Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
 
 
