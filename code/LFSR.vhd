@@ -4,7 +4,7 @@ use ieee. std_logic_arith.all;
 use ieee. std_logic_unsigned.all;
  
 entity LFSR is
-	PORT( enable, reset, CLK: in std_logic;
+	PORT( enable, CLK: in std_logic;
 			LFSR_Reg: Out std_logic_vector(16-1 downto 0)
 			);
 end LFSR;
@@ -12,10 +12,10 @@ end LFSR;
 Architecture behavioral of LFSR is
 
 component D_FF is
-	port ( 
-			 D : in std_logic;
+	port ( D : in std_logic;
 			 clock : in std_logic; 
-			 Q : out std_logic);
+			 Q : out std_logic
+		  );
 end component;
 
 signal inCLK   : std_logic;
