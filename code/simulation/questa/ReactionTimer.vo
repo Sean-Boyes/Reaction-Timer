@@ -17,7 +17,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition"
 
-// DATE "12/03/2023 18:07:16"
+// DATE "12/03/2023 15:42:54"
 
 // 
 // Device: Altera EP4CE115F29C7 Package FBGA780
@@ -31,16 +31,16 @@
 
 module T_FF (
 	T,
-	Clock,
+	clock,
 	Q);
 input 	T;
-input 	Clock;
+input 	clock;
 output 	Q;
 
 // Design Ports Information
-// Q	=>  Location: PIN_L3,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// T	=>  Location: PIN_M4,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Clock	=>  Location: PIN_L4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Q	=>  Location: PIN_B4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// clock	=>  Location: PIN_J1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// T	=>  Location: PIN_A4,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
 wire gnd;
@@ -55,10 +55,13 @@ tri1 devclrn;
 tri1 devpor;
 tri1 devoe;
 wire \Q~output_o ;
-wire \Clock~input_o ;
+wire \clock~input_o ;
+wire \clock~inputclkctrl_outclk ;
+wire \Q_temp~0_combout ;
 wire \T~input_o ;
-wire \tmp~0_combout ;
-wire \tmp~q ;
+wire \Q_temp~q ;
+wire \Q~reg0feeder_combout ;
+wire \Q~reg0_q ;
 
 
 hard_block auto_generated_inst(
@@ -66,9 +69,9 @@ hard_block auto_generated_inst(
 	.devclrn(devclrn),
 	.devoe(devoe));
 
-// Location: IOOBUF_X0_Y52_N16
+// Location: IOOBUF_X7_Y73_N23
 cycloneive_io_obuf \Q~output (
-	.i(\tmp~q ),
+	.i(\Q~reg0_q ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -79,17 +82,47 @@ defparam \Q~output .bus_hold = "false";
 defparam \Q~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOIBUF_X0_Y52_N1
-cycloneive_io_ibuf \Clock~input (
-	.i(Clock),
+// Location: IOIBUF_X0_Y36_N8
+cycloneive_io_ibuf \clock~input (
+	.i(clock),
 	.ibar(gnd),
-	.o(\Clock~input_o ));
+	.o(\clock~input_o ));
 // synopsys translate_off
-defparam \Clock~input .bus_hold = "false";
-defparam \Clock~input .simulate_z_as = "z";
+defparam \clock~input .bus_hold = "false";
+defparam \clock~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOIBUF_X0_Y52_N22
+// Location: CLKCTRL_G2
+cycloneive_clkctrl \clock~inputclkctrl (
+	.ena(vcc),
+	.inclk({vcc,vcc,vcc,\clock~input_o }),
+	.clkselect(2'b00),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.outclk(\clock~inputclkctrl_outclk ));
+// synopsys translate_off
+defparam \clock~inputclkctrl .clock_type = "global clock";
+defparam \clock~inputclkctrl .ena_register_mode = "none";
+// synopsys translate_on
+
+// Location: LCCOMB_X7_Y72_N18
+cycloneive_lcell_comb \Q_temp~0 (
+// Equation(s):
+// \Q_temp~0_combout  = !\Q_temp~q 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\Q_temp~q ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\Q_temp~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Q_temp~0 .lut_mask = 16'h0F0F;
+defparam \Q_temp~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X7_Y73_N15
 cycloneive_io_ibuf \T~input (
 	.i(T),
 	.ibar(gnd),
@@ -99,40 +132,59 @@ defparam \T~input .bus_hold = "false";
 defparam \T~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: LCCOMB_X1_Y52_N16
-cycloneive_lcell_comb \tmp~0 (
-// Equation(s):
-// \tmp~0_combout  = \tmp~q  $ (\T~input_o )
-
-	.dataa(gnd),
-	.datab(gnd),
-	.datac(\tmp~q ),
-	.datad(\T~input_o ),
-	.cin(gnd),
-	.combout(\tmp~0_combout ),
-	.cout());
-// synopsys translate_off
-defparam \tmp~0 .lut_mask = 16'h0FF0;
-defparam \tmp~0 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X1_Y52_N17
-dffeas tmp(
-	.clk(\Clock~input_o ),
-	.d(\tmp~0_combout ),
+// Location: FF_X7_Y72_N19
+dffeas Q_temp(
+	.clk(\clock~inputclkctrl_outclk ),
+	.d(\Q_temp~0_combout ),
 	.asdata(vcc),
 	.clrn(vcc),
 	.aload(gnd),
 	.sclr(gnd),
 	.sload(gnd),
-	.ena(vcc),
+	.ena(\T~input_o ),
 	.devclrn(devclrn),
 	.devpor(devpor),
-	.q(\tmp~q ),
+	.q(\Q_temp~q ),
 	.prn(vcc));
 // synopsys translate_off
-defparam tmp.is_wysiwyg = "true";
-defparam tmp.power_up = "low";
+defparam Q_temp.is_wysiwyg = "true";
+defparam Q_temp.power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X7_Y72_N0
+cycloneive_lcell_comb \Q~reg0feeder (
+// Equation(s):
+// \Q~reg0feeder_combout  = \Q_temp~q 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\Q_temp~q ),
+	.cin(gnd),
+	.combout(\Q~reg0feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Q~reg0feeder .lut_mask = 16'hFF00;
+defparam \Q~reg0feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X7_Y72_N1
+dffeas \Q~reg0 (
+	.clk(\clock~inputclkctrl_outclk ),
+	.d(\Q~reg0feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\T~input_o ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Q~reg0_q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Q~reg0 .is_wysiwyg = "true";
+defparam \Q~reg0 .power_up = "low";
 // synopsys translate_on
 
 assign Q = \Q~output_o ;
