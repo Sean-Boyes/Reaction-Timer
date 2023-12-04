@@ -1,9 +1,117 @@
-|T_FF
-T => Q_temp.IN1
-T => Q~reg0.ENA
-T => Q_temp.ENA
-clock => Q~reg0.CLK
-clock => Q_temp.CLK
-Q << Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+|LFSR
+enable => inCLK.IN0
+CLK => inCLK.IN1
+LFSR_Reg[0] << D_FF:instance0.Q
+LFSR_Reg[1] << D_FF:instance1.Q
+LFSR_Reg[2] << D_FF:instance2.Q
+LFSR_Reg[3] << D_FF:instance3.Q
+LFSR_Reg[4] << D_FF:instance4.Q
+LFSR_Reg[5] << D_FF:instance5.Q
+LFSR_Reg[6] << D_FF:instance6.Q
+LFSR_Reg[7] << D_FF:instance7.Q
+LFSR_Reg[8] << D_FF:instance8.Q
+LFSR_Reg[9] << D_FF:instance9.Q
+LFSR_Reg[10] << D_FF:instance10.Q
+LFSR_Reg[11] << D_FF:instance11.Q
+LFSR_Reg[12] << D_FF:instance12.Q
+LFSR_Reg[13] << D_FF:instance13.Q
+LFSR_Reg[14] << D_FF:instance14.Q
+LFSR_Reg[15] << D_FF:instance15.Q
+
+
+|LFSR|D_FF:instance0
+D[0] => Q[0]~reg0.DATAIN
+clock => Q[0]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LFSR|D_FF:instance1
+D[0] => Q[0]~reg0.DATAIN
+clock => Q[0]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LFSR|D_FF:instance2
+D[0] => Q[0]~reg0.DATAIN
+clock => Q[0]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LFSR|D_FF:instance3
+D[0] => Q[0]~reg0.DATAIN
+clock => Q[0]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LFSR|D_FF:instance4
+D[0] => Q[0]~reg0.DATAIN
+clock => Q[0]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LFSR|D_FF:instance5
+D[0] => Q[0]~reg0.DATAIN
+clock => Q[0]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LFSR|D_FF:instance6
+D[0] => Q[0]~reg0.DATAIN
+clock => Q[0]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LFSR|D_FF:instance7
+D[0] => Q[0]~reg0.DATAIN
+clock => Q[0]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LFSR|D_FF:instance8
+D[0] => Q[0]~reg0.DATAIN
+clock => Q[0]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LFSR|D_FF:instance9
+D[0] => Q[0]~reg0.DATAIN
+clock => Q[0]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LFSR|D_FF:instance10
+D[0] => Q[0]~reg0.DATAIN
+clock => Q[0]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LFSR|D_FF:instance11
+D[0] => Q[0]~reg0.DATAIN
+clock => Q[0]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LFSR|D_FF:instance12
+D[0] => Q[0]~reg0.DATAIN
+clock => Q[0]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LFSR|D_FF:instance13
+D[0] => Q[0]~reg0.DATAIN
+clock => Q[0]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LFSR|D_FF:instance14
+D[0] => Q[0]~reg0.DATAIN
+clock => Q[0]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LFSR|D_FF:instance15
+D[0] => Q[0]~reg0.DATAIN
+clock => Q[0]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 

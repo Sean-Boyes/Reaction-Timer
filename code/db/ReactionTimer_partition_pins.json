@@ -8,11 +8,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "clock",
+					"name" : "T",
 					"strict" : false
 				},
 				{
-					"name" : "T",
+					"name" : "Clock",
 					"strict" : false
 				}
 			]
