@@ -4,9 +4,9 @@ Use ieee.numeric_std.all;
 
 Entity D_FF IS
 port(
-	signal D : in std_logic_vector(0 downto 0);
+	signal D : in std_logic;
 	clock : in std_logic;
-	Q : out std_logic_vector(0 downto 0)
+	Q : out std_logic
 );
 end D_FF;
 

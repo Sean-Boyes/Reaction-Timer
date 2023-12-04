@@ -4,15 +4,75 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "Q",
+					"name" : "LFSR_Reg[0]",
 					"strict" : false
 				},
 				{
-					"name" : "T",
+					"name" : "LFSR_Reg[1]",
 					"strict" : false
 				},
 				{
-					"name" : "Clock",
+					"name" : "LFSR_Reg[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LFSR_Reg[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LFSR_Reg[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LFSR_Reg[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LFSR_Reg[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LFSR_Reg[7]",
+					"strict" : false
+				},
+				{
+					"name" : "LFSR_Reg[8]",
+					"strict" : false
+				},
+				{
+					"name" : "LFSR_Reg[9]",
+					"strict" : false
+				},
+				{
+					"name" : "LFSR_Reg[10]",
+					"strict" : false
+				},
+				{
+					"name" : "LFSR_Reg[11]",
+					"strict" : false
+				},
+				{
+					"name" : "LFSR_Reg[12]",
+					"strict" : false
+				},
+				{
+					"name" : "LFSR_Reg[13]",
+					"strict" : false
+				},
+				{
+					"name" : "LFSR_Reg[14]",
+					"strict" : false
+				},
+				{
+					"name" : "LFSR_Reg[15]",
+					"strict" : false
+				},
+				{
+					"name" : "enable",
+					"strict" : false
+				},
+				{
+					"name" : "CLK",
 					"strict" : false
 				}
 			]

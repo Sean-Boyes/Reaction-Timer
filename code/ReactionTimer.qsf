@@ -63,8 +63,12 @@ set_global_assignment -name VECTOR_WAVEFORM_FILE simulation/Waveform.vwf
 set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
 set_global_assignment -name VHDL_FILE SR_FF.vhd
 set_global_assignment -name VHDL_FILE JK_FF.vhd
-set_global_assignment -name VHDL_FILE ../../../../../Downloads/Lab6/Lab6/LFSR.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VHDL_FILE PRegister16.vhd
+set_global_assignment -name VHDL_FILE encoder32.vhd
+set_global_assignment -name VHDL_FILE SegDecoder.vhd
+set_global_assignment -name VHDL_FILE PreScaler.vhd
+set_global_assignment -name VHDL_FILE LFSR.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

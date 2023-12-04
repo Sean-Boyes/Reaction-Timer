@@ -1,0 +1,42 @@
+library ieee;
+use ieee. std_logic_1164.all;
+use ieee. std_logic_arith.all;
+use ieee. std_logic_unsigned.all;
+ 
+entity LFSR is
+	PORT( enable, CLK: in std_logic;
+			LFSR_Reg: buffer std_logic_vector(16-1 downto 0)
+			
+			);
+end LFSR;
+
+Architecture behavioral of LFSR is
+
+component D_FF is
+	port ( D : in std_logic;
+			 clock : in std_logic; 
+			 Q : out std_logic);
+end component;
+
+signal inCLK   : std_logic;
+
+begin
+	inCLK <= CLK and enable;
+	
+	instance0  : D_FF port map ((LFSR_Reg(10) xor LFSR_Reg(12) xor LFSR_Reg(13) xor LFSR_Reg(15)), inCLK, LFSR_Reg(0));
+	instance1  : D_FF port map (LFSR_Reg(0),  inCLK, LFSR_Reg(1));
+	instance2  : D_FF port map (LFSR_Reg(1),  inCLK, LFSR_Reg(2));
+	instance3  : D_FF port map (LFSR_Reg(2),  inCLK, LFSR_Reg(3));
+	instance4  : D_FF port map (LFSR_Reg(3),  inCLK, LFSR_Reg(4));
+	instance5  : D_FF port map (LFSR_Reg(4),  inCLK, LFSR_Reg(5));
+	instance6  : D_FF port map (LFSR_Reg(5),  inCLK, LFSR_Reg(6));
+	instance7  : D_FF port map (LFSR_Reg(6),  inCLK, LFSR_Reg(7));
+	instance8  : D_FF port map (LFSR_Reg(7),  inCLK, LFSR_Reg(8));
+	instance9  : D_FF port map (LFSR_Reg(8),  inCLK, LFSR_Reg(9));
+	instance10 : D_FF port map (LFSR_Reg(9),  inCLK, LFSR_Reg(10));
+	instance11 : D_FF port map (LFSR_Reg(10), inCLK, LFSR_Reg(11));
+	instance12 : D_FF port map (LFSR_Reg(11), inCLK, LFSR_Reg(12));
+	instance13 : D_FF port map (LFSR_Reg(12), inCLK, LFSR_Reg(13));
+	instance14 : D_FF port map (LFSR_Reg(13), inCLK, LFSR_Reg(14));
+	instance15 : D_FF port map (LFSR_Reg(14), inCLK, LFSR_Reg(15));
+end behavioral;
