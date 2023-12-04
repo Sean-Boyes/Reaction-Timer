@@ -23,30 +23,48 @@ signal sTemp : unsigned(23 downto 0):= (others =>'0');
 signal speed : unsigned(1 downto 0):= (others =>'0');
 Begin
 instance1 : encoder32 port map (setSpeed, speed);
-process(clkI, speed)
+process(clkI, speed, stemp, ntemp, ftemp)
 Begin
-iF rising_edge(clkI) and ntemp = "100110001001011010000000" AND speed = 1 Then
-stemp<=(others=>'0');
-clkO <= std_logic(stemp(23));
-elsif rising_edge(clkI) and speed = 1 Then
-stemp <= stemp + 1;
-clkO <= std_logic(stemp(23));
-End if;
+iF speed = 1  then
+		ntemp<=(others=>'0');
+		ftemp<=(others=>'0');
+	if rising_edge(clkI) and stemp = "100110001001011010000000" Then
+		stemp<=(others=>'0');
+	end if;
+	if rising_edge(clkI) Then
+		stemp <= stemp + 1;
+	End if;
 
-iF rising_edge(clkI) and ntemp = "010011000100101101000000" AND speed = 2 Then
-stemp<=(others=>'0');
-clkO <= std_logic(stemp(23));
-elsif rising_edge(clkI) and speed = 1 Then
-stemp <= stemp + 1;
-clkO <= std_logic(stemp(23));
-End if;
+elsiF speed = 2  then
+		stemp<=(others=>'0');
+		ftemp<=(others=>'0');
+	if rising_edge(clkI) and ntemp = "010011000100101101000000" Then
+		ntemp<=(others=>'0');
+	end if;
+	if rising_edge(clkI) Then
+		
+		ntemp <= ntemp + 1;
+	End if;
 
-iF rising_edge(clkI) and ntemp = "001001100010010110100000" AND speed = 3 Then
-stemp<=(others=>'0');
-clkO <= std_logic(stemp(23));
-elsif rising_edge(clkI) and speed = 1 Then
-stemp <= stemp + 1;
-clkO <= std_logic(stemp(23));
-End if;
+elsiF speed = 1 then
+		stemp<=(others=>'0');
+		ntemp<=(others=>'0');
+	if rising_edge(clkI) and ftemp = "001001100010010110100000" Then
+		ftemp<=(others=>'0');
+	end if;
+	if rising_edge(clkI) Then
+		
+		ftemp <= ftemp + 1;
+	End if;
+End If;
+
+if speed = 1 then
+	clkO <= std_logic(stemp(23));
+elsif speed = 2 then 
+	clkO <= std_logic(ntemp(23));
+elsif speed = 3 then
+	clkO <= std_logic(ftemp(23));
+End If;
+
 end process;
 end behavior;
