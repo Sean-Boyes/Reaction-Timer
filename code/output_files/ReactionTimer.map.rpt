@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ReactionTimer
-Sun Dec  3 22:04:11 2023
+Sun Dec  3 22:09:03 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -43,7 +43,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Dec  3 22:04:11 2023          ;
+; Analysis & Synthesis Status        ; Successful - Sun Dec  3 22:09:03 2023          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; ReactionTimer                                  ;
 ; Top-level Entity Name              ; LFSR                                           ;
@@ -279,7 +279,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Sun Dec  3 22:04:06 2023
+    Info: Processing started: Sun Dec  3 22:08:58 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ReactionTimer -c ReactionTimer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
@@ -323,7 +323,7 @@ Info (21057): Implemented 36 device resources after synthesis - the final resour
     Info (21061): Implemented 17 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
     Info: Peak virtual memory: 4899 megabytes
-    Info: Processing ended: Sun Dec  3 22:04:11 2023
+    Info: Processing ended: Sun Dec  3 22:09:03 2023
     Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:03
 

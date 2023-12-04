@@ -19,7 +19,7 @@ component D_FF is
 end component;
 
 signal inCLK   : std_logic;
-signal LFSR_Out : std_logic_vector(16-1 downto 0) := (others => '0');
+signal LFSR_Out : std_logic_vector(16-1 downto 0) := "1000000000000000";
 
 begin
 	inCLK <= CLK and enable;
