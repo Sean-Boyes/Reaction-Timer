@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ReactionTimer
-Mon Dec  4 03:18:32 2023
+Mon Dec  4 04:10:24 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -48,7 +48,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Dec  4 03:18:32 2023          ;
+; Analysis & Synthesis Status        ; Successful - Mon Dec  4 04:10:24 2023          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; ReactionTimer                                  ;
 ; Top-level Entity Name              ; React                                          ;
@@ -164,7 +164,8 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-14        ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-14        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -361,7 +362,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Mon Dec  4 03:18:27 2023
+    Info: Processing started: Mon Dec  4 04:10:10 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ReactionTimer -c ReactionTimer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
@@ -407,6 +408,9 @@ Info (12021): Found 2 design units, including 1 entities, in source file initial
 Info (12021): Found 2 design units, including 1 entities, in source file bcdnum.vhd
     Info (12022): Found design unit 1: BCDNum-behavior File: D:/252/ReactionTimer/code/BCDNum.vhd Line: 12
     Info (12023): Found entity 1: BCDNum File: D:/252/ReactionTimer/code/BCDNum.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file bcdcount2.vhd
+    Info (12022): Found design unit 1: BCDCount2-Behavioral File: D:/252/ReactionTimer/code/BCDCount2.vhd Line: 13
+    Info (12023): Found entity 1: BCDCount2 File: D:/252/ReactionTimer/code/BCDCount2.vhd Line: 5
 Info (12127): Elaborating entity "React" for the top level hierarchy
 Warning (10541): VHDL Signal Declaration warning at React.vhd(10): used implicit default value for signal "HEX0" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/252/ReactionTimer/code/React.vhd Line: 10
 Warning (10541): VHDL Signal Declaration warning at React.vhd(10): used implicit default value for signal "HEX1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/252/ReactionTimer/code/React.vhd Line: 10
@@ -640,9 +644,9 @@ Info (21057): Implemented 156 device resources after synthesis - the final resou
     Info (21059): Implemented 63 output pins
     Info (21061): Implemented 70 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 125 warnings
-    Info: Peak virtual memory: 4883 megabytes
-    Info: Processing ended: Mon Dec  4 03:18:32 2023
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Peak virtual memory: 4919 megabytes
+    Info: Processing ended: Mon Dec  4 04:10:24 2023
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:01
 
 
