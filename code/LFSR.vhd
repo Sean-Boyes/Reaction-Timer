@@ -19,19 +19,13 @@ component D_FF is
 end component;
 
 signal inCLK   : std_logic;
-signal LFSR_Out : std_logic_vector(16-1 downto 0) := "1000000000000000";
+signal LFSR_Out : std_logic_vector(16-1 downto 0);
 
 begin
 	inCLK <= CLK and enable;
-	
---	process(clk, reset)
---	begin
---	if rising_edge(clk) AND Reset = '1' then
---	LFSR_OUt <= (others=>'0');
---	end if;
---	end process;
-	
-	instance0  : D_FF port map ((LFSR_Out(10) xor LFSR_Out(12) xor LFSR_Out(13) xor LFSR_Out(15)), inCLK, LFSR_Out(0));
+
+		
+	instance0  : D_FF port map ((LFSR_Out(10) xor LFSR_Out(12) xor LFSR_Out(13) xor LFSR_Out(15) xor inCLK), inCLK, LFSR_Out(0));
 	instance1  : D_FF port map (LFSR_Out(0),  inCLK, LFSR_Out(1));
 	instance2  : D_FF port map (LFSR_Out(1),  inCLK, LFSR_Out(2));
 	instance3  : D_FF port map (LFSR_Out(2),  inCLK, LFSR_Out(3));

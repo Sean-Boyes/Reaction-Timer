@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ReactionTimer
-Sun Dec  3 22:09:03 2023
+Sun Dec  3 23:03:17 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -43,13 +43,13 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Dec  3 22:09:03 2023          ;
+; Analysis & Synthesis Status        ; Successful - Sun Dec  3 23:03:17 2023          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; ReactionTimer                                  ;
 ; Top-level Entity Name              ; LFSR                                           ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 17                                             ;
-;     Total combinational functions  ; 2                                              ;
+; Total logic elements               ; 18                                             ;
+;     Total combinational functions  ; 3                                              ;
 ;     Dedicated logic registers      ; 16                                             ;
 ; Total registers                    ; 16                                             ;
 ; Total pins                         ; 19                                             ;
@@ -151,26 +151,26 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 20          ;
-; Maximum allowed            ; 14          ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 14          ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-14        ;   0.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                              ;
-+----------------------------------+-----------------+-----------------+------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path       ; Library ;
-+----------------------------------+-----------------+-----------------+------------------------------------+---------+
-; D_FF.vhd                         ; yes             ; User VHDL File  ; D:/252/ReactionTimer/code/D_FF.vhd ;         ;
-; LFSR.vhd                         ; yes             ; User VHDL File  ; D:/252/ReactionTimer/code/LFSR.vhd ;         ;
-+----------------------------------+-----------------+-----------------+------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                             ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                      ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------+---------+
+; D_FF.vhd                         ; yes             ; User VHDL File  ; C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/D_FF.vhd ;         ;
+; LFSR.vhd                         ; yes             ; User VHDL File  ; C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/LFSR.vhd ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -178,16 +178,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 17    ;
+; Estimated Total logic elements              ; 18    ;
 ;                                             ;       ;
-; Total combinational functions               ; 2     ;
+; Total combinational functions               ; 3     ;
 ; Logic element usage by number of LUT inputs ;       ;
 ;     -- 4 input functions                    ; 1     ;
 ;     -- 3 input functions                    ; 0     ;
-;     -- <=2 input functions                  ; 1     ;
+;     -- <=2 input functions                  ; 2     ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 2     ;
+;     -- normal mode                          ; 3     ;
 ;     -- arithmetic mode                      ; 0     ;
 ;                                             ;       ;
 ; Total registers                             ; 16    ;
@@ -199,9 +199,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0     ;
 ;                                             ;       ;
 ; Maximum fan-out node                        ; inCLK ;
-; Maximum fan-out                             ; 16    ;
-; Total fan-out                               ; 73    ;
-; Average fan-out                             ; 1.30  ;
+; Maximum fan-out                             ; 17    ;
+; Total fan-out                               ; 75    ;
+; Average fan-out                             ; 1.32  ;
 +---------------------------------------------+-------+
 
 
@@ -210,7 +210,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name   ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------+-------------+--------------+
-; |LFSR                      ; 2 (2)               ; 16 (0)                    ; 0           ; 0            ; 0       ; 0         ; 19   ; 0            ; |LFSR                 ; LFSR        ; work         ;
+; |LFSR                      ; 3 (3)               ; 16 (0)                    ; 0           ; 0            ; 0       ; 0         ; 19   ; 0            ; |LFSR                 ; LFSR        ; work         ;
 ;    |D_FF:instance0|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LFSR|D_FF:instance0  ; D_FF        ; work         ;
 ;    |D_FF:instance10|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LFSR|D_FF:instance10 ; D_FF        ; work         ;
 ;    |D_FF:instance11|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LFSR|D_FF:instance11 ; D_FF        ; work         ;
@@ -254,13 +254,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; boundary_port         ; 19                          ;
 ; cycloneiii_ff         ; 16                          ;
 ;     plain             ; 16                          ;
-; cycloneiii_lcell_comb ; 2                           ;
-;     normal            ; 2                           ;
-;         2 data inputs ; 1                           ;
+; cycloneiii_lcell_comb ; 3                           ;
+;     normal            ; 3                           ;
+;         2 data inputs ; 2                           ;
 ;         4 data inputs ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 1.00                        ;
-; Average LUT depth     ; 0.40                        ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 0.86                        ;
 +-----------------------+-----------------------------+
 
 
@@ -279,52 +279,53 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Sun Dec  3 22:08:58 2023
+    Info: Processing started: Sun Dec  3 23:03:04 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ReactionTimer -c ReactionTimer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file t_ff.vhd
-    Info (12022): Found design unit 1: T_FF-Behavioral File: D:/252/ReactionTimer/code/T_FF.vhd Line: 10
-    Info (12023): Found entity 1: T_FF File: D:/252/ReactionTimer/code/T_FF.vhd Line: 4
+    Info (12022): Found design unit 1: T_FF-Behavioral File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/T_FF.vhd Line: 10
+    Info (12023): Found entity 1: T_FF File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/T_FF.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file d_ff.vhd
-    Info (12022): Found design unit 1: D_FF-behavior File: D:/252/ReactionTimer/code/D_FF.vhd Line: 13
-    Info (12023): Found entity 1: D_FF File: D:/252/ReactionTimer/code/D_FF.vhd Line: 5
+    Info (12022): Found design unit 1: D_FF-behavior File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/D_FF.vhd Line: 13
+    Info (12023): Found entity 1: D_FF File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/D_FF.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file sr_ff.vhd
-    Info (12022): Found design unit 1: SR_FF-behavioral File: D:/252/ReactionTimer/code/SR_FF.vhd Line: 11
-    Info (12023): Found entity 1: SR_FF File: D:/252/ReactionTimer/code/SR_FF.vhd Line: 6
+    Info (12022): Found design unit 1: SR_FF-behavioral File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/SR_FF.vhd Line: 11
+    Info (12023): Found entity 1: SR_FF File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/SR_FF.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file jk_ff.vhd
-    Info (12022): Found design unit 1: JK_FF-behavioral File: D:/252/ReactionTimer/code/JK_FF.vhd Line: 11
-    Info (12023): Found entity 1: JK_FF File: D:/252/ReactionTimer/code/JK_FF.vhd Line: 6
+    Info (12022): Found design unit 1: JK_FF-behavioral File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/JK_FF.vhd Line: 11
+    Info (12023): Found entity 1: JK_FF File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/JK_FF.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file pregister16.vhd
-    Info (12022): Found design unit 1: PRegister16-behavior File: D:/252/ReactionTimer/code/PRegister16.vhd Line: 14
-    Info (12023): Found entity 1: PRegister16 File: D:/252/ReactionTimer/code/PRegister16.vhd Line: 5
+    Info (12022): Found design unit 1: PRegister16-behavior File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/PRegister16.vhd Line: 14
+    Info (12023): Found entity 1: PRegister16 File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/PRegister16.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file encoder32.vhd
-    Info (12022): Found design unit 1: encoder32-behavior File: D:/252/ReactionTimer/code/encoder32.vhd Line: 12
-    Info (12023): Found entity 1: encoder32 File: D:/252/ReactionTimer/code/encoder32.vhd Line: 5
+    Info (12022): Found design unit 1: encoder32-behavior File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/encoder32.vhd Line: 12
+    Info (12023): Found entity 1: encoder32 File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/encoder32.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file segdecoder.vhd
-    Info (12022): Found design unit 1: SegDecoder-SegLogic File: D:/252/ReactionTimer/code/SegDecoder.vhd Line: 9
-    Info (12023): Found entity 1: SegDecoder File: D:/252/ReactionTimer/code/SegDecoder.vhd Line: 4
+    Info (12022): Found design unit 1: SegDecoder-SegLogic File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/SegDecoder.vhd Line: 9
+    Info (12023): Found entity 1: SegDecoder File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/SegDecoder.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file prescaler.vhd
-    Info (12022): Found design unit 1: PreScaler-behavior File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 13
-    Info (12023): Found entity 1: PreScaler File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 5
+    Info (12022): Found design unit 1: PreScaler-behavior File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/PreScaler.vhd Line: 13
+    Info (12023): Found entity 1: PreScaler File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/PreScaler.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file lfsr.vhd
-    Info (12022): Found design unit 1: LFSR-behavioral File: D:/252/ReactionTimer/code/LFSR.vhd Line: 12
-    Info (12023): Found entity 1: LFSR File: D:/252/ReactionTimer/code/LFSR.vhd Line: 6
+    Info (12022): Found design unit 1: LFSR-behavioral File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/LFSR.vhd Line: 12
+    Info (12023): Found entity 1: LFSR File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/LFSR.vhd Line: 6
 Info (12127): Elaborating entity "LFSR" for the top level hierarchy
-Info (12128): Elaborating entity "D_FF" for hierarchy "D_FF:instance0" File: D:/252/ReactionTimer/code/LFSR.vhd Line: 34
+Warning (10036): Verilog HDL or VHDL warning at LFSR.vhd(23): object "pulse" assigned a value but never read File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/LFSR.vhd Line: 23
+Info (12128): Elaborating entity "D_FF" for hierarchy "D_FF:instance0" File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/LFSR.vhd Line: 36
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "reset" File: D:/252/ReactionTimer/code/LFSR.vhd Line: 7
-Info (21057): Implemented 36 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "reset" File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/LFSR.vhd Line: 7
+Info (21057): Implemented 37 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 16 output pins
-    Info (21061): Implemented 17 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 4899 megabytes
-    Info: Processing ended: Sun Dec  3 22:09:03 2023
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:03
+    Info (21061): Implemented 18 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4838 megabytes
+    Info: Processing ended: Sun Dec  3 23:03:17 2023
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:12
 
 
