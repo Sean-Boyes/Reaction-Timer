@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ReactionTimer
-Sun Dec  3 23:03:17 2023
+Mon Dec  4 00:57:36 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -14,9 +14,10 @@ Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Post-Synthesis Netlist Statistics for Top Partition
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
+  9. Port Connectivity Checks: "PreScaler:PreScalar_instance0"
+ 10. Post-Synthesis Netlist Statistics for Top Partition
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
 
 
 
@@ -43,16 +44,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Dec  3 23:03:17 2023          ;
+; Analysis & Synthesis Status        ; Successful - Mon Dec  4 00:57:36 2023          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; ReactionTimer                                  ;
-; Top-level Entity Name              ; LFSR                                           ;
+; Top-level Entity Name              ; React                                          ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 18                                             ;
-;     Total combinational functions  ; 3                                              ;
-;     Dedicated logic registers      ; 16                                             ;
-; Total registers                    ; 16                                             ;
-; Total pins                         ; 19                                             ;
+; Total logic elements               ; 0                                              ;
+;     Total combinational functions  ; 0                                              ;
+;     Dedicated logic registers      ; 0                                              ;
+; Total registers                    ; 0                                              ;
+; Total pins                         ; 86                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -66,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                            ; LFSR               ; ReactionTimer      ;
+; Top-level entity name                                            ; React              ; ReactionTimer      ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -151,83 +152,66 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 20          ;
+; Maximum allowed            ; 14          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 4           ;
+; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                             ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                      ; Library ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------+---------+
-; D_FF.vhd                         ; yes             ; User VHDL File  ; C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/D_FF.vhd ;         ;
-; LFSR.vhd                         ; yes             ; User VHDL File  ; C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/LFSR.vhd ;         ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                   ;
++----------------------------------+-----------------+-----------------+-----------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path            ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------+---------+
+; encoder32.vhd                    ; yes             ; User VHDL File  ; D:/252/ReactionTimer/code/encoder32.vhd ;         ;
+; PreScaler.vhd                    ; yes             ; User VHDL File  ; D:/252/ReactionTimer/code/PreScaler.vhd ;         ;
+; React.vhd                        ; yes             ; User VHDL File  ; D:/252/ReactionTimer/code/React.vhd     ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------+---------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-; Estimated Total logic elements              ; 18    ;
-;                                             ;       ;
-; Total combinational functions               ; 3     ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 1     ;
-;     -- 3 input functions                    ; 0     ;
-;     -- <=2 input functions                  ; 2     ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 3     ;
-;     -- arithmetic mode                      ; 0     ;
-;                                             ;       ;
-; Total registers                             ; 16    ;
-;     -- Dedicated logic registers            ; 16    ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 19    ;
-;                                             ;       ;
-; Embedded Multiplier 9-bit elements          ; 0     ;
-;                                             ;       ;
-; Maximum fan-out node                        ; inCLK ;
-; Maximum fan-out                             ; 17    ;
-; Total fan-out                               ; 75    ;
-; Average fan-out                             ; 1.32  ;
-+---------------------------------------------+-------+
++------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary          ;
++---------------------------------------------+--------+
+; Resource                                    ; Usage  ;
++---------------------------------------------+--------+
+;                                             ;        ;
+; Total combinational functions               ; 0      ;
+; Logic element usage by number of LUT inputs ;        ;
+;     -- 4 input functions                    ; 0      ;
+;     -- 3 input functions                    ; 0      ;
+;     -- <=2 input functions                  ; 0      ;
+;                                             ;        ;
+; Logic elements by mode                      ;        ;
+;     -- normal mode                          ; 0      ;
+;     -- arithmetic mode                      ; 0      ;
+;                                             ;        ;
+; Total registers                             ; 0      ;
+;     -- Dedicated logic registers            ; 0      ;
+;     -- I/O registers                        ; 0      ;
+;                                             ;        ;
+; I/O pins                                    ; 86     ;
+;                                             ;        ;
+; Embedded Multiplier 9-bit elements          ; 0      ;
+;                                             ;        ;
+; Maximum fan-out node                        ; key[0] ;
+; Maximum fan-out                             ; 1      ;
+; Total fan-out                               ; 86     ;
+; Average fan-out                             ; 0.50   ;
++---------------------------------------------+--------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                        ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name   ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------+-------------+--------------+
-; |LFSR                      ; 3 (3)               ; 16 (0)                    ; 0           ; 0            ; 0       ; 0         ; 19   ; 0            ; |LFSR                 ; LFSR        ; work         ;
-;    |D_FF:instance0|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LFSR|D_FF:instance0  ; D_FF        ; work         ;
-;    |D_FF:instance10|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LFSR|D_FF:instance10 ; D_FF        ; work         ;
-;    |D_FF:instance11|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LFSR|D_FF:instance11 ; D_FF        ; work         ;
-;    |D_FF:instance12|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LFSR|D_FF:instance12 ; D_FF        ; work         ;
-;    |D_FF:instance13|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LFSR|D_FF:instance13 ; D_FF        ; work         ;
-;    |D_FF:instance14|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LFSR|D_FF:instance14 ; D_FF        ; work         ;
-;    |D_FF:instance15|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LFSR|D_FF:instance15 ; D_FF        ; work         ;
-;    |D_FF:instance1|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LFSR|D_FF:instance1  ; D_FF        ; work         ;
-;    |D_FF:instance2|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LFSR|D_FF:instance2  ; D_FF        ; work         ;
-;    |D_FF:instance3|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LFSR|D_FF:instance3  ; D_FF        ; work         ;
-;    |D_FF:instance4|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LFSR|D_FF:instance4  ; D_FF        ; work         ;
-;    |D_FF:instance5|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LFSR|D_FF:instance5  ; D_FF        ; work         ;
-;    |D_FF:instance6|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LFSR|D_FF:instance6  ; D_FF        ; work         ;
-;    |D_FF:instance7|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LFSR|D_FF:instance7  ; D_FF        ; work         ;
-;    |D_FF:instance8|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LFSR|D_FF:instance8  ; D_FF        ; work         ;
-;    |D_FF:instance9|        ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LFSR|D_FF:instance9  ; D_FF        ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------+-------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; |React                     ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 86   ; 0            ; |React              ; React       ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -236,7 +220,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 16    ;
+; Total registers                              ; 0     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -246,21 +230,27 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "PreScaler:PreScalar_instance0"                                                      ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; clko ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 19                          ;
-; cycloneiii_ff         ; 16                          ;
-;     plain             ; 16                          ;
-; cycloneiii_lcell_comb ; 3                           ;
-;     normal            ; 3                           ;
-;         2 data inputs ; 2                           ;
-;         4 data inputs ; 1                           ;
+; boundary_port         ; 86                          ;
+; cycloneiii_lcell_comb ; 1                           ;
+;     normal            ; 1                           ;
+;         0 data inputs ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 2.00                        ;
-; Average LUT depth     ; 0.86                        ;
+; Max LUT depth         ; 0.00                        ;
+; Average LUT depth     ; 0.00                        ;
 +-----------------------+-----------------------------+
 
 
@@ -279,53 +269,162 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Sun Dec  3 23:03:04 2023
+    Info: Processing started: Mon Dec  4 00:57:31 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ReactionTimer -c ReactionTimer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file t_ff.vhd
-    Info (12022): Found design unit 1: T_FF-Behavioral File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/T_FF.vhd Line: 10
-    Info (12023): Found entity 1: T_FF File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/T_FF.vhd Line: 4
+    Info (12022): Found design unit 1: T_FF-Behavioral File: D:/252/ReactionTimer/code/T_FF.vhd Line: 10
+    Info (12023): Found entity 1: T_FF File: D:/252/ReactionTimer/code/T_FF.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file d_ff.vhd
-    Info (12022): Found design unit 1: D_FF-behavior File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/D_FF.vhd Line: 13
-    Info (12023): Found entity 1: D_FF File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/D_FF.vhd Line: 5
+    Info (12022): Found design unit 1: D_FF-behavior File: D:/252/ReactionTimer/code/D_FF.vhd Line: 13
+    Info (12023): Found entity 1: D_FF File: D:/252/ReactionTimer/code/D_FF.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file sr_ff.vhd
-    Info (12022): Found design unit 1: SR_FF-behavioral File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/SR_FF.vhd Line: 11
-    Info (12023): Found entity 1: SR_FF File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/SR_FF.vhd Line: 6
+    Info (12022): Found design unit 1: SR_FF-behavioral File: D:/252/ReactionTimer/code/SR_FF.vhd Line: 11
+    Info (12023): Found entity 1: SR_FF File: D:/252/ReactionTimer/code/SR_FF.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file jk_ff.vhd
-    Info (12022): Found design unit 1: JK_FF-behavioral File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/JK_FF.vhd Line: 11
-    Info (12023): Found entity 1: JK_FF File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/JK_FF.vhd Line: 6
+    Info (12022): Found design unit 1: JK_FF-behavioral File: D:/252/ReactionTimer/code/JK_FF.vhd Line: 11
+    Info (12023): Found entity 1: JK_FF File: D:/252/ReactionTimer/code/JK_FF.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file pregister16.vhd
-    Info (12022): Found design unit 1: PRegister16-behavior File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/PRegister16.vhd Line: 14
-    Info (12023): Found entity 1: PRegister16 File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/PRegister16.vhd Line: 5
+    Info (12022): Found design unit 1: PRegister16-behavior File: D:/252/ReactionTimer/code/PRegister16.vhd Line: 14
+    Info (12023): Found entity 1: PRegister16 File: D:/252/ReactionTimer/code/PRegister16.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file encoder32.vhd
-    Info (12022): Found design unit 1: encoder32-behavior File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/encoder32.vhd Line: 12
-    Info (12023): Found entity 1: encoder32 File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/encoder32.vhd Line: 5
+    Info (12022): Found design unit 1: encoder32-behavior File: D:/252/ReactionTimer/code/encoder32.vhd Line: 12
+    Info (12023): Found entity 1: encoder32 File: D:/252/ReactionTimer/code/encoder32.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file segdecoder.vhd
-    Info (12022): Found design unit 1: SegDecoder-SegLogic File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/SegDecoder.vhd Line: 9
-    Info (12023): Found entity 1: SegDecoder File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/SegDecoder.vhd Line: 4
+    Info (12022): Found design unit 1: SegDecoder-SegLogic File: D:/252/ReactionTimer/code/SegDecoder.vhd Line: 9
+    Info (12023): Found entity 1: SegDecoder File: D:/252/ReactionTimer/code/SegDecoder.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file prescaler.vhd
-    Info (12022): Found design unit 1: PreScaler-behavior File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/PreScaler.vhd Line: 13
-    Info (12023): Found entity 1: PreScaler File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/PreScaler.vhd Line: 5
+    Info (12022): Found design unit 1: PreScaler-behavior File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 13
+    Info (12023): Found entity 1: PreScaler File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file lfsr.vhd
-    Info (12022): Found design unit 1: LFSR-behavioral File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/LFSR.vhd Line: 12
-    Info (12023): Found entity 1: LFSR File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/LFSR.vhd Line: 6
-Info (12127): Elaborating entity "LFSR" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at LFSR.vhd(23): object "pulse" assigned a value but never read File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/LFSR.vhd Line: 23
-Info (12128): Elaborating entity "D_FF" for hierarchy "D_FF:instance0" File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/LFSR.vhd Line: 36
-Info (286030): Timing-Driven Synthesis is running
+    Info (12022): Found design unit 1: LFSR-behavioral File: D:/252/ReactionTimer/code/LFSR.vhd Line: 12
+    Info (12023): Found entity 1: LFSR File: D:/252/ReactionTimer/code/LFSR.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file counter.vhd
+    Info (12022): Found design unit 1: counter-behavioral File: D:/252/ReactionTimer/code/Counter.vhd Line: 12
+    Info (12023): Found entity 1: counter File: D:/252/ReactionTimer/code/Counter.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file react.vhd
+    Info (12022): Found design unit 1: react-behavior File: D:/252/ReactionTimer/code/React.vhd Line: 13
+    Info (12023): Found entity 1: React File: D:/252/ReactionTimer/code/React.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file statedetermination.vhd
+    Info (12022): Found design unit 1: StateDetermination-behavior File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 13
+    Info (12023): Found entity 1: StateDetermination File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 6
+Info (12127): Elaborating entity "React" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at React.vhd(9): used implicit default value for signal "HEX0" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/252/ReactionTimer/code/React.vhd Line: 9
+Warning (10541): VHDL Signal Declaration warning at React.vhd(9): used implicit default value for signal "HEX1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/252/ReactionTimer/code/React.vhd Line: 9
+Warning (10541): VHDL Signal Declaration warning at React.vhd(9): used implicit default value for signal "HEX2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/252/ReactionTimer/code/React.vhd Line: 9
+Warning (10541): VHDL Signal Declaration warning at React.vhd(9): used implicit default value for signal "HEX3" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/252/ReactionTimer/code/React.vhd Line: 9
+Warning (10541): VHDL Signal Declaration warning at React.vhd(9): used implicit default value for signal "HEX4" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/252/ReactionTimer/code/React.vhd Line: 9
+Warning (10541): VHDL Signal Declaration warning at React.vhd(9): used implicit default value for signal "HEX5" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/252/ReactionTimer/code/React.vhd Line: 9
+Warning (10541): VHDL Signal Declaration warning at React.vhd(9): used implicit default value for signal "HEX6" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/252/ReactionTimer/code/React.vhd Line: 9
+Warning (10541): VHDL Signal Declaration warning at React.vhd(9): used implicit default value for signal "HEX7" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/252/ReactionTimer/code/React.vhd Line: 9
+Warning (10541): VHDL Signal Declaration warning at React.vhd(9): used implicit default value for signal "HEX8" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/252/ReactionTimer/code/React.vhd Line: 9
+Warning (10036): Verilog HDL or VHDL warning at React.vhd(38): object "out_CLK" assigned a value but never read File: D:/252/ReactionTimer/code/React.vhd Line: 38
+Warning (10036): Verilog HDL or VHDL warning at React.vhd(39): object "SInput" assigned a value but never read File: D:/252/ReactionTimer/code/React.vhd Line: 39
+Info (12128): Elaborating entity "PreScaler" for hierarchy "PreScaler:PreScalar_instance0" File: D:/252/ReactionTimer/code/React.vhd Line: 43
+Warning (10631): VHDL Process Statement warning at PreScaler.vhd(26): inferring latch(es) for signal or variable "clkO", which holds its previous value in one or more paths through the process File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 26
+Info (10041): Inferred latch for "clkO" at PreScaler.vhd(26) File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 26
+Info (12128): Elaborating entity "encoder32" for hierarchy "PreScaler:PreScalar_instance0|encoder32:instance1" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 25
+Warning (10631): VHDL Process Statement warning at encoder32.vhd(14): inferring latch(es) for signal or variable "eout", which holds its previous value in one or more paths through the process File: D:/252/ReactionTimer/code/encoder32.vhd Line: 14
+Info (10041): Inferred latch for "eout[0]" at encoder32.vhd(14) File: D:/252/ReactionTimer/code/encoder32.vhd Line: 14
+Info (10041): Inferred latch for "eout[1]" at encoder32.vhd(14) File: D:/252/ReactionTimer/code/encoder32.vhd Line: 14
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX0[0]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX0[1]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX0[2]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX0[3]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX0[4]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX0[5]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX0[6]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX1[0]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX1[1]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX1[2]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX1[3]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX1[4]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX1[5]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX1[6]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX2[0]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX2[1]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX2[2]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX2[3]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX2[4]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX2[5]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX2[6]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX3[0]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX3[4]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX3[6]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX4[0]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX4[1]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX4[2]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX4[3]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX4[4]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX4[5]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX4[6]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX5[0]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX5[1]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX5[2]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX5[3]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX5[4]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX5[5]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX5[6]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX6[0]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX6[1]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX6[2]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX6[3]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX6[4]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX6[5]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX6[6]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX7[0]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX7[1]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX7[2]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX7[3]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX7[4]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX7[5]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX7[6]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX8[0]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX8[1]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX8[2]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX8[3]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX8[4]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX8[5]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
+    Warning (13410): Pin "HEX8[6]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 9
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "reset" File: C:/Users/Sean Boyes/Documents/Quartus/ENSC252Project/Reaction-Timer/code/LFSR.vhd Line: 7
-Info (21057): Implemented 37 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 16 output pins
-    Info (21061): Implemented 18 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 4838 megabytes
-    Info: Processing ended: Sun Dec  3 23:03:17 2023
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:12
+Warning (21074): Design contains 23 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "key[0]" File: D:/252/ReactionTimer/code/React.vhd Line: 6
+    Warning (15610): No output dependent on input pin "key[1]" File: D:/252/ReactionTimer/code/React.vhd Line: 6
+    Warning (15610): No output dependent on input pin "key[2]" File: D:/252/ReactionTimer/code/React.vhd Line: 6
+    Warning (15610): No output dependent on input pin "key[3]" File: D:/252/ReactionTimer/code/React.vhd Line: 6
+    Warning (15610): No output dependent on input pin "sw[0]" File: D:/252/ReactionTimer/code/React.vhd Line: 7
+    Warning (15610): No output dependent on input pin "sw[1]" File: D:/252/ReactionTimer/code/React.vhd Line: 7
+    Warning (15610): No output dependent on input pin "sw[2]" File: D:/252/ReactionTimer/code/React.vhd Line: 7
+    Warning (15610): No output dependent on input pin "sw[3]" File: D:/252/ReactionTimer/code/React.vhd Line: 7
+    Warning (15610): No output dependent on input pin "sw[4]" File: D:/252/ReactionTimer/code/React.vhd Line: 7
+    Warning (15610): No output dependent on input pin "sw[5]" File: D:/252/ReactionTimer/code/React.vhd Line: 7
+    Warning (15610): No output dependent on input pin "sw[6]" File: D:/252/ReactionTimer/code/React.vhd Line: 7
+    Warning (15610): No output dependent on input pin "sw[7]" File: D:/252/ReactionTimer/code/React.vhd Line: 7
+    Warning (15610): No output dependent on input pin "sw[8]" File: D:/252/ReactionTimer/code/React.vhd Line: 7
+    Warning (15610): No output dependent on input pin "sw[9]" File: D:/252/ReactionTimer/code/React.vhd Line: 7
+    Warning (15610): No output dependent on input pin "sw[10]" File: D:/252/ReactionTimer/code/React.vhd Line: 7
+    Warning (15610): No output dependent on input pin "sw[11]" File: D:/252/ReactionTimer/code/React.vhd Line: 7
+    Warning (15610): No output dependent on input pin "sw[12]" File: D:/252/ReactionTimer/code/React.vhd Line: 7
+    Warning (15610): No output dependent on input pin "sw[13]" File: D:/252/ReactionTimer/code/React.vhd Line: 7
+    Warning (15610): No output dependent on input pin "sw[14]" File: D:/252/ReactionTimer/code/React.vhd Line: 7
+    Warning (15610): No output dependent on input pin "sw[15]" File: D:/252/ReactionTimer/code/React.vhd Line: 7
+    Warning (15610): No output dependent on input pin "sw[16]" File: D:/252/ReactionTimer/code/React.vhd Line: 7
+    Warning (15610): No output dependent on input pin "sw[17]" File: D:/252/ReactionTimer/code/React.vhd Line: 7
+    Warning (15610): No output dependent on input pin "clock_50" File: D:/252/ReactionTimer/code/React.vhd Line: 8
+Info (21057): Implemented 86 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 23 input pins
+    Info (21059): Implemented 63 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 102 warnings
+    Info: Peak virtual memory: 4810 megabytes
+    Info: Processing ended: Mon Dec  4 00:57:36 2023
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:02
 
 

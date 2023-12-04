@@ -1,118 +1,180 @@
-|LFSR
-enable => inCLK.IN0
-reset => ~NO_FANOUT~
-CLK => inCLK.IN1
-LFSR_Reg[0] <= D_FF:instance0.Q
-LFSR_Reg[1] <= D_FF:instance1.Q
-LFSR_Reg[2] <= D_FF:instance2.Q
-LFSR_Reg[3] <= D_FF:instance3.Q
-LFSR_Reg[4] <= D_FF:instance4.Q
-LFSR_Reg[5] <= D_FF:instance5.Q
-LFSR_Reg[6] <= D_FF:instance6.Q
-LFSR_Reg[7] <= D_FF:instance7.Q
-LFSR_Reg[8] <= D_FF:instance8.Q
-LFSR_Reg[9] <= D_FF:instance9.Q
-LFSR_Reg[10] <= D_FF:instance10.Q
-LFSR_Reg[11] <= D_FF:instance11.Q
-LFSR_Reg[12] <= D_FF:instance12.Q
-LFSR_Reg[13] <= D_FF:instance13.Q
-LFSR_Reg[14] <= D_FF:instance14.Q
-LFSR_Reg[15] <= D_FF:instance15.Q
+|React
+key[0] => ~NO_FANOUT~
+key[1] => ~NO_FANOUT~
+key[2] => ~NO_FANOUT~
+key[3] => ~NO_FANOUT~
+sw[0] => PreScaler:PreScalar_instance0.setSpeed[0]
+sw[1] => PreScaler:PreScalar_instance0.setSpeed[1]
+sw[2] => PreScaler:PreScalar_instance0.setSpeed[2]
+sw[3] => ~NO_FANOUT~
+sw[4] => ~NO_FANOUT~
+sw[5] => ~NO_FANOUT~
+sw[6] => ~NO_FANOUT~
+sw[7] => ~NO_FANOUT~
+sw[8] => ~NO_FANOUT~
+sw[9] => ~NO_FANOUT~
+sw[10] => ~NO_FANOUT~
+sw[11] => ~NO_FANOUT~
+sw[12] => ~NO_FANOUT~
+sw[13] => ~NO_FANOUT~
+sw[14] => ~NO_FANOUT~
+sw[15] => ~NO_FANOUT~
+sw[16] => ~NO_FANOUT~
+sw[17] => ~NO_FANOUT~
+clock_50 => PreScaler:PreScalar_instance0.clkI
+HEX0[0] << HEX0[0].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[1] << HEX0[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[2] << HEX0[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[3] << HEX0[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[4] << HEX0[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[5] << HEX0[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[6] << HEX0[6].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[0] << HEX1[0].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[1] << HEX1[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[2] << HEX1[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[3] << HEX1[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[4] << HEX1[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[5] << HEX1[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[6] << HEX1[6].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[0] << HEX2[0].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[1] << HEX2[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[2] << HEX2[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[3] << HEX2[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[4] << HEX2[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[5] << HEX2[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[6] << HEX2[6].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[0] << HEX3[0].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[1] << HEX3[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[2] << HEX3[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[3] << HEX3[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[4] << HEX3[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[5] << HEX3[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[6] << HEX3[6].DB_MAX_OUTPUT_PORT_TYPE
+HEX4[0] << HEX4[0].DB_MAX_OUTPUT_PORT_TYPE
+HEX4[1] << HEX4[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX4[2] << HEX4[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX4[3] << HEX4[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX4[4] << HEX4[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX4[5] << HEX4[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX4[6] << HEX4[6].DB_MAX_OUTPUT_PORT_TYPE
+HEX5[0] << HEX5[0].DB_MAX_OUTPUT_PORT_TYPE
+HEX5[1] << HEX5[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX5[2] << HEX5[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX5[3] << HEX5[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX5[4] << HEX5[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX5[5] << HEX5[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX5[6] << HEX5[6].DB_MAX_OUTPUT_PORT_TYPE
+HEX6[0] << HEX6[0].DB_MAX_OUTPUT_PORT_TYPE
+HEX6[1] << HEX6[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX6[2] << HEX6[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX6[3] << HEX6[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX6[4] << HEX6[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX6[5] << HEX6[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX6[6] << HEX6[6].DB_MAX_OUTPUT_PORT_TYPE
+HEX7[0] << HEX7[0].DB_MAX_OUTPUT_PORT_TYPE
+HEX7[1] << HEX7[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX7[2] << HEX7[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX7[3] << HEX7[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX7[4] << HEX7[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX7[5] << HEX7[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX7[6] << HEX7[6].DB_MAX_OUTPUT_PORT_TYPE
+HEX8[0] << comb.DB_MAX_OUTPUT_PORT_TYPE
+HEX8[1] << HEX8[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX8[2] << HEX8[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX8[3] << HEX8[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX8[4] << HEX8[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX8[5] << HEX8[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX8[6] << HEX8[6].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|LFSR|D_FF:instance0
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+|React|PreScaler:PreScalar_instance0
+setSpeed[0] => encoder32:instance1.eIn[0]
+setSpeed[1] => encoder32:instance1.eIn[1]
+setSpeed[2] => encoder32:instance1.eIn[2]
+clkI => sTemp[0].CLK
+clkI => sTemp[1].CLK
+clkI => sTemp[2].CLK
+clkI => sTemp[3].CLK
+clkI => sTemp[4].CLK
+clkI => sTemp[5].CLK
+clkI => sTemp[6].CLK
+clkI => sTemp[7].CLK
+clkI => sTemp[8].CLK
+clkI => sTemp[9].CLK
+clkI => sTemp[10].CLK
+clkI => sTemp[11].CLK
+clkI => sTemp[12].CLK
+clkI => sTemp[13].CLK
+clkI => sTemp[14].CLK
+clkI => sTemp[15].CLK
+clkI => sTemp[16].CLK
+clkI => sTemp[17].CLK
+clkI => sTemp[18].CLK
+clkI => sTemp[19].CLK
+clkI => sTemp[20].CLK
+clkI => sTemp[21].CLK
+clkI => sTemp[22].CLK
+clkI => sTemp[23].CLK
+clkI => fTemp[0].CLK
+clkI => fTemp[1].CLK
+clkI => fTemp[2].CLK
+clkI => fTemp[3].CLK
+clkI => fTemp[4].CLK
+clkI => fTemp[5].CLK
+clkI => fTemp[6].CLK
+clkI => fTemp[7].CLK
+clkI => fTemp[8].CLK
+clkI => fTemp[9].CLK
+clkI => fTemp[10].CLK
+clkI => fTemp[11].CLK
+clkI => fTemp[12].CLK
+clkI => fTemp[13].CLK
+clkI => fTemp[14].CLK
+clkI => fTemp[15].CLK
+clkI => fTemp[16].CLK
+clkI => fTemp[17].CLK
+clkI => fTemp[18].CLK
+clkI => fTemp[19].CLK
+clkI => fTemp[20].CLK
+clkI => fTemp[21].CLK
+clkI => fTemp[22].CLK
+clkI => fTemp[23].CLK
+clkI => nTemp[0].CLK
+clkI => nTemp[1].CLK
+clkI => nTemp[2].CLK
+clkI => nTemp[3].CLK
+clkI => nTemp[4].CLK
+clkI => nTemp[5].CLK
+clkI => nTemp[6].CLK
+clkI => nTemp[7].CLK
+clkI => nTemp[8].CLK
+clkI => nTemp[9].CLK
+clkI => nTemp[10].CLK
+clkI => nTemp[11].CLK
+clkI => nTemp[12].CLK
+clkI => nTemp[13].CLK
+clkI => nTemp[14].CLK
+clkI => nTemp[15].CLK
+clkI => nTemp[16].CLK
+clkI => nTemp[17].CLK
+clkI => nTemp[18].CLK
+clkI => nTemp[19].CLK
+clkI => nTemp[20].CLK
+clkI => nTemp[21].CLK
+clkI => nTemp[22].CLK
+clkI => nTemp[23].CLK
+clkO <= clkO$latch.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|LFSR|D_FF:instance1
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|LFSR|D_FF:instance2
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|LFSR|D_FF:instance3
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|LFSR|D_FF:instance4
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|LFSR|D_FF:instance5
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|LFSR|D_FF:instance6
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|LFSR|D_FF:instance7
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|LFSR|D_FF:instance8
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|LFSR|D_FF:instance9
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|LFSR|D_FF:instance10
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|LFSR|D_FF:instance11
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|LFSR|D_FF:instance12
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|LFSR|D_FF:instance13
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|LFSR|D_FF:instance14
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|LFSR|D_FF:instance15
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+|React|PreScaler:PreScalar_instance0|encoder32:instance1
+eIn[0] => eout[0].OUTPUTSELECT
+eIn[0] => eout[1].IN1
+eIn[0] => comb.IN1
+eIn[0] => comb.IN1
+eIn[1] => eout[1].IN0
+eIn[1] => eout[0].DATAA
+eIn[2] => eout[1].IN1
+eout[0] <= eout[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+eout[1] <= eout[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
 
 
