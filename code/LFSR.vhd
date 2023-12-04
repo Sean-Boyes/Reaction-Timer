@@ -12,7 +12,8 @@ end LFSR;
 Architecture behavioral of LFSR is
 
 component D_FF is
-	port ( D : in std_logic;
+	port ( 
+			 D : in std_logic;
 			 clock : in std_logic; 
 			 Q : out std_logic);
 end component;
@@ -46,6 +47,7 @@ begin
 	instance13 : D_FF port map (LFSR_Out(12), inCLK, LFSR_Out(13));
 	instance14 : D_FF port map (LFSR_Out(13), inCLK, LFSR_Out(14));
 	instance15 : D_FF port map (LFSR_Out(14), inCLK, LFSR_Out(15));
+
 	LFSR_Reg <= LFSR_Out;
 	
 end behavioral;
