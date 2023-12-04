@@ -1,5 +1,6 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
+Use ieee.numeric_std.all;
 
 ENTITY SegDecoder IS
 Port ( D : in std_logic_vector( 3 downto 0 );

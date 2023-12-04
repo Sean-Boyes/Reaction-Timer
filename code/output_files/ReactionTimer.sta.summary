@@ -2,4 +2,148 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Slow 1200mV 85C Model Setup 'key[0]'
+Slack : -6.070
+TNS   : -44.281
+
+Type  : Slow 1200mV 85C Model Setup 'clock_50'
+Slack : -2.407
+TNS   : -7.389
+
+Type  : Slow 1200mV 85C Model Setup 'initialize:initialize_instance|LFSR:instance1|D_FF:instance0|Q'
+Slack : -1.788
+TNS   : -5.256
+
+Type  : Slow 1200mV 85C Model Setup 'initialize:initialize_instance|LFSR:instance1|D_FF:instance4|Q'
+Slack : -1.565
+TNS   : -5.487
+
+Type  : Slow 1200mV 85C Model Hold 'key[0]'
+Slack : 0.417
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'initialize:initialize_instance|LFSR:instance1|D_FF:instance0|Q'
+Slack : 0.548
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clock_50'
+Slack : 0.660
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'initialize:initialize_instance|LFSR:instance1|D_FF:instance4|Q'
+Slack : 0.698
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clock_50'
+Slack : -3.000
+TNS   : -13.280
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'key[0]'
+Slack : -3.000
+TNS   : -6.300
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'initialize:initialize_instance|LFSR:instance1|D_FF:instance4|Q'
+Slack : 0.407
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'initialize:initialize_instance|LFSR:instance1|D_FF:instance0|Q'
+Slack : 0.422
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'key[0]'
+Slack : -5.406
+TNS   : -39.466
+
+Type  : Slow 1200mV 0C Model Setup 'clock_50'
+Slack : -2.118
+TNS   : -6.143
+
+Type  : Slow 1200mV 0C Model Setup 'initialize:initialize_instance|LFSR:instance1|D_FF:instance0|Q'
+Slack : -1.502
+TNS   : -4.466
+
+Type  : Slow 1200mV 0C Model Setup 'initialize:initialize_instance|LFSR:instance1|D_FF:instance4|Q'
+Slack : -1.319
+TNS   : -4.722
+
+Type  : Slow 1200mV 0C Model Hold 'key[0]'
+Slack : 0.358
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'initialize:initialize_instance|LFSR:instance1|D_FF:instance0|Q'
+Slack : 0.459
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clock_50'
+Slack : 0.601
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'initialize:initialize_instance|LFSR:instance1|D_FF:instance4|Q'
+Slack : 0.644
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clock_50'
+Slack : -3.000
+TNS   : -13.280
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'key[0]'
+Slack : -3.000
+TNS   : -5.170
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'initialize:initialize_instance|LFSR:instance1|D_FF:instance0|Q'
+Slack : 0.415
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'initialize:initialize_instance|LFSR:instance1|D_FF:instance4|Q'
+Slack : 0.431
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'key[0]'
+Slack : -3.206
+TNS   : -14.785
+
+Type  : Fast 1200mV 0C Model Setup 'initialize:initialize_instance|LFSR:instance1|D_FF:instance0|Q'
+Slack : -0.946
+TNS   : -1.613
+
+Type  : Fast 1200mV 0C Model Setup 'initialize:initialize_instance|LFSR:instance1|D_FF:instance4|Q'
+Slack : -0.788
+TNS   : -1.596
+
+Type  : Fast 1200mV 0C Model Setup 'clock_50'
+Slack : -0.782
+TNS   : -2.089
+
+Type  : Fast 1200mV 0C Model Hold 'key[0]'
+Slack : 0.128
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'initialize:initialize_instance|LFSR:instance1|D_FF:instance4|Q'
+Slack : 0.263
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clock_50'
+Slack : 0.294
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'initialize:initialize_instance|LFSR:instance1|D_FF:instance0|Q'
+Slack : 0.326
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clock_50'
+Slack : -3.000
+TNS   : -11.124
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'key[0]'
+Slack : -3.000
+TNS   : -4.449
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'initialize:initialize_instance|LFSR:instance1|D_FF:instance0|Q'
+Slack : 0.296
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'initialize:initialize_instance|LFSR:instance1|D_FF:instance4|Q'
+Slack : 0.315
+TNS   : 0.000
+
 ------------------------------------------------------------

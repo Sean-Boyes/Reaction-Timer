@@ -1,0 +1,10 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+Use ieee.numeric_std.all;
+
+entity BCDNum is
+port(
+	BCD : in std_logic_vector(7 downto 0);
+	Num : out integer(1 downto 0);
+);
+end BCDNum;
