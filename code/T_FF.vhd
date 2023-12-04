@@ -1,23 +1,24 @@
-LIBRARY ieee;
-USE ieee.std_logic_1164.all;
-Use ieee.numeric_std.all;
-
-Entity T_FF IS
-port(
-	signal T : in std_logic;
-	clock : in std_logic;
-	Q : out std_logic
-);
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+ 
+entity T_FF is
+	port( T: in std_logic;
+			Clock: in std_logic;
+			Q: out std_logic);
 end T_FF;
-
-Architecture behavior of T_FF is
-	signal Q_temp : std_logic;
+ 
+architecture Behavioral of T_FF is
+	signal tmp: std_logic;
+begin
+process (Clock)
 	begin
-		process(clock)
-		begin
-			if rising_edge(clock) and (T = '1') then
-				Q_temp <= Q_temp xor T;
-				Q <= Q_temp;
+	if Clock='1' then 
+		if T='0' then
+			tmp <= tmp;
+		elsif T='1' then
+			tmp <= not (tmp);
 		end if;
-	end process;
-end behavior;
+	end if;
+end process;
+Q <= tmp;
+end Behavioral;
