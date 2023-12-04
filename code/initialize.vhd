@@ -46,7 +46,7 @@ target <= to_unsigned(NumOut, 7);
 
 process(state)
 begin
-if state = "000" then
+if state = "001" then
 	if button = '0' then
 		Hex4 <= HexTemp4;
 		Hex5 <= HexTemp5;

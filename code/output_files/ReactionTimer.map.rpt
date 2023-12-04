@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ReactionTimer
-Mon Dec  4 04:10:24 2023
+Mon Dec  4 06:05:33 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -14,14 +14,15 @@ Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. User-Specified and Inferred Latches
-  9. General Register Statistics
- 10. Port Connectivity Checks: "initialize:initialize_instance|BCDNum:instance4"
- 11. Port Connectivity Checks: "initialize:initialize_instance|LFSR:instance1"
- 12. Port Connectivity Checks: "initialize:initialize_instance"
- 13. Port Connectivity Checks: "PreScaler:PreScalar_instance"
- 14. Post-Synthesis Netlist Statistics for Top Partition
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
+  9. Logic Cells Representing Combinational Loops
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Port Connectivity Checks: "player1Start:player1_instance|BCDNum:instance4"
+ 13. Port Connectivity Checks: "initialize:initialize_instance|BCDNum:instance4"
+ 14. Port Connectivity Checks: "initialize:initialize_instance|LFSR:instance1"
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
 
 
 
@@ -48,15 +49,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Dec  4 04:10:24 2023          ;
+; Analysis & Synthesis Status        ; Successful - Mon Dec  4 06:05:33 2023          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; ReactionTimer                                  ;
 ; Top-level Entity Name              ; React                                          ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 70                                             ;
-;     Total combinational functions  ; 63                                             ;
-;     Dedicated logic registers      ; 8                                              ;
-; Total registers                    ; 8                                              ;
+; Total logic elements               ; 609                                            ;
+;     Total combinational functions  ; 602                                            ;
+;     Dedicated logic registers      ; 88                                             ;
+; Total registers                    ; 88                                             ;
 ; Total pins                         ; 86                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
@@ -164,7 +165,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
 ;     Processors 3-14        ;   0.0%      ;
 +----------------------------+-------------+
 
@@ -183,39 +184,42 @@ https://fpgasoftware.intel.com/eula.
 ; StateDetermination.vhd           ; yes             ; User VHDL File  ; D:/252/ReactionTimer/code/StateDetermination.vhd ;         ;
 ; initialize.vhd                   ; yes             ; User VHDL File  ; D:/252/ReactionTimer/code/initialize.vhd         ;         ;
 ; BCDNum.vhd                       ; yes             ; User VHDL File  ; D:/252/ReactionTimer/code/BCDNum.vhd             ;         ;
+; BCDCount2.vhd                    ; yes             ; User VHDL File  ; D:/252/ReactionTimer/code/BCDCount2.vhd          ;         ;
+; Player1Start.vhd                 ; yes             ; User VHDL File  ; D:/252/ReactionTimer/code/Player1Start.vhd       ;         ;
+; DisplayWinner.vhd                ; yes             ; User VHDL File  ; D:/252/ReactionTimer/code/DisplayWinner.vhd      ;         ;
 +----------------------------------+-----------------+-----------------+--------------------------------------------------+---------+
 
 
-+----------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                            ;
-+---------------------------------------------+------------------------------------------+
-; Resource                                    ; Usage                                    ;
-+---------------------------------------------+------------------------------------------+
-; Estimated Total logic elements              ; 70                                       ;
-;                                             ;                                          ;
-; Total combinational functions               ; 63                                       ;
-; Logic element usage by number of LUT inputs ;                                          ;
-;     -- 4 input functions                    ; 29                                       ;
-;     -- 3 input functions                    ; 31                                       ;
-;     -- <=2 input functions                  ; 3                                        ;
-;                                             ;                                          ;
-; Logic elements by mode                      ;                                          ;
-;     -- normal mode                          ; 63                                       ;
-;     -- arithmetic mode                      ; 0                                        ;
-;                                             ;                                          ;
-; Total registers                             ; 8                                        ;
-;     -- Dedicated logic registers            ; 8                                        ;
-;     -- I/O registers                        ; 0                                        ;
-;                                             ;                                          ;
-; I/O pins                                    ; 86                                       ;
-;                                             ;                                          ;
-; Embedded Multiplier 9-bit elements          ; 0                                        ;
-;                                             ;                                          ;
-; Maximum fan-out node                        ; initialize:initialize_instance|HEX4[6]~0 ;
-; Maximum fan-out                             ; 14                                       ;
-; Total fan-out                               ; 331                                      ;
-; Average fan-out                             ; 1.36                                     ;
-+---------------------------------------------+------------------------------------------+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 609            ;
+;                                             ;                ;
+; Total combinational functions               ; 602            ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 183            ;
+;     -- 3 input functions                    ; 219            ;
+;     -- <=2 input functions                  ; 200            ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 466            ;
+;     -- arithmetic mode                      ; 136            ;
+;                                             ;                ;
+; Total registers                             ; 88             ;
+;     -- Dedicated logic registers            ; 88             ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 86             ;
+;                                             ;                ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; clock_50~input ;
+; Maximum fan-out                             ; 81             ;
+; Total fan-out                               ; 2187           ;
+; Average fan-out                             ; 2.54           ;
++---------------------------------------------+----------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -223,9 +227,13 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------+--------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                 ; Entity Name        ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------+--------------------+--------------+
-; |React                                    ; 63 (0)              ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 86   ; 0            ; |React                                                              ; React              ; work         ;
-;    |StateDetermination:stateDet_instance| ; 22 (22)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |React|StateDetermination:stateDet_instance                         ; StateDetermination ; work         ;
-;    |initialize:initialize_instance|       ; 41 (15)             ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |React|initialize:initialize_instance                               ; initialize         ; work         ;
+; |React                                    ; 602 (1)             ; 88 (0)                    ; 0           ; 0            ; 0       ; 0         ; 86   ; 0            ; |React                                                              ; React              ; work         ;
+;    |PreScaler:PreScalar_instance|         ; 300 (295)           ; 72 (72)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |React|PreScaler:PreScalar_instance                                 ; PreScaler          ; work         ;
+;       |encoder32:instance1|               ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |React|PreScaler:PreScalar_instance|encoder32:instance1             ; encoder32          ; work         ;
+;    |StateDetermination:stateDet_instance| ; 21 (21)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |React|StateDetermination:stateDet_instance                         ; StateDetermination ; work         ;
+;    |displayWinner:displaywinner_instance| ; 111 (111)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |React|displayWinner:displaywinner_instance                         ; displayWinner      ; work         ;
+;    |initialize:initialize_instance|       ; 76 (15)             ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |React|initialize:initialize_instance                               ; initialize         ; work         ;
+;       |BCDNum:instance4|                  ; 33 (33)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |React|initialize:initialize_instance|BCDNum:instance4              ; BCDNum             ; work         ;
 ;       |LFSR:instance1|                    ; 12 (12)             ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |React|initialize:initialize_instance|LFSR:instance1                ; LFSR               ; work         ;
 ;          |D_FF:instance0|                 ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |React|initialize:initialize_instance|LFSR:instance1|D_FF:instance0 ; D_FF               ; work         ;
 ;          |D_FF:instance1|                 ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |React|initialize:initialize_instance|LFSR:instance1|D_FF:instance1 ; D_FF               ; work         ;
@@ -235,8 +243,13 @@ https://fpgasoftware.intel.com/eula.
 ;          |D_FF:instance5|                 ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |React|initialize:initialize_instance|LFSR:instance1|D_FF:instance5 ; D_FF               ; work         ;
 ;          |D_FF:instance6|                 ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |React|initialize:initialize_instance|LFSR:instance1|D_FF:instance6 ; D_FF               ; work         ;
 ;          |D_FF:instance7|                 ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |React|initialize:initialize_instance|LFSR:instance1|D_FF:instance7 ; D_FF               ; work         ;
-;       |SegDecoder:instance2|              ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |React|initialize:initialize_instance|SegDecoder:instance2          ; SegDecoder         ; work         ;
+;       |SegDecoder:instance2|              ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |React|initialize:initialize_instance|SegDecoder:instance2          ; SegDecoder         ; work         ;
 ;       |SegDecoder:instance3|              ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |React|initialize:initialize_instance|SegDecoder:instance3          ; SegDecoder         ; work         ;
+;    |player1Start:player1_instance|        ; 93 (32)             ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |React|player1Start:player1_instance                                ; player1Start       ; work         ;
+;       |BCDCount2:instance1|               ; 10 (10)             ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |React|player1Start:player1_instance|BCDCount2:instance1            ; BCDCount2          ; work         ;
+;       |BCDNum:instance4|                  ; 34 (34)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |React|player1Start:player1_instance|BCDNum:instance4               ; BCDNum             ; work         ;
+;       |SegDecoder:instance2|              ; 10 (10)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |React|player1Start:player1_instance|SegDecoder:instance2           ; SegDecoder         ; work         ;
+;       |SegDecoder:instance3|              ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |React|player1Start:player1_instance|SegDecoder:instance3           ; SegDecoder         ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------+--------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -246,6 +259,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------------------------+---------------------------------------------------------+------------------------+
 ; Latch Name                                                ; Latch Enable Signal                                     ; Free of Timing Hazards ;
 +-----------------------------------------------------------+---------------------------------------------------------+------------------------+
+; player1Start:player1_instance|HEX0[0]                     ; player1Start:player1_instance|process_0                 ; yes                    ;
+; player1Start:player1_instance|HEX0[1]                     ; player1Start:player1_instance|process_0                 ; yes                    ;
+; player1Start:player1_instance|HEX0[2]                     ; player1Start:player1_instance|process_0                 ; yes                    ;
+; player1Start:player1_instance|HEX0[3]                     ; player1Start:player1_instance|process_0                 ; yes                    ;
+; player1Start:player1_instance|HEX0[4]                     ; player1Start:player1_instance|process_0                 ; yes                    ;
+; player1Start:player1_instance|HEX0[5]                     ; player1Start:player1_instance|process_0                 ; yes                    ;
+; player1Start:player1_instance|HEX0[6]                     ; player1Start:player1_instance|process_0                 ; yes                    ;
+; player1Start:player1_instance|HEX1[0]                     ; player1Start:player1_instance|process_0                 ; yes                    ;
+; player1Start:player1_instance|HEX1[1]                     ; player1Start:player1_instance|process_0                 ; yes                    ;
+; player1Start:player1_instance|HEX1[2]                     ; player1Start:player1_instance|process_0                 ; yes                    ;
+; player1Start:player1_instance|HEX1[3]                     ; player1Start:player1_instance|process_0                 ; yes                    ;
+; player1Start:player1_instance|HEX1[4]                     ; player1Start:player1_instance|process_0                 ; yes                    ;
+; player1Start:player1_instance|HEX1[5]                     ; player1Start:player1_instance|process_0                 ; yes                    ;
+; player1Start:player1_instance|HEX1[6]                     ; player1Start:player1_instance|process_0                 ; yes                    ;
+; displayWinner:displaywinner_instance|HEX2[0]              ; displayWinner:displaywinner_instance|HEX2[6]            ; yes                    ;
+; displayWinner:displaywinner_instance|HEX2[2]              ; displayWinner:displaywinner_instance|HEX2[6]            ; yes                    ;
+; displayWinner:displaywinner_instance|HEX2[3]              ; displayWinner:displaywinner_instance|HEX2[6]            ; yes                    ;
+; displayWinner:displaywinner_instance|HEX2[4]              ; displayWinner:displaywinner_instance|HEX2[6]            ; yes                    ;
+; displayWinner:displaywinner_instance|HEX2[6]              ; displayWinner:displaywinner_instance|HEX2[6]            ; yes                    ;
 ; initialize:initialize_instance|HEX4[0]                    ; initialize:initialize_instance|HEX4[6]                  ; yes                    ;
 ; initialize:initialize_instance|HEX4[1]                    ; initialize:initialize_instance|HEX4[6]                  ; yes                    ;
 ; initialize:initialize_instance|HEX4[2]                    ; initialize:initialize_instance|HEX4[6]                  ; yes                    ;
@@ -260,20 +292,82 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; initialize:initialize_instance|HEX5[4]                    ; initialize:initialize_instance|HEX4[6]                  ; yes                    ;
 ; initialize:initialize_instance|HEX5[5]                    ; initialize:initialize_instance|HEX4[6]                  ; yes                    ;
 ; initialize:initialize_instance|HEX5[6]                    ; initialize:initialize_instance|HEX4[6]                  ; yes                    ;
+; StateDetermination:stateDet_instance|StateTemp[2]         ; StateDetermination:stateDet_instance|StateTemp[2]       ; yes                    ;
+; StateDetermination:stateDet_instance|StateTemp[0]         ; StateDetermination:stateDet_instance|StateTemp[2]       ; yes                    ;
+; StateDetermination:stateDet_instance|StateTemp[1]         ; StateDetermination:stateDet_instance|StateTemp[2]       ; yes                    ;
+; displayWinner:displaywinner_instance|diff1[6]             ; displayWinner:displaywinner_instance|diff1[0]           ; yes                    ;
+; displayWinner:displaywinner_instance|diff2[6]             ; displayWinner:displaywinner_instance|diff2[0]           ; yes                    ;
+; displayWinner:displaywinner_instance|diff1[5]             ; displayWinner:displaywinner_instance|diff1[0]           ; yes                    ;
+; displayWinner:displaywinner_instance|diff2[5]             ; displayWinner:displaywinner_instance|diff2[0]           ; yes                    ;
+; displayWinner:displaywinner_instance|diff1[4]             ; displayWinner:displaywinner_instance|diff1[0]           ; yes                    ;
+; displayWinner:displaywinner_instance|diff2[4]             ; displayWinner:displaywinner_instance|diff2[0]           ; yes                    ;
+; displayWinner:displaywinner_instance|diff1[3]             ; displayWinner:displaywinner_instance|diff1[0]           ; yes                    ;
+; displayWinner:displaywinner_instance|diff2[3]             ; displayWinner:displaywinner_instance|diff2[0]           ; yes                    ;
+; displayWinner:displaywinner_instance|diff1[2]             ; displayWinner:displaywinner_instance|diff1[0]           ; yes                    ;
+; displayWinner:displaywinner_instance|diff2[2]             ; displayWinner:displaywinner_instance|diff2[0]           ; yes                    ;
+; displayWinner:displaywinner_instance|diff1[1]             ; displayWinner:displaywinner_instance|diff1[0]           ; yes                    ;
+; displayWinner:displaywinner_instance|diff2[1]             ; displayWinner:displaywinner_instance|diff2[0]           ; yes                    ;
+; displayWinner:displaywinner_instance|diff1[0]             ; displayWinner:displaywinner_instance|diff1[0]           ; yes                    ;
+; displayWinner:displaywinner_instance|diff2[0]             ; displayWinner:displaywinner_instance|diff2[0]           ; yes                    ;
 ; initialize:initialize_instance|LFSR:instance1|LFSR_Reg[0] ; initialize:initialize_instance|LFSR:instance1|process_0 ; yes                    ;
 ; initialize:initialize_instance|LFSR:instance1|LFSR_Reg[3] ; initialize:initialize_instance|LFSR:instance1|process_0 ; yes                    ;
 ; initialize:initialize_instance|LFSR:instance1|LFSR_Reg[1] ; initialize:initialize_instance|LFSR:instance1|process_0 ; yes                    ;
 ; initialize:initialize_instance|LFSR:instance1|LFSR_Reg[2] ; initialize:initialize_instance|LFSR:instance1|process_0 ; yes                    ;
-; StateDetermination:stateDet_instance|StateTemp[1]         ; StateDetermination:stateDet_instance|StateTemp[2]       ; yes                    ;
-; StateDetermination:stateDet_instance|StateTemp[2]         ; StateDetermination:stateDet_instance|StateTemp[2]       ; yes                    ;
-; StateDetermination:stateDet_instance|StateTemp[0]         ; StateDetermination:stateDet_instance|StateTemp[2]       ; yes                    ;
 ; initialize:initialize_instance|LFSR:instance1|LFSR_Reg[4] ; initialize:initialize_instance|LFSR:instance1|process_0 ; yes                    ;
 ; initialize:initialize_instance|LFSR:instance1|LFSR_Reg[6] ; initialize:initialize_instance|LFSR:instance1|process_0 ; yes                    ;
 ; initialize:initialize_instance|LFSR:instance1|LFSR_Reg[7] ; initialize:initialize_instance|LFSR:instance1|process_0 ; yes                    ;
 ; initialize:initialize_instance|LFSR:instance1|LFSR_Reg[5] ; initialize:initialize_instance|LFSR:instance1|process_0 ; yes                    ;
-; Number of user-specified and inferred latches = 25        ;                                                         ;                        ;
+; PreScaler:PreScalar_instance|clkO                         ; PreScaler:PreScalar_instance|clkO                       ; yes                    ;
+; initialize:initialize_instance|BCDNum:instance4|num2[6]   ; GND                                                     ; yes                    ;
+; initialize:initialize_instance|BCDNum:instance4|num2[5]   ; GND                                                     ; yes                    ;
+; initialize:initialize_instance|BCDNum:instance4|num2[4]   ; GND                                                     ; yes                    ;
+; initialize:initialize_instance|BCDNum:instance4|num1[3]   ; GND                                                     ; yes                    ;
+; initialize:initialize_instance|BCDNum:instance4|num2[3]   ; GND                                                     ; yes                    ;
+; initialize:initialize_instance|BCDNum:instance4|num1[2]   ; GND                                                     ; yes                    ;
+; initialize:initialize_instance|BCDNum:instance4|num2[2]   ; GND                                                     ; yes                    ;
+; initialize:initialize_instance|BCDNum:instance4|num1[1]   ; GND                                                     ; yes                    ;
+; initialize:initialize_instance|BCDNum:instance4|num2[1]   ; GND                                                     ; yes                    ;
+; player1Start:player1_instance|result1[6]                  ; player1Start:player1_instance|result1[6]                ; yes                    ;
+; player1Start:player1_instance|result1[5]                  ; player1Start:player1_instance|result1[6]                ; yes                    ;
+; player1Start:player1_instance|result1[4]                  ; player1Start:player1_instance|result1[6]                ; yes                    ;
+; player1Start:player1_instance|result1[3]                  ; player1Start:player1_instance|result1[6]                ; yes                    ;
+; player1Start:player1_instance|result1[2]                  ; player1Start:player1_instance|result1[6]                ; yes                    ;
+; player1Start:player1_instance|result1[1]                  ; player1Start:player1_instance|result1[6]                ; yes                    ;
+; player1Start:player1_instance|result1[0]                  ; player1Start:player1_instance|result1[6]                ; yes                    ;
+; initialize:initialize_instance|BCDNum:instance4|num1[0]   ; GND                                                     ; yes                    ;
+; player1Start:player1_instance|result2[6]                  ; StateDetermination:stateDet_instance|Equal1             ; yes                    ;
+; player1Start:player1_instance|result2[5]                  ; StateDetermination:stateDet_instance|Equal1             ; yes                    ;
+; player1Start:player1_instance|result2[4]                  ; StateDetermination:stateDet_instance|Equal1             ; yes                    ;
+; player1Start:player1_instance|result2[3]                  ; StateDetermination:stateDet_instance|Equal1             ; yes                    ;
+; player1Start:player1_instance|result2[2]                  ; StateDetermination:stateDet_instance|Equal1             ; yes                    ;
+; player1Start:player1_instance|result2[1]                  ; StateDetermination:stateDet_instance|Equal1             ; yes                    ;
+; player1Start:player1_instance|result2[0]                  ; StateDetermination:stateDet_instance|Equal1             ; yes                    ;
+; PreScaler:PreScalar_instance|encoder32:instance1|eout[0]  ; GND                                                     ; yes                    ;
+; PreScaler:PreScalar_instance|encoder32:instance1|eout[1]  ; GND                                                     ; yes                    ;
+; player1Start:player1_instance|BCDNum:instance4|num2[6]    ; GND                                                     ; yes                    ;
+; player1Start:player1_instance|BCDNum:instance4|num2[5]    ; GND                                                     ; yes                    ;
+; player1Start:player1_instance|BCDNum:instance4|num2[4]    ; GND                                                     ; yes                    ;
+; player1Start:player1_instance|BCDNum:instance4|num1[3]    ; GND                                                     ; yes                    ;
+; player1Start:player1_instance|BCDNum:instance4|num2[3]    ; GND                                                     ; yes                    ;
+; player1Start:player1_instance|BCDNum:instance4|num1[2]    ; GND                                                     ; yes                    ;
+; player1Start:player1_instance|BCDNum:instance4|num2[2]    ; GND                                                     ; yes                    ;
+; player1Start:player1_instance|BCDNum:instance4|num1[1]    ; GND                                                     ; yes                    ;
+; player1Start:player1_instance|BCDNum:instance4|num2[1]    ; GND                                                     ; yes                    ;
+; player1Start:player1_instance|BCDNum:instance4|num1[0]    ; GND                                                     ; yes                    ;
+; Number of user-specified and inferred latches = 95        ;                                                         ;                        ;
 +-----------------------------------------------------------+---------------------------------------------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops               ;
++--------------------------------------------------------+---+
+; Logic Cell Name                                        ;   ;
++--------------------------------------------------------+---+
+; player1Start:player1_instance|BToggle~1                ;   ;
+; Number of logic cells representing combinational loops ; 1 ;
++--------------------------------------------------------+---+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -281,14 +375,37 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 8     ;
+; Total registers                              ; 88    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 80    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 30    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |React|player1Start:player1_instance|BCDCount2:instance1|counter2[0] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |React|player1Start:player1_instance|BCDCount2:instance1|counter1[0] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |React|player1Start:player1_instance|BCDNum:instance4|num2[1]        ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |React|initialize:initialize_instance|BCDNum:instance4|num2[1]       ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |React|player1Start:player1_instance|BCDNum:instance4|num2[2]        ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |React|initialize:initialize_instance|BCDNum:instance4|num2[2]       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "player1Start:player1_instance|BCDNum:instance4"                                           ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; num[31..7] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -309,41 +426,29 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------+-------+----------+-----------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "initialize:initialize_instance"                                                       ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; Port   ; Type   ; Severity ; Details                                                                             ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; target ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "PreScaler:PreScalar_instance"                                                       ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; clko ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-
-
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 86                          ;
-; cycloneiii_ff         ; 8                           ;
+; cycloneiii_ff         ; 88                          ;
+;     CLR               ; 50                          ;
+;     ENA CLR           ; 30                          ;
 ;     plain             ; 8                           ;
-; cycloneiii_lcell_comb ; 64                          ;
-;     normal            ; 64                          ;
-;         0 data inputs ; 1                           ;
-;         2 data inputs ; 3                           ;
-;         3 data inputs ; 31                          ;
-;         4 data inputs ; 29                          ;
+; cycloneiii_lcell_comb ; 604                         ;
+;     arith             ; 136                         ;
+;         2 data inputs ; 67                          ;
+;         3 data inputs ; 69                          ;
+;     normal            ; 468                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 126                         ;
+;         3 data inputs ; 150                         ;
+;         4 data inputs ; 183                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 2.42                        ;
+; Max LUT depth         ; 5.50                        ;
+; Average LUT depth     ; 2.77                        ;
 +-----------------------+-----------------------------+
 
 
@@ -362,7 +467,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Mon Dec  4 04:10:10 2023
+    Info: Processing started: Mon Dec  4 06:05:25 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ReactionTimer -c ReactionTimer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
@@ -409,26 +514,26 @@ Info (12021): Found 2 design units, including 1 entities, in source file bcdnum.
     Info (12022): Found design unit 1: BCDNum-behavior File: D:/252/ReactionTimer/code/BCDNum.vhd Line: 12
     Info (12023): Found entity 1: BCDNum File: D:/252/ReactionTimer/code/BCDNum.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file bcdcount2.vhd
-    Info (12022): Found design unit 1: BCDCount2-Behavioral File: D:/252/ReactionTimer/code/BCDCount2.vhd Line: 13
+    Info (12022): Found design unit 1: BCDCount2-Behavioral File: D:/252/ReactionTimer/code/BCDCount2.vhd Line: 15
     Info (12023): Found entity 1: BCDCount2 File: D:/252/ReactionTimer/code/BCDCount2.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file player1start.vhd
+    Info (12022): Found design unit 1: player1start-behavior File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 17
+    Info (12023): Found entity 1: player1Start File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file displaywinner.vhd
+    Info (12022): Found design unit 1: displayWinner-behavior File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 15
+    Info (12023): Found entity 1: displayWinner File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 5
 Info (12127): Elaborating entity "React" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at React.vhd(10): used implicit default value for signal "HEX0" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/252/ReactionTimer/code/React.vhd Line: 10
-Warning (10541): VHDL Signal Declaration warning at React.vhd(10): used implicit default value for signal "HEX1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/252/ReactionTimer/code/React.vhd Line: 10
-Warning (10541): VHDL Signal Declaration warning at React.vhd(10): used implicit default value for signal "HEX2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/252/ReactionTimer/code/React.vhd Line: 10
-Warning (10541): VHDL Signal Declaration warning at React.vhd(10): used implicit default value for signal "HEX3" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/252/ReactionTimer/code/React.vhd Line: 10
 Warning (10541): VHDL Signal Declaration warning at React.vhd(10): used implicit default value for signal "HEX6" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/252/ReactionTimer/code/React.vhd Line: 10
 Warning (10541): VHDL Signal Declaration warning at React.vhd(10): used implicit default value for signal "HEX7" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/252/ReactionTimer/code/React.vhd Line: 10
 Warning (10541): VHDL Signal Declaration warning at React.vhd(10): used implicit default value for signal "HEX8" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/252/ReactionTimer/code/React.vhd Line: 10
-Warning (10036): Verilog HDL or VHDL warning at React.vhd(56): object "out_CLK" assigned a value but never read File: D:/252/ReactionTimer/code/React.vhd Line: 56
-Warning (10036): Verilog HDL or VHDL warning at React.vhd(59): object "target" assigned a value but never read File: D:/252/ReactionTimer/code/React.vhd Line: 59
-Info (12128): Elaborating entity "PreScaler" for hierarchy "PreScaler:PreScalar_instance" File: D:/252/ReactionTimer/code/React.vhd Line: 64
+Info (12128): Elaborating entity "PreScaler" for hierarchy "PreScaler:PreScalar_instance" File: D:/252/ReactionTimer/code/React.vhd Line: 86
 Warning (10631): VHDL Process Statement warning at PreScaler.vhd(26): inferring latch(es) for signal or variable "clkO", which holds its previous value in one or more paths through the process File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 26
 Info (10041): Inferred latch for "clkO" at PreScaler.vhd(26) File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 26
 Info (12128): Elaborating entity "encoder32" for hierarchy "PreScaler:PreScalar_instance|encoder32:instance1" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 25
 Warning (10631): VHDL Process Statement warning at encoder32.vhd(14): inferring latch(es) for signal or variable "eout", which holds its previous value in one or more paths through the process File: D:/252/ReactionTimer/code/encoder32.vhd Line: 14
 Info (10041): Inferred latch for "eout[0]" at encoder32.vhd(14) File: D:/252/ReactionTimer/code/encoder32.vhd Line: 14
 Info (10041): Inferred latch for "eout[1]" at encoder32.vhd(14) File: D:/252/ReactionTimer/code/encoder32.vhd Line: 14
-Info (12128): Elaborating entity "StateDetermination" for hierarchy "StateDetermination:stateDet_instance" File: D:/252/ReactionTimer/code/React.vhd Line: 65
+Info (12128): Elaborating entity "StateDetermination" for hierarchy "StateDetermination:stateDet_instance" File: D:/252/ReactionTimer/code/React.vhd Line: 87
 Warning (10492): VHDL Process Statement warning at StateDetermination.vhd(20): signal "StateTemp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 20
 Warning (10492): VHDL Process Statement warning at StateDetermination.vhd(25): signal "StateTemp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 25
 Warning (10492): VHDL Process Statement warning at StateDetermination.vhd(29): signal "StateTemp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 29
@@ -447,7 +552,7 @@ Warning (10631): VHDL Process Statement warning at StateDetermination.vhd(15): i
 Info (10041): Inferred latch for "StateTemp[0]" at StateDetermination.vhd(15) File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 15
 Info (10041): Inferred latch for "StateTemp[1]" at StateDetermination.vhd(15) File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 15
 Info (10041): Inferred latch for "StateTemp[2]" at StateDetermination.vhd(15) File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 15
-Info (12128): Elaborating entity "initialize" for hierarchy "initialize:initialize_instance" File: D:/252/ReactionTimer/code/React.vhd Line: 66
+Info (12128): Elaborating entity "initialize" for hierarchy "initialize:initialize_instance" File: D:/252/ReactionTimer/code/React.vhd Line: 88
 Warning (10492): VHDL Process Statement warning at initialize.vhd(50): signal "button" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/initialize.vhd Line: 50
 Warning (10492): VHDL Process Statement warning at initialize.vhd(51): signal "HEXTemp4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/initialize.vhd Line: 51
 Warning (10492): VHDL Process Statement warning at initialize.vhd(52): signal "HEXTemp5" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/initialize.vhd Line: 52
@@ -546,6 +651,123 @@ Info (10041): Inferred latch for "num1[28]" at BCDNum.vhd(17) File: D:/252/React
 Info (10041): Inferred latch for "num1[29]" at BCDNum.vhd(17) File: D:/252/ReactionTimer/code/BCDNum.vhd Line: 17
 Info (10041): Inferred latch for "num1[30]" at BCDNum.vhd(17) File: D:/252/ReactionTimer/code/BCDNum.vhd Line: 17
 Info (10041): Inferred latch for "num1[31]" at BCDNum.vhd(17) File: D:/252/ReactionTimer/code/BCDNum.vhd Line: 17
+Info (12128): Elaborating entity "player1Start" for hierarchy "player1Start:player1_instance" File: D:/252/ReactionTimer/code/React.vhd Line: 89
+Warning (10492): VHDL Process Statement warning at Player1Start.vhd(55): signal "HexOut0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 55
+Warning (10492): VHDL Process Statement warning at Player1Start.vhd(56): signal "HexOut1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 56
+Warning (10492): VHDL Process Statement warning at Player1Start.vhd(58): signal "numOUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 58
+Warning (10492): VHDL Process Statement warning at Player1Start.vhd(61): signal "numOUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 61
+Warning (10631): VHDL Process Statement warning at Player1Start.vhd(52): inferring latch(es) for signal or variable "HEX0", which holds its previous value in one or more paths through the process File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Warning (10631): VHDL Process Statement warning at Player1Start.vhd(52): inferring latch(es) for signal or variable "HEX1", which holds its previous value in one or more paths through the process File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Warning (10631): VHDL Process Statement warning at Player1Start.vhd(52): inferring latch(es) for signal or variable "result1", which holds its previous value in one or more paths through the process File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Warning (10631): VHDL Process Statement warning at Player1Start.vhd(52): inferring latch(es) for signal or variable "result2", which holds its previous value in one or more paths through the process File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "result2[0]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "result2[1]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "result2[2]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "result2[3]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "result2[4]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "result2[5]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "result2[6]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "result1[0]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "result1[1]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "result1[2]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "result1[3]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "result1[4]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "result1[5]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "result1[6]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "HEX1[0]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "HEX1[1]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "HEX1[2]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "HEX1[3]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "HEX1[4]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "HEX1[5]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "HEX1[6]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "HEX0[0]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "HEX0[1]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "HEX0[2]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "HEX0[3]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "HEX0[4]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "HEX0[5]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (10041): Inferred latch for "HEX0[6]" at Player1Start.vhd(52) File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 52
+Info (12128): Elaborating entity "BCDCount2" for hierarchy "player1Start:player1_instance|BCDCount2:instance1" File: D:/252/ReactionTimer/code/Player1Start.vhd Line: 47
+Info (12128): Elaborating entity "displayWinner" for hierarchy "displayWinner:displaywinner_instance" File: D:/252/ReactionTimer/code/React.vhd Line: 90
+Warning (10492): VHDL Process Statement warning at DisplayWinner.vhd(34): signal "diff1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 34
+Warning (10492): VHDL Process Statement warning at DisplayWinner.vhd(34): signal "diff2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 34
+Warning (10492): VHDL Process Statement warning at DisplayWinner.vhd(38): signal "diff2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 38
+Warning (10492): VHDL Process Statement warning at DisplayWinner.vhd(38): signal "diff1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 38
+Warning (10631): VHDL Process Statement warning at DisplayWinner.vhd(19): inferring latch(es) for signal or variable "diff1", which holds its previous value in one or more paths through the process File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Warning (10631): VHDL Process Statement warning at DisplayWinner.vhd(19): inferring latch(es) for signal or variable "diff2", which holds its previous value in one or more paths through the process File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Warning (10631): VHDL Process Statement warning at DisplayWinner.vhd(19): inferring latch(es) for signal or variable "HEX3", which holds its previous value in one or more paths through the process File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Warning (10631): VHDL Process Statement warning at DisplayWinner.vhd(19): inferring latch(es) for signal or variable "HEX2", which holds its previous value in one or more paths through the process File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "HEX2[0]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "HEX2[1]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "HEX2[2]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "HEX2[3]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "HEX2[4]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "HEX2[5]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "HEX2[6]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "HEX3[0]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "HEX3[1]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "HEX3[2]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "HEX3[3]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "HEX3[4]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "HEX3[5]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "HEX3[6]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "diff2[0]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "diff2[1]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "diff2[2]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "diff2[3]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "diff2[4]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "diff2[5]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "diff2[6]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "diff1[0]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "diff1[1]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "diff1[2]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "diff1[3]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "diff1[4]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "diff1[5]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (10041): Inferred latch for "diff1[6]" at DisplayWinner.vhd(19) File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "displayWinner:displaywinner_instance|HEX2[6]" merged with LATCH primitive "displayWinner:displaywinner_instance|HEX2[0]" File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+    Info (13026): Duplicate LATCH primitive "displayWinner:displaywinner_instance|HEX2[3]" merged with LATCH primitive "displayWinner:displaywinner_instance|HEX2[0]" File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+    Info (13026): Duplicate LATCH primitive "displayWinner:displaywinner_instance|HEX2[2]" merged with LATCH primitive "displayWinner:displaywinner_instance|HEX2[0]" File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+Warning (13012): Latch displayWinner:displaywinner_instance|HEX2[0] has unsafe behavior File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal displayWinner:displaywinner_instance|LessThan5~synth File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 38
+Warning (13012): Latch displayWinner:displaywinner_instance|HEX2[4] has unsafe behavior File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal displayWinner:displaywinner_instance|LessThan5~synth File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 38
+Warning (13012): Latch StateDetermination:stateDet_instance|StateTemp[2] has unsafe behavior File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal key[0] File: D:/252/ReactionTimer/code/React.vhd Line: 7
+Warning (13012): Latch StateDetermination:stateDet_instance|StateTemp[0] has unsafe behavior File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateDetermination:stateDet_instance|StateTemp[0] File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 15
+Warning (13012): Latch StateDetermination:stateDet_instance|StateTemp[1] has unsafe behavior File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal key[0] File: D:/252/ReactionTimer/code/React.vhd Line: 7
+Warning (13012): Latch displayWinner:displaywinner_instance|diff1[6] has unsafe behavior File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal displayWinner:displaywinner_instance|LessThan1~synth File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 24
+Warning (13012): Latch displayWinner:displaywinner_instance|diff2[6] has unsafe behavior File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal displayWinner:displaywinner_instance|LessThan3~synth File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 30
+Warning (13012): Latch displayWinner:displaywinner_instance|diff1[5] has unsafe behavior File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal displayWinner:displaywinner_instance|LessThan1~synth File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 24
+Warning (13012): Latch displayWinner:displaywinner_instance|diff2[5] has unsafe behavior File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal displayWinner:displaywinner_instance|LessThan3~synth File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 30
+Warning (13012): Latch displayWinner:displaywinner_instance|diff1[4] has unsafe behavior File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal displayWinner:displaywinner_instance|LessThan1~synth File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 24
+Warning (13012): Latch displayWinner:displaywinner_instance|diff2[4] has unsafe behavior File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal displayWinner:displaywinner_instance|LessThan3~synth File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 30
+Warning (13012): Latch displayWinner:displaywinner_instance|diff1[3] has unsafe behavior File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal displayWinner:displaywinner_instance|LessThan1~synth File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 24
+Warning (13012): Latch displayWinner:displaywinner_instance|diff2[3] has unsafe behavior File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal displayWinner:displaywinner_instance|LessThan3~synth File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 30
+Warning (13012): Latch displayWinner:displaywinner_instance|diff1[2] has unsafe behavior File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal displayWinner:displaywinner_instance|LessThan1~synth File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 24
+Warning (13012): Latch displayWinner:displaywinner_instance|diff2[2] has unsafe behavior File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal displayWinner:displaywinner_instance|LessThan3~synth File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 30
+Warning (13012): Latch displayWinner:displaywinner_instance|diff1[1] has unsafe behavior File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal displayWinner:displaywinner_instance|LessThan1~synth File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 24
+Warning (13012): Latch displayWinner:displaywinner_instance|diff2[1] has unsafe behavior File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal displayWinner:displaywinner_instance|LessThan3~synth File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 30
+Warning (13012): Latch displayWinner:displaywinner_instance|diff1[0] has unsafe behavior File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal displayWinner:displaywinner_instance|LessThan1~synth File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 24
+Warning (13012): Latch displayWinner:displaywinner_instance|diff2[0] has unsafe behavior File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal displayWinner:displaywinner_instance|LessThan3~synth File: D:/252/ReactionTimer/code/DisplayWinner.vhd Line: 30
 Warning (13012): Latch initialize:initialize_instance|LFSR:instance1|LFSR_Reg[0] has unsafe behavior File: D:/252/ReactionTimer/code/LFSR.vhd Line: 38
     Warning (13013): Ports D and ENA on the latch are fed by the same signal initialize:initialize_instance|LFSR:instance1|D_FF:instance0|Q File: D:/252/ReactionTimer/code/D_FF.vhd Line: 9
 Warning (13012): Latch initialize:initialize_instance|LFSR:instance1|LFSR_Reg[3] has unsafe behavior File: D:/252/ReactionTimer/code/LFSR.vhd Line: 38
@@ -554,12 +776,6 @@ Warning (13012): Latch initialize:initialize_instance|LFSR:instance1|LFSR_Reg[1]
     Warning (13013): Ports D and ENA on the latch are fed by the same signal initialize:initialize_instance|LFSR:instance1|D_FF:instance1|Q File: D:/252/ReactionTimer/code/D_FF.vhd Line: 9
 Warning (13012): Latch initialize:initialize_instance|LFSR:instance1|LFSR_Reg[2] has unsafe behavior File: D:/252/ReactionTimer/code/LFSR.vhd Line: 38
     Warning (13013): Ports D and ENA on the latch are fed by the same signal initialize:initialize_instance|LFSR:instance1|D_FF:instance2|Q File: D:/252/ReactionTimer/code/D_FF.vhd Line: 9
-Warning (13012): Latch StateDetermination:stateDet_instance|StateTemp[1] has unsafe behavior File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 15
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal key[0] File: D:/252/ReactionTimer/code/React.vhd Line: 7
-Warning (13012): Latch StateDetermination:stateDet_instance|StateTemp[2] has unsafe behavior File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 15
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal key[0] File: D:/252/ReactionTimer/code/React.vhd Line: 7
-Warning (13012): Latch StateDetermination:stateDet_instance|StateTemp[0] has unsafe behavior File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 15
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateDetermination:stateDet_instance|StateTemp[0] File: D:/252/ReactionTimer/code/StateDetermination.vhd Line: 15
 Warning (13012): Latch initialize:initialize_instance|LFSR:instance1|LFSR_Reg[4] has unsafe behavior File: D:/252/ReactionTimer/code/LFSR.vhd Line: 38
     Warning (13013): Ports D and ENA on the latch are fed by the same signal initialize:initialize_instance|LFSR:instance1|D_FF:instance4|Q File: D:/252/ReactionTimer/code/D_FF.vhd Line: 9
 Warning (13012): Latch initialize:initialize_instance|LFSR:instance1|LFSR_Reg[6] has unsafe behavior File: D:/252/ReactionTimer/code/LFSR.vhd Line: 38
@@ -568,35 +784,67 @@ Warning (13012): Latch initialize:initialize_instance|LFSR:instance1|LFSR_Reg[7]
     Warning (13013): Ports D and ENA on the latch are fed by the same signal initialize:initialize_instance|LFSR:instance1|D_FF:instance7|Q File: D:/252/ReactionTimer/code/D_FF.vhd Line: 9
 Warning (13012): Latch initialize:initialize_instance|LFSR:instance1|LFSR_Reg[5] has unsafe behavior File: D:/252/ReactionTimer/code/LFSR.vhd Line: 38
     Warning (13013): Ports D and ENA on the latch are fed by the same signal initialize:initialize_instance|LFSR:instance1|D_FF:instance5|Q File: D:/252/ReactionTimer/code/D_FF.vhd Line: 9
+Warning (13012): Latch PreScaler:PreScalar_instance|clkO has unsafe behavior File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal PreScaler:PreScalar_instance|encoder32:instance1|eout[0] File: D:/252/ReactionTimer/code/encoder32.vhd Line: 14
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[23]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[23]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[23]~1" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[23]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[23]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[23]~1" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[22]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[22]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[22]~6" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[21]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[21]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[21]~11" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[20]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[20]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[20]~16" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[19]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[19]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[19]~21" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[18]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[18]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[18]~26" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[17]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[17]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[17]~31" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[16]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[16]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[16]~36" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[15]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[15]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[15]~41" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[14]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[14]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[14]~46" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[13]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[13]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[13]~51" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[12]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[12]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[12]~56" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[11]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[11]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[11]~61" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[10]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[10]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[10]~66" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[9]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[9]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[9]~71" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[8]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[8]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[8]~76" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[7]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[7]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[7]~81" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[6]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[6]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[6]~86" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[5]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[5]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[5]~91" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[4]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[4]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[4]~96" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[3]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[3]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[3]~101" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[2]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[2]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[2]~106" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[1]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[1]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[1]~111" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|nTemp[0]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|nTemp[0]~_emulated" and latch "PreScaler:PreScalar_instance|nTemp[0]~116" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 41
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[22]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[22]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[22]~6" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[21]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[21]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[21]~11" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[20]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[20]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[20]~16" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[19]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[19]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[19]~21" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[18]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[18]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[18]~26" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[17]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[17]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[17]~31" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[16]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[16]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[16]~36" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[15]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[15]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[15]~41" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[14]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[14]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[14]~46" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[13]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[13]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[13]~51" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[12]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[12]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[12]~56" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[11]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[11]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[11]~61" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[10]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[10]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[10]~66" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[9]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[9]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[9]~71" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[8]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[8]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[8]~76" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[7]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[7]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[7]~81" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[6]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[6]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[6]~86" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[5]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[5]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[5]~91" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[4]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[4]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[4]~96" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[3]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[3]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[3]~101" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[2]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[2]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[2]~106" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[0]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[0]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[0]~111" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
+    Warning (13310): Register "PreScaler:PreScalar_instance|sTemp[1]" is converted into an equivalent circuit using register "PreScaler:PreScalar_instance|sTemp[1]~_emulated" and latch "PreScaler:PreScalar_instance|sTemp[1]~116" File: D:/252/ReactionTimer/code/PreScaler.vhd Line: 31
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX0[0]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX0[1]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX0[2]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX0[3]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX0[4]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX0[5]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX0[6]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX1[0]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX1[1]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX1[2]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX1[3]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX1[4]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX1[5]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX1[6]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX2[0]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
     Warning (13410): Pin "HEX2[1]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX2[2]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX2[3]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX2[4]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX2[5]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX2[6]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX3[0]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX3[1]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX3[2]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
+    Warning (13410): Pin "HEX2[5]" is stuck at VCC File: D:/252/ReactionTimer/code/React.vhd Line: 10
+    Warning (13410): Pin "HEX3[0]" is stuck at VCC File: D:/252/ReactionTimer/code/React.vhd Line: 10
+    Warning (13410): Pin "HEX3[1]" is stuck at VCC File: D:/252/ReactionTimer/code/React.vhd Line: 10
+    Warning (13410): Pin "HEX3[2]" is stuck at VCC File: D:/252/ReactionTimer/code/React.vhd Line: 10
     Warning (13410): Pin "HEX3[3]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
     Warning (13410): Pin "HEX3[4]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX3[5]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
-    Warning (13410): Pin "HEX3[6]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
+    Warning (13410): Pin "HEX3[5]" is stuck at VCC File: D:/252/ReactionTimer/code/React.vhd Line: 10
+    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: D:/252/ReactionTimer/code/React.vhd Line: 10
     Warning (13410): Pin "HEX6[0]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
     Warning (13410): Pin "HEX6[1]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
     Warning (13410): Pin "HEX6[2]" is stuck at GND File: D:/252/ReactionTimer/code/React.vhd Line: 10
@@ -621,10 +869,7 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 17 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "sw[0]" File: D:/252/ReactionTimer/code/React.vhd Line: 8
-    Warning (15610): No output dependent on input pin "sw[1]" File: D:/252/ReactionTimer/code/React.vhd Line: 8
-    Warning (15610): No output dependent on input pin "sw[2]" File: D:/252/ReactionTimer/code/React.vhd Line: 8
+Warning (21074): Design contains 14 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "sw[3]" File: D:/252/ReactionTimer/code/React.vhd Line: 8
     Warning (15610): No output dependent on input pin "sw[4]" File: D:/252/ReactionTimer/code/React.vhd Line: 8
     Warning (15610): No output dependent on input pin "sw[5]" File: D:/252/ReactionTimer/code/React.vhd Line: 8
@@ -639,14 +884,14 @@ Warning (21074): Design contains 17 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "sw[14]" File: D:/252/ReactionTimer/code/React.vhd Line: 8
     Warning (15610): No output dependent on input pin "sw[15]" File: D:/252/ReactionTimer/code/React.vhd Line: 8
     Warning (15610): No output dependent on input pin "sw[16]" File: D:/252/ReactionTimer/code/React.vhd Line: 8
-Info (21057): Implemented 156 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 695 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 23 input pins
     Info (21059): Implemented 63 output pins
-    Info (21061): Implemented 70 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 125 warnings
-    Info: Peak virtual memory: 4919 megabytes
-    Info: Processing ended: Mon Dec  4 04:10:24 2023
-    Info: Elapsed time: 00:00:14
+    Info (21061): Implemented 609 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 196 warnings
+    Info: Peak virtual memory: 4907 megabytes
+    Info: Processing ended: Mon Dec  4 06:05:33 2023
+    Info: Elapsed time: 00:00:08
     Info: Total CPU time (on all processors): 00:00:01
 
 

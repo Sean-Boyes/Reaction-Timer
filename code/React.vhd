@@ -51,17 +51,50 @@ architecture behavior of react is
 			HEX4, HEX5 : out std_logic_vector(6 downto 0)
 		);
 	end component;
+	component player1Start is
+	port (
+		clock : in std_logic;
+		button0 : in std_logic;
+		reset : in std_logic;
+		state : in std_logic_vector(2 downto 0);
+		result1 : out unsigned(6 downto 0);
+		result2 : out unsigned(6 downto 0);
+		HEX0, HEX1 : out std_logic_vector(6 downto 0)
+	);
+	end component;
+	
+	component DisplayWinner is
+	port(
+		state : in std_logic_vector(2 downto 0);
+		target : in unsigned(6 downto 0);
+		result1 : in unsigned(6 downto 0);
+		result2 : in unsigned(6 downto 0);
+		HEX2, HEX3 : out std_logic_vector(6 downto 0)
+		);
+	end component;
 
 	
 	signal out_CLK : std_logic;
 	signal SInput : std_logic_vector(4 downto 0);
 	signal state : std_logic_vector(2 downto 0);
 	signal target : unsigned(6 downto 0);
-	signal result : unsigned(6 downto 0);
-	
+	signal result1 : unsigned(6 downto 0);
+	signal result2 : unsigned(6 downto 0);
+	signal plreset : std_logic := '0';
 	begin
 		SInput <= (SW(17 downto 17) & KEY(3 downto 0));
 		PreScalar_instance : PreScaler port map (SW(2 downto 0), clock_50, out_CLK);
 		stateDet_instance : stateDetermination port map(sInput, state);
 		initialize_instance : initialize port map(clock_50, Key(0), state, target, HEX4, HEX5);
+		player1_instance : player1Start port map(out_clk, Key(1), plreset, state, result1, result2, HEX0, HEX1);
+		displaywinner_instance : displayWinner port map (state, target, result1, result2, HEX2, HEX3);
+		
+		process(state, Key(3))
+		begin
+		if (state = "011" and KEY(3) = '0') then
+			plreset <='1';
+			else
+			plreset <= '0';
+			end if;
+			end process;
 end behavior;
