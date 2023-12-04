@@ -31,15 +31,15 @@ architecture behavior of react is
 	end component;
 	component Counter is
 		port(enable, CLK: in std_logic;
-			  counter_Reg: Out std_logic_vector(16-1 downto 0)
+			counter_Reg: Out std_logic_vector(16-1 downto 0)
 			 );
 	end component;
 	
 	component StateDetermination IS
-	port(
+		port(
 			Input : in std_logic_vector(4 downto 0);
 			State : out std_logic_Vector(2 downto 0)
-	);
+			);
 	end component;
 
 	
