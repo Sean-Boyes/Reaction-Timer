@@ -12,8 +12,11 @@ ENSC 252 Optional Project: Reaction Timer Tester
 - Output: Counter Register
 - Usage: When Enable is high, the Counter Register goes up by one every clock cycle
 - How: A chain of t-flip-flips with the inverse of each output being fed into the clock of the next
-## Encoder 32 bit (encoder32.vhd)
-
+## Encoder (encoder32.vhd)
+- Input: 3 bits
+- Output: 2 encoded bits
+- Usage: The state of Three switches are converted into two binary bits designating the speed of the prescaler
+- How: Each switches state is checked from the least to the most significant, a binary 2 bit number is outputed corresponding to first switch that is found high (01, 10, 11)
 ## Linear Feedback Shift Register (LFSR.vhd)
 
 ## Clock Pre-Scaler (PreScaler.vhd)*
