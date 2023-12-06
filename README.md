@@ -18,7 +18,10 @@ ENSC 252 Optional Project: Reaction Timer Tester
 - Usage: The state of Three switches are converted into two binary bits designating the speed of the prescaler
 - How: Each switches state is checked from the least to the most significant, a binary 2 bit number is outputed corresponding to first switch that is found high (01, 10, 11)
 ## Linear Feedback Shift Register (LFSR.vhd)
-
+- Input: Clock and reset
+- Output: LFSR Register
+- Usage: Creating a "random" 16 bit value
+- How: A shift register with register(4, 5, 7, and 15) being xor'ed into the input of the register(0)
 ## Clock Pre-Scaler (PreScaler.vhd)*
 
 ## Hex Display Driver (SegDecoder.vhd)
