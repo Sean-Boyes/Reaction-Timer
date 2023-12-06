@@ -11,19 +11,26 @@ ENSC 252 Optional Project: Reaction Timer Tester
 - Input: Enable and Clock
 - Output: Counter Register
 - Usage: When Enable is high, the Counter Register goes up by one every clock cycle
+- Reason: We need a register to count up to sync our results together
 - How: A chain of t-flip-flips with the inverse of each output being fed into the clock of the next
 ## Encoder (encoder32.vhd)
 - Input: 3 bits
 - Output: 2 encoded bits
 - Usage: The state of Three switches are converted into two binary bits designating the speed of the prescaler
+- Reason: We need to be able to select what speed for the prescaler
 - How: Each switches state is checked from the least to the most significant, a binary 2 bit number is outputed corresponding to first switch that is found high (01, 10, 11)
 ## Linear Feedback Shift Register (LFSR.vhd)
 - Input: Clock and reset
 - Output: LFSR Register
 - Usage: Creating a "random" 16 bit value
+- Reason: We need a value for the user to input at to get how well they reacted
 - How: A shift register with register(4, 5, 7, and 15) being xor'ed into the input of the register(0)
 ## Clock Pre-Scaler (PreScaler.vhd)*
-
+- Input: Speed, inClock
+- Output: outClock
+- Usage: Creating a slower clock
+- Reason: Naking a section of the circut that is more usable for human interfaces
+- How: Depending on the speed inputed, the circut will output a clock cycle when a counter reaches a certain value
 ## Hex Display Driver (SegDecoder.vhd)
 
 ## Binary Coded Decimal Converter (BCDNum.vhd)
