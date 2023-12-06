@@ -31,9 +31,14 @@ ENSC 252 Optional Project: Reaction Timer Tester
 ## Binary Coded Decimal Counter (BCDCount2.vhd)
 
 ## Mux (TT1MUX.vhd)
-
+- Input: Two one bit values(x1 and x2), and one bit signal(y1)
+- Output: One bit signal
+- Usage: The one bit signal determines the output to be one of the input signals (x1 for 0 and x2 for 1)
 ## T-Flip-Flop (T_FF.vhd)
-
+- Input: One bit value and clock
+- Output: One bit value
+- Usage: Toggles the output bit when reciving an input and rising edge clock
 ## D-Flip-Flop (D_FF.vhd)
-
-
+- Input: One bit value and clock
+- Output: One bit value
+- Usage: Sets the output bit to the inputbit on the rising edge of the clock
