@@ -1,7 +1,6 @@
 library ieee;
-use ieee. std_logic_1164.all;
-use ieee. std_logic_arith.all;
-use ieee. std_logic_unsigned.all;
+use ieee.std_logic_1164.all;
+Use ieee.numeric_std.all;
  
 entity SR_FF is
 	PORT( S,R,CLOCK: in std_logic;

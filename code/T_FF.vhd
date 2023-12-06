@@ -1,5 +1,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+Use ieee.numeric_std.all;
  
 entity T_FF is
 	port( T: in std_logic;

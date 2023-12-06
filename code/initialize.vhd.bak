@@ -1,0 +1,41 @@
+library ieee;
+use ieee. std_logic_1164.all;
+use ieee. std_logic_arith.all;
+use ieee. std_logic_unsigned.all;
+
+entity initialize is
+port (
+clock : in std_logic;
+button : in std_logic;
+state : in std_logic_vector(2 downto 0);
+HEX4, HEX5 : out std_logic_vector(6 downto 0);
+);
+end initialize;
+
+architecture behavior of state1 is
+signal LFSROut : std_logic_vector(6 downto 0);
+signal HEXTemp4 : std_logic_vector(6 downto 0);
+signal HEXTemp5 : std_logic_vector(6 downto 0);
+
+component segdecoder is
+Port ( D : in std_logic_vector( 3 downto 0 );
+	Y : out std_logic_vector( 6 downto 0 ) );
+END component;
+
+component LFSR is
+PORT( enable, CLK: in std_logic;
+			LFSR_Reg: Out std_logic_vector(7 downto 0)
+			);
+end component;
+
+begin
+instance1 : LFSR port map ('1', clock, LFSR);
+instance2 : segdecoder port map (LFSR(3 downto 0), HEXTemp4);
+instance3 : segdecoder port map (LFSR(7 downto 4), HEXTemp5);
+
+process(state)
+if state = "000" then
+	if button = '0' then
+		Hex4 <= HexTemp4;
+		Hex5 <= HexTemp5;
+		

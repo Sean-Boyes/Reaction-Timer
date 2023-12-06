@@ -1,0 +1,13 @@
+library ieee;
+use ieee.std_logic_1164.all;
+Use ieee.numeric_std.all;
+
+entity player1Start is
+port (
+clock : in std_logic;
+button : in std_logic;
+state : in std_logic_vector(2 downto 0);
+Target : out unsigned(6 downto 0);
+HEX0, HEX1 : out std_logic_vector(6 downto 0)
+);
+end initialize;
