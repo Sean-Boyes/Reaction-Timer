@@ -38,7 +38,10 @@ ENSC 252 Optional Project: Reaction Timer Tester
 - Reason: The user need to know what number to react to, whose turn it is, and who has won
 - How: The four input bits value are decoded into what segments need to be on for that inputs value
 ## Binary Coded Decimal Converter (BCDNum.vhd)
-- 
+- Input: Eight bit BCD number
+- Output: Binary number
+- Usage: Decoding the BCD counter into a comparable binary number to the LFSR random number
+- How: The BCD number is indexed to its corresponding binary number, then outputed
 ## Binary Coded Decimal Counter (BCDCount2.vhd)
 - Input: Enable, clock, and reset
 - Output: Ones and Tens
