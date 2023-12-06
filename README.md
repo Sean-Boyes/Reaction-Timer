@@ -32,7 +32,11 @@ ENSC 252 Optional Project: Reaction Timer Tester
 - Reason: Naking a section of the circut that is more usable for human interfaces
 - How: Depending on the speed inputed, the circut will output a clock cycle when a counter reaches a certain value
 ## Hex Display Driver (SegDecoder.vhd)
-
+- Input: Four bits
+- Output: Seven Bits
+- Usage: Input is decoded for use in a Seven-Bit Display
+- Reason: The user need to know what number to react to, whose turn it is, and who has won
+- How: The four input bits value are decoded into what segments need to be on for that inputs value
 ## Binary Coded Decimal Converter (BCDNum.vhd)
 
 ## Binary Coded Decimal Counter (BCDCount2.vhd)
