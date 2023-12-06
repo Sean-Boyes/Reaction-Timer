@@ -38,9 +38,13 @@ ENSC 252 Optional Project: Reaction Timer Tester
 - Reason: The user need to know what number to react to, whose turn it is, and who has won
 - How: The four input bits value are decoded into what segments need to be on for that inputs value
 ## Binary Coded Decimal Converter (BCDNum.vhd)
-
+- 
 ## Binary Coded Decimal Counter (BCDCount2.vhd)
-
+- Input: Enable, clock, and reset
+- Output: Ones and Tens
+- Usage: When Enable is high, the counter goes up by one every clock cycle in decimal
+- Reason: Humans count in decimal and not hex, multiple hex displays are needed to count properly in decimal
+- How: When the internal counter(ones) reaches 9, the next cycle will reset to 0 and cycle the next clock(tens) to 1. 
 ## Mux (TT1MUX.vhd)
 - Input: Two one bit values(x1 and x2), and one bit signal(y1)
 - Output: One bit signal
