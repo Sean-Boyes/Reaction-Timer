@@ -67,10 +67,22 @@ ENSC 252 Optional Project: Reaction Timer Tester
 - Output: One bit value
 - Usage: Sets the output bit to the inputbit on the rising edge of the clock
 # Top Level Wrapper & FSM (ReactionTimerTop)
-- Input: SW(17) and KEY(3 downto 0)
+- Input: SW(17), KEY(3 downto 0), and clock_50
 - Output: HEX(7 downto 0)
 - Usage: Display HEX displays and reset counters based on current state determined by switch and Keys
-- How: Determines state with a synchronous FSM based on input. Toggles on internal signal appropriate to each state.
+- How: Determines state with a synchronous FSM based on input and prescaled clock_50. Toggles on internal signal appropriate to each state.
 ![FSM](https://github.com/Sean-Boyes/Reaction-Timer/blob/main/img/FSM.jpg?raw=true)
 ## Display-Winner (DW)
-
+- Functionality: Toggle on reset of BCDCount2 and return counter to 0. Determines winner via integer subtraction between player score and target. Display winner on HEX7 and HEX6
+## Initialize(Initialize)
+- Functionality: Toggle off reset of BCDCount2. Display random number from LFSR and set target to LFSR output.
+## Player 1 Start (P1Start)
+- Functionality: Toggle on enable of BCDCount2. Display P1 on HEX2 and HEX3.
+## Player 1 Stop (P1Stop)
+- Functionality: Toggle off BCDCount2. Calculate Player 1 score based on current integer value of BCDCount2 value and target
+## Clear (Clear)
+- Functionality: Toggle on reset of BCDCount2
+## Player 2 Start (P2Start)
+- Functionality: Toggle off reset and toggle on enable of BCDCount2. Display P2 on HEX2 and HEX3
+## Player 2 Stop (P2Stop)
+- Functionality: Toggle off BCDCount2. Calculate Player 2 score based on current integer value of BCDCount2 value and target
