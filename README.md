@@ -65,4 +65,7 @@ ENSC 252 Optional Project: Reaction Timer Tester
 ## D-Flip-Flop (D_FF.vhd)
 - Input: One bit value and clock
 - Output: One bit value
-- Usage: Sets the output bit to the inputbit on the rising edge of the clock
+- Usage: Sets the output bit to the inputbit on the rising edge of the clock[Uploading FSM.jpg.url…]()[InternetShortcut]
+URL=https://cdn.discordapp.com/attachments/1016862719124717627/1182120094722179173/FSM_1.jpg?ex=65838a21&is=65711521&hm=0059dd94ef2f6fb13a0a4f486217b411a89b8066346f67b87f32d4d2953c94c4&
+
+
