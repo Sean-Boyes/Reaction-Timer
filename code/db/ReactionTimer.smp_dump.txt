@@ -1,0 +1,10 @@
+
+State Machine - |ReactionTImerTop|State
+Name State.P2Stop State.P2Start State.Clear State.P1Stop State.P1Start State.Initialize State.DW 
+State.DW 0 0 0 0 0 0 0 
+State.Initialize 0 0 0 0 0 1 1 
+State.P1Start 0 0 0 0 1 0 1 
+State.P1Stop 0 0 0 1 0 0 1 
+State.Clear 0 0 1 0 0 0 1 
+State.P2Start 0 1 0 0 0 0 1 
+State.P2Stop 1 0 0 0 0 0 1 

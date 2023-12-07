@@ -4,7 +4,7 @@ Use ieee.numeric_std.all;
 
 Entity PreScaler IS
 port(
-setSpeed : in std_logic_vector(2 downto 0);
+setSpeed : in std_logic_vector(2 downto 0) := "000";
 clkI : in std_logic;
 clkO : out std_logic
 );
@@ -21,50 +21,52 @@ signal fTemp : unsigned(23 downto 0):= (others =>'0');
 signal nTemp : unsigned(23 downto 0):= (others =>'0');
 signal sTemp : unsigned(23 downto 0):= (others =>'0');
 signal speed : unsigned(1 downto 0):= (others =>'0');
+signal clkOTemp : std_logic;
 Begin
 instance1 : encoder32 port map (setSpeed, speed);
 process(clkI, speed, stemp, ntemp, ftemp)
 Begin
-iF speed = 1  then
-		ntemp<=(others=>'0');
-		ftemp<=(others=>'0');
-	if rising_edge(clkI) and stemp = "100110001001011010000000" Then
-		stemp<=(others=>'0');
-	end if;
-	if rising_edge(clkI) Then
+if rising_edge(clkI) then
+	
+	
+	
+	iF speed = 1  then
 		stemp <= stemp + 1;
-	End if;
+			if stemp = "100110001001011010000000" Then
 
-elsiF speed = 2  then
-		stemp<=(others=>'0');
-		ftemp<=(others=>'0');
-	if rising_edge(clkI) and ntemp = "010011000100101101000000" Then
-		ntemp<=(others=>'0');
+				stemp<=(others=>'0');
+
+				
+			end if;
+		clkO <= stemp(23);
 	end if;
-	if rising_edge(clkI) Then
-		
+
+	iF speed = 2  then
 		ntemp <= ntemp + 1;
-	End if;
+			if ntemp = "010011000100101101000000" Then
 
-elsiF speed = 3 then
-		stemp<=(others=>'0');
-		ntemp<=(others=>'0');
-	if rising_edge(clkI) and ftemp = "001001100010010110100000" Then
-		ftemp<=(others=>'0');
+				ntemp<=(others=>'0');
+
+				
+			end if;
+		clkO <= ntemp(22);
+
 	end if;
-	if rising_edge(clkI) Then
-		
-		ftemp <= ftemp + 1;
-	End if;
-End If;
 
-if speed = 1 then
-	clkO <= std_logic(stemp(23));
-elsif speed = 2 then 
-	clkO <= std_logic(ntemp(23));
-elsif speed = 3 then
-	clkO <= std_logic(ftemp(23));
-End If;
+	iF speed = 3 then
+		ftemp <= ftemp + 1;
+			if ftemp = "001001100010010110100000" Then
+
+				ftemp<=(others=>'0');
+
+				
+			end if;
+		clkO <= ftemp(21);
+
+	End If;
+end if;
+
+
 
 end process;
 end behavior;

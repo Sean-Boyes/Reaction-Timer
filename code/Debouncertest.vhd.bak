@@ -1,0 +1,26 @@
+LIBRARY ieee;
+
+USE ieee.std_logic_1164.all;
+
+Use ieee.numeric_std.all;
+
+entity debouncerTest is
+port(
+Key : in std_logic_vector(3 downto 0);
+LEDR : out std_logic_vector(3 downto 0)
+);
+
+architecture behavior of debouncertest is 
+component Debouncer is 
+	PORT (
+
+        btn : IN STD_LOGIC; -- Input button signal
+
+        debounced_btn : OUT STD_LOGIC -- Debounced button signal
+
+    );
+end component;
+
+begin
+instance1 : debouncer port map(Key(0), LEDR(0));
+end behavior;

@@ -1,0 +1,121 @@
+LIBRARY ieee;
+
+USE ieee.std_logic_1164.all;
+
+Use ieee.numeric_std.all;
+
+-- FILEPATH: /d:/Users/yang2/Desktop/Fuck around/debouncer.vhd
+
+LIBRARY ieee;
+
+USE ieee.std_logic_1164.all;
+
+USE ieee.numeric_std.all;
+
+
+
+ENTITY Debouncer IS
+
+    GENERIC (
+
+        CLK_PERIOD : TIME := 10 ns; -- Clock period
+
+        DEBOUNCE_TIME : TIME := 50 ns -- Debounce time
+
+    );
+
+    PORT (
+
+        btn : IN STD_LOGIC; -- Input button signal
+
+        debounced_btn : OUT STD_LOGIC -- Debounced button signal
+
+    );
+
+END ENTITY Debouncer;
+
+
+
+ARCHITECTURE Behavioral OF Debouncer IS
+
+    SIGNAL btn_reg : STD_LOGIC := '0'; -- Registered button signal
+
+    SIGNAL btn_sync : STD_LOGIC := '0'; -- Synchronized button signal
+
+    SIGNAL btn_debounced : STD_LOGIC := '0'; -- Debounced button signal
+
+
+
+BEGIN
+
+    -- Register the button signal
+
+    PROCESS (btn)
+
+    BEGIN
+
+        IF (btn'EVENT AND btn = '1') THEN
+
+            btn_reg <= '1';
+
+        END IF;
+
+    END PROCESS;
+
+
+
+    -- Synchronize the button signal
+
+    PROCESS (clk)
+
+    BEGIN
+
+        IF (rising_edge(clk)) THEN
+
+            btn_sync <= btn_reg;
+
+        END IF;
+
+    END PROCESS;
+
+
+
+    -- Debounce the button signal
+
+    PROCESS (btn_sync)
+
+        VARIABLE debounce_count : INTEGER := 0;
+
+    BEGIN
+
+        IF (btn_sync = '1') THEN
+
+            IF (debounce_count < DEBOUNCE_TIME / CLK_PERIOD) THEN
+
+                debounce_count := debounce_count + 1;
+
+            ELSE
+
+                btn_debounced <= '1';
+
+            END IF;
+
+        ELSE
+
+            debounce_count := 0;
+
+            btn_debounced <= '0';
+
+        END IF;
+
+    END PROCESS;
+
+
+
+    -- Assign the debounced button signal to the output
+
+    debounced_btn <= btn_debounced;
+
+
+
+END ARCHITECTURE Behavioral;

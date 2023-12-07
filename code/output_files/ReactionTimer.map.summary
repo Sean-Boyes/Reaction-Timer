@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Mon Dec  4 06:05:33 2023
+Analysis & Synthesis Status : Successful - Wed Dec  6 16:53:27 2023
 Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 Revision Name : ReactionTimer
-Top-level Entity Name : React
+Top-level Entity Name : ReactionTImerTop
 Family : Cyclone IV E
-Total logic elements : 609
-    Total combinational functions : 602
-    Dedicated logic registers : 88
-Total registers : 88
-Total pins : 86
+Total logic elements : 720
+    Total combinational functions : 690
+    Dedicated logic registers : 307
+Total registers : 307
+Total pins : 79
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

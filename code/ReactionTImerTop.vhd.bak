@@ -1,0 +1,212 @@
+library ieee;
+use ieee.std_logic_1164.all;
+Use ieee.numeric_std.all;
+
+Entity ReactionTImerTop IS
+port(
+clock_50 : in std_logic;
+SW : in std_logic_vector(17 downto 0);
+Key : in std_logic_vector(3 downto 0);
+Hex7, HEX6, hex5, HeX4, HEX3, HEX2, HEX1, HEX0 : out std_logic_vector(6 downto 0)
+);
+end ReactionTImerTop;
+
+Architecture behavior of ReactionTImerTop IS
+
+component debouncer is
+PORT (
+		clk : IN std_LOGIC;
+      btn : IN STD_LOGIC; -- Input button signal
+      debounced_btn : OUT STD_LOGIC -- Debounced button signal
+    );
+END component;
+
+component prescale is
+port(
+clkI : in std_logic;
+clkO : out std_logic
+);
+END component;
+
+component prescaler is
+port(
+setSpeed : in std_logic_vector(2 downto 0) := "000";
+clkI : in std_logic;
+clkO : out std_logic
+);
+END component;
+
+component LFSR 
+PORT( CLK, rst : in std_logic;
+			LFSR_Reg: Out std_logic_vector(7 downto 0)
+			);
+end component;
+
+component BCDCOunt2 is
+ Port(
+			enable : in std_logic;
+			clk : in STD_LOGIC;
+         rst : in STD_LOGIC;
+         BCD_ones : out STD_LOGIC_VECTOR(3 downto 0);
+         BCD_tens : out STD_LOGIC_VECTOR(3 downto 0)
+    );
+end component;
+
+component segdecoder is
+Port ( D : in std_logic_vector( 3 downto 0 );
+	Y : out std_logic_vector( 6 downto 0 ) );
+END component;
+
+component BCDNum is
+port(
+	BCD : in std_logic_vector(7 downto 0);
+	Num : out integer
+);
+end component;
+
+type state_type is (DW, Initialize, P1Start, P1Stop, Clear, P2Start, P2Stop);
+signal State : state_type:= DW;
+signal slowclock : std_logic;
+signal clk : std_logic;
+signal LFSRTEmp : std_logic_vector(7 downto 0);
+signal target : std_logic_vector(7 downto 0);
+signal input : std_logic_vector(4 downto 0);
+signal enable : std_logic;
+signal rst : std_logic:='0';
+signal LFSRrst : std_logic:='1';
+signal LFSREnable :std_logic;
+signal BCD0OUT : std_logic_vector(3 downto 0);
+signal BCD1OUT : std_logic_vector(3 downto 0);
+signal PVal : integer;
+signal p1score : integer;
+signal p2score : integer;
+signal BCDOUT : std_logic_vector(7 downto 0);
+signal targetint : integer;
+signal debounced : std_logic_vector(3 downto 0);
+Begin
+
+instance1 : prescale port map (clock_50, slowClock);
+instance2 : LFSR port map (clock_50, LFSRrst, LFSRTemp);
+instance3 : segdecoder port map(target(3 downto 0), Hex4);
+instance4 : segdecoder port map(target(7 downto 4), Hex5);
+instance5 : prescaler port map (sw(2 downto 0), clock_50, clk);
+instance6 : BCDCOunt2 port map (enable, clk, rst, BCD0OUT, BCD1OUT);
+instance7 : segdecoder port map(BCD0OUT, Hex0);
+instance8 : segdecoder port map(BCD1OUT, Hex1);
+instance9 : BCDNUM port map (target, targetint);
+instance10 : BCDNUM port map (BCDout, Pval);
+instance11 : debouncer port map (clock_50, key(0), Debounced(0));
+instance12 : debouncer port map (clock_50, key(1), Debounced(1));
+instance13 : debouncer port map (clock_50, key(2), Debounced(2));
+instance14 : debouncer port map (clock_50, key(3), Debounced(3));
+input <= SW(17) & debounced(3 downto 0);
+	BCDOUT <= BCD1OUT & BCD0OUT;
+	process(input, slowclock)
+	variable inputTEmp : std_logic_vector(4 downto 0);
+	begin
+		if rising_edge(slowclock) then
+			if LFSRrst = '1' then
+				LFSRrst <= '0';
+				end if;
+				end if;
+		inputTEmp := input;	
+		if slowclock'event and slowclock ='1' then
+		Case State is
+			when DW =>
+				rst <= '1';
+--				LFSRrst <= '1';
+				if P1Score < P2Score then
+					Hex7 <= "0001100";
+					Hex6 <= "1111001";
+				elsif P2Score < p1Score then
+					HEX7 <= "0001100";
+					Hex6 <= "0100100";
+				elsif P2score = p1score then
+					Hex7 <= "0111111";
+					Hex6 <= "0111111";
+				end if;
+				HEx2 <= "1111111";
+				HEx3 <= "1111111";
+				if inputtemp = "01110" then
+					state <= Initialize;
+				else state <= DW;
+				end if;
+			When Initialize =>
+				HEx2 <= "1111111";
+				HEx3 <= "1111111";
+				rst <= '0';
+--				LFSRrst <= '0';
+				Target <= LFSRTemp;
+				if inputtemp = "01101" then
+					state <= P1Start;
+				elsif Inputtemp = "10111" then
+					state <= DW;
+				else State <= initialize;
+				end if;
+			When P1Start =>
+				enable <= '1';
+				HEx2 <= "1111001";
+				HEx3 <= "0001100";
+				if inputtemp = "01101" then
+					state <= P1Stop;
+				elsif Inputtemp = "10111" then
+					state <= DW;
+				else State <= P1Start;
+				end if;
+			When P1Stop =>
+				enable <= '0';
+				
+				if Pval >= targetint then
+					P1score <= Pval - targetint;
+				elsif Pval <= targetint then
+					P1score <= targetint - Pval;
+				end if;
+				
+				if inputtemp = "00111" then
+					state <= clear;
+				elsif Inputtemp = "10111" then
+					state <= DW;
+				else state <= P1Stop;
+				end if;
+			When Clear =>
+				rst <= '1';
+				if inputtemp = "01011" then
+					state <= P2Start;
+				elsif Inputtemp = "10111" then
+					state <= DW;
+				else state <= Clear;
+				end if;
+			When P2Start =>
+				rst <= '0';
+				HEx2 <= "0100100";
+				HEx3 <= "0001100";
+				enable <= '1';
+				if inputtemp = "01011" then
+					state <= P2Stop;
+				elsif Inputtemp = "10111" then
+					state <= DW;
+				else state <= P2Start;
+				end if;
+			When P2Stop =>
+				enable <= '0';
+--				LFSRrst <= '1';
+				
+				if Pval >= targetint then
+					P2score <= Pval - targetint;
+				elsif Pval <= targetint then
+					P2score <= targetint - Pval;
+				end if;
+				
+				if inputtemp = "00111" then
+					state <= DW;
+				elsif Inputtemp = "10111" then
+					state <= DW;
+				else state <= P2Stop;
+				end if;
+			end Case;
+		end if;
+		end process;
+		
+end behavior;
+	
+	

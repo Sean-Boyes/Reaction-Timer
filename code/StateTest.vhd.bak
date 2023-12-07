@@ -1,0 +1,30 @@
+library ieee;
+use ieee.std_logic_1164.all;
+Use ieee.numeric_std.all;
+
+entity stateTest is
+port(
+KEY : in std_logic_vector(3 downto 0);
+sw : in std_logic_vector(17 downto 0);
+clock_50 : in std_logic;
+LEDR : out std_logic_vector(17 downto 0)
+);
+end stateTest;
+
+architecture behavior of StateTest is
+component stateDetermination is
+port(
+clock : in std_logic;
+Input : in std_logic_vector(4 downto 0);
+StateOUt : out std_logic_Vector(2 downto 0);
+LEDR : out std_logic_vector(6 downto 0)
+);
+end component;
+
+signal StateOUT: std_logic_Vector(2 downto 0);
+signal input: std_logic_Vector(4 downto 0);
+
+begin
+input <= SW(17) & KEY;
+instance1 : stateDetermination port map (clock_50, input, stateOUT, LEDR(6 downto 0));
+end behavior;

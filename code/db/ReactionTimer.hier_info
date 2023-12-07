@@ -1,124 +1,501 @@
-|React
-key[0] => initialize:initialize_instance.button
-key[0] => StateDetermination:stateDet_instance.Input[0]
-key[1] => player1Start:player1_instance.button0
-key[1] => StateDetermination:stateDet_instance.Input[1]
-key[2] => StateDetermination:stateDet_instance.Input[2]
-key[3] => StateDetermination:stateDet_instance.Input[3]
-key[3] => plreset.IN1
-sw[0] => PreScaler:PreScalar_instance.setSpeed[0]
-sw[1] => PreScaler:PreScalar_instance.setSpeed[1]
-sw[2] => PreScaler:PreScalar_instance.setSpeed[2]
-sw[3] => ~NO_FANOUT~
-sw[4] => ~NO_FANOUT~
-sw[5] => ~NO_FANOUT~
-sw[6] => ~NO_FANOUT~
-sw[7] => ~NO_FANOUT~
-sw[8] => ~NO_FANOUT~
-sw[9] => ~NO_FANOUT~
-sw[10] => ~NO_FANOUT~
-sw[11] => ~NO_FANOUT~
-sw[12] => ~NO_FANOUT~
-sw[13] => ~NO_FANOUT~
-sw[14] => ~NO_FANOUT~
-sw[15] => ~NO_FANOUT~
-sw[16] => ~NO_FANOUT~
-sw[17] => StateDetermination:stateDet_instance.Input[4]
-clock_50 => PreScaler:PreScalar_instance.clkI
-clock_50 => initialize:initialize_instance.clock
-HEX0[0] <= player1Start:player1_instance.HEX0[0]
-HEX0[1] <= player1Start:player1_instance.HEX0[1]
-HEX0[2] <= player1Start:player1_instance.HEX0[2]
-HEX0[3] <= player1Start:player1_instance.HEX0[3]
-HEX0[4] <= player1Start:player1_instance.HEX0[4]
-HEX0[5] <= player1Start:player1_instance.HEX0[5]
-HEX0[6] <= player1Start:player1_instance.HEX0[6]
-HEX1[0] <= player1Start:player1_instance.HEX1[0]
-HEX1[1] <= player1Start:player1_instance.HEX1[1]
-HEX1[2] <= player1Start:player1_instance.HEX1[2]
-HEX1[3] <= player1Start:player1_instance.HEX1[3]
-HEX1[4] <= player1Start:player1_instance.HEX1[4]
-HEX1[5] <= player1Start:player1_instance.HEX1[5]
-HEX1[6] <= player1Start:player1_instance.HEX1[6]
-HEX2[0] <= DisplayWinner:displaywinner_instance.HEX2[0]
-HEX2[1] <= DisplayWinner:displaywinner_instance.HEX2[1]
-HEX2[2] <= DisplayWinner:displaywinner_instance.HEX2[2]
-HEX2[3] <= DisplayWinner:displaywinner_instance.HEX2[3]
-HEX2[4] <= DisplayWinner:displaywinner_instance.HEX2[4]
-HEX2[5] <= DisplayWinner:displaywinner_instance.HEX2[5]
-HEX2[6] <= DisplayWinner:displaywinner_instance.HEX2[6]
-HEX3[0] <= DisplayWinner:displaywinner_instance.HEX3[0]
-HEX3[1] <= DisplayWinner:displaywinner_instance.HEX3[1]
-HEX3[2] <= DisplayWinner:displaywinner_instance.HEX3[2]
-HEX3[3] <= DisplayWinner:displaywinner_instance.HEX3[3]
-HEX3[4] <= DisplayWinner:displaywinner_instance.HEX3[4]
-HEX3[5] <= DisplayWinner:displaywinner_instance.HEX3[5]
-HEX3[6] <= DisplayWinner:displaywinner_instance.HEX3[6]
-HEX4[0] <= initialize:initialize_instance.HEX4[0]
-HEX4[1] <= initialize:initialize_instance.HEX4[1]
-HEX4[2] <= initialize:initialize_instance.HEX4[2]
-HEX4[3] <= initialize:initialize_instance.HEX4[3]
-HEX4[4] <= initialize:initialize_instance.HEX4[4]
-HEX4[5] <= initialize:initialize_instance.HEX4[5]
-HEX4[6] <= initialize:initialize_instance.HEX4[6]
-HEX5[0] <= initialize:initialize_instance.HEX5[0]
-HEX5[1] <= initialize:initialize_instance.HEX5[1]
-HEX5[2] <= initialize:initialize_instance.HEX5[2]
-HEX5[3] <= initialize:initialize_instance.HEX5[3]
-HEX5[4] <= initialize:initialize_instance.HEX5[4]
-HEX5[5] <= initialize:initialize_instance.HEX5[5]
-HEX5[6] <= initialize:initialize_instance.HEX5[6]
-HEX6[0] <= HEX6[0].DB_MAX_OUTPUT_PORT_TYPE
-HEX6[1] <= HEX6[1].DB_MAX_OUTPUT_PORT_TYPE
-HEX6[2] <= HEX6[2].DB_MAX_OUTPUT_PORT_TYPE
-HEX6[3] <= HEX6[3].DB_MAX_OUTPUT_PORT_TYPE
-HEX6[4] <= HEX6[4].DB_MAX_OUTPUT_PORT_TYPE
-HEX6[5] <= HEX6[5].DB_MAX_OUTPUT_PORT_TYPE
-HEX6[6] <= HEX6[6].DB_MAX_OUTPUT_PORT_TYPE
-HEX7[0] <= HEX7[0].DB_MAX_OUTPUT_PORT_TYPE
-HEX7[1] <= HEX7[1].DB_MAX_OUTPUT_PORT_TYPE
-HEX7[2] <= HEX7[2].DB_MAX_OUTPUT_PORT_TYPE
-HEX7[3] <= HEX7[3].DB_MAX_OUTPUT_PORT_TYPE
-HEX7[4] <= HEX7[4].DB_MAX_OUTPUT_PORT_TYPE
-HEX7[5] <= HEX7[5].DB_MAX_OUTPUT_PORT_TYPE
-HEX7[6] <= HEX7[6].DB_MAX_OUTPUT_PORT_TYPE
-HEX8[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
-HEX8[1] <= HEX8[1].DB_MAX_OUTPUT_PORT_TYPE
-HEX8[2] <= HEX8[2].DB_MAX_OUTPUT_PORT_TYPE
-HEX8[3] <= HEX8[3].DB_MAX_OUTPUT_PORT_TYPE
-HEX8[4] <= HEX8[4].DB_MAX_OUTPUT_PORT_TYPE
-HEX8[5] <= HEX8[5].DB_MAX_OUTPUT_PORT_TYPE
-HEX8[6] <= HEX8[6].DB_MAX_OUTPUT_PORT_TYPE
+|ReactionTImerTop
+clock_50 => prescale:instance1.clkI
+clock_50 => LFSR:instance2.CLK
+clock_50 => prescaler:instance5.clkI
+clock_50 => debouncer:instance11.clk
+clock_50 => debouncer:instance12.clk
+clock_50 => debouncer:instance13.clk
+clock_50 => debouncer:instance14.clk
+SW[0] => prescaler:instance5.setSpeed[0]
+SW[1] => prescaler:instance5.setSpeed[1]
+SW[2] => prescaler:instance5.setSpeed[2]
+SW[3] => ~NO_FANOUT~
+SW[4] => ~NO_FANOUT~
+SW[5] => ~NO_FANOUT~
+SW[6] => ~NO_FANOUT~
+SW[7] => ~NO_FANOUT~
+SW[8] => ~NO_FANOUT~
+SW[9] => ~NO_FANOUT~
+SW[10] => ~NO_FANOUT~
+SW[11] => ~NO_FANOUT~
+SW[12] => ~NO_FANOUT~
+SW[13] => ~NO_FANOUT~
+SW[14] => ~NO_FANOUT~
+SW[15] => ~NO_FANOUT~
+SW[16] => ~NO_FANOUT~
+SW[17] => Equal1.IN0
+SW[17] => Equal2.IN0
+SW[17] => Equal3.IN0
+SW[17] => Equal4.IN0
+SW[17] => Equal5.IN1
+Key[0] => debouncer:instance11.btn
+Key[1] => debouncer:instance12.btn
+Key[2] => debouncer:instance13.btn
+Key[3] => debouncer:instance14.btn
+Hex7[0] <= Hex7[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Hex7[1] <= Hex7[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Hex7[2] <= Hex7[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Hex7[3] <= Hex7[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Hex7[4] <= Hex7[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Hex7[5] <= Hex7[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Hex7[6] <= Hex7[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+HEX6[0] <= HEX6[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+HEX6[1] <= HEX6[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+HEX6[2] <= HEX6[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+HEX6[3] <= HEX6[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+HEX6[4] <= HEX6[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+HEX6[5] <= HEX6[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+HEX6[6] <= HEX6[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+hex5[0] <= segdecoder:instance4.Y[0]
+hex5[1] <= segdecoder:instance4.Y[1]
+hex5[2] <= segdecoder:instance4.Y[2]
+hex5[3] <= segdecoder:instance4.Y[3]
+hex5[4] <= segdecoder:instance4.Y[4]
+hex5[5] <= segdecoder:instance4.Y[5]
+hex5[6] <= segdecoder:instance4.Y[6]
+HeX4[0] <= segdecoder:instance3.Y[0]
+HeX4[1] <= segdecoder:instance3.Y[1]
+HeX4[2] <= segdecoder:instance3.Y[2]
+HeX4[3] <= segdecoder:instance3.Y[3]
+HeX4[4] <= segdecoder:instance3.Y[4]
+HeX4[5] <= segdecoder:instance3.Y[5]
+HeX4[6] <= segdecoder:instance3.Y[6]
+HEX3[0] <= HEX3[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+HEX3[1] <= HEX3[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+HEX3[2] <= HEX3[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+HEX3[3] <= HEX3[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+HEX3[4] <= HEX3[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+HEX3[5] <= HEX3[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+HEX3[6] <= HEX3[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+HEX2[0] <= HEX2[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+HEX2[1] <= HEX2[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+HEX2[2] <= HEX2[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+HEX2[3] <= HEX2[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+HEX2[4] <= HEX2[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+HEX2[5] <= HEX2[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+HEX2[6] <= HEX2[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+HEX1[0] <= segdecoder:instance8.Y[0]
+HEX1[1] <= segdecoder:instance8.Y[1]
+HEX1[2] <= segdecoder:instance8.Y[2]
+HEX1[3] <= segdecoder:instance8.Y[3]
+HEX1[4] <= segdecoder:instance8.Y[4]
+HEX1[5] <= segdecoder:instance8.Y[5]
+HEX1[6] <= segdecoder:instance8.Y[6]
+HEX0[0] <= segdecoder:instance7.Y[0]
+HEX0[1] <= segdecoder:instance7.Y[1]
+HEX0[2] <= segdecoder:instance7.Y[2]
+HEX0[3] <= segdecoder:instance7.Y[3]
+HEX0[4] <= segdecoder:instance7.Y[4]
+HEX0[5] <= segdecoder:instance7.Y[5]
+HEX0[6] <= segdecoder:instance7.Y[6]
 
 
-|React|PreScaler:PreScalar_instance
+|ReactionTImerTop|prescale:instance1
+clkI => clkO~reg0.CLK
+clkI => f_temp[0].CLK
+clkI => f_temp[1].CLK
+clkI => f_temp[2].CLK
+clkI => f_temp[3].CLK
+clkI => f_temp[4].CLK
+clkI => f_temp[5].CLK
+clkI => f_temp[6].CLK
+clkI => f_temp[7].CLK
+clkI => f_temp[8].CLK
+clkI => f_temp[9].CLK
+clkI => f_temp[10].CLK
+clkI => f_temp[11].CLK
+clkI => f_temp[12].CLK
+clkI => f_temp[13].CLK
+clkI => f_temp[14].CLK
+clkI => f_temp[15].CLK
+clkI => f_temp[16].CLK
+clkI => f_temp[17].CLK
+clkI => f_temp[18].CLK
+clkI => f_temp[19].CLK
+clkI => f_temp[20].CLK
+clkI => f_temp[21].CLK
+clkI => f_temp[22].CLK
+clkI => f_temp[23].CLK
+clkO <= clkO~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2
+CLK => D_FF:instance0.clock
+CLK => LFSR_Reg[0]~reg0.CLK
+CLK => LFSR_Reg[1]~reg0.CLK
+CLK => LFSR_Reg[2]~reg0.CLK
+CLK => LFSR_Reg[3]~reg0.CLK
+CLK => LFSR_Reg[4]~reg0.CLK
+CLK => LFSR_Reg[5]~reg0.CLK
+CLK => LFSR_Reg[6]~reg0.CLK
+CLK => LFSR_Reg[7]~reg0.CLK
+CLK => D_FF:instance1.clock
+CLK => D_FF:instance2.clock
+CLK => D_FF:instance3.clock
+CLK => D_FF:instance4.clock
+CLK => D_FF:instance5.clock
+CLK => D_FF:instance6.clock
+CLK => D_FF:instance7.clock
+CLK => D_FF:instance16.clock
+CLK => D_FF:instance17.clock
+CLK => D_FF:instance18.clock
+CLK => D_FF:instance19.clock
+CLK => D_FF:instance20.clock
+CLK => D_FF:instance21.clock
+CLK => D_FF:instance22.clock
+CLK => D_FF:instance23.clock
+rst => TT1MUX:instance8.S1
+rst => TT1MUX:instance9.S1
+rst => TT1MUX:instance10.S1
+rst => TT1MUX:instance11.S1
+rst => TT1MUX:instance12.S1
+rst => TT1MUX:instance13.S1
+rst => TT1MUX:instance14.S1
+rst => TT1MUX:instance15.S1
+rst => TT1MUX:instance24.S1
+rst => TT1MUX:instance25.S1
+rst => TT1MUX:instance26.S1
+rst => TT1MUX:instance27.S1
+rst => TT1MUX:instance28.S1
+rst => TT1MUX:instance29.S1
+rst => TT1MUX:instance30.S1
+rst => TT1MUX:instance31.S1
+LFSR_Reg[0] <= LFSR_Reg[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LFSR_Reg[1] <= LFSR_Reg[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LFSR_Reg[2] <= LFSR_Reg[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LFSR_Reg[3] <= LFSR_Reg[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LFSR_Reg[4] <= LFSR_Reg[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LFSR_Reg[5] <= LFSR_Reg[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LFSR_Reg[6] <= LFSR_Reg[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LFSR_Reg[7] <= LFSR_Reg[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|D_FF:instance0
+D => Q~reg0.DATAIN
+clock => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|D_FF:instance1
+D => Q~reg0.DATAIN
+clock => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|D_FF:instance2
+D => Q~reg0.DATAIN
+clock => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|D_FF:instance3
+D => Q~reg0.DATAIN
+clock => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|D_FF:instance4
+D => Q~reg0.DATAIN
+clock => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|D_FF:instance5
+D => Q~reg0.DATAIN
+clock => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|D_FF:instance6
+D => Q~reg0.DATAIN
+clock => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|D_FF:instance7
+D => Q~reg0.DATAIN
+clock => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|TT1MUX:instance8
+X1 => Y1.DATAB
+X2 => Y1.DATAA
+S1 => Y1.OUTPUTSELECT
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|TT1MUX:instance9
+X1 => Y1.DATAB
+X2 => Y1.DATAA
+S1 => Y1.OUTPUTSELECT
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|TT1MUX:instance10
+X1 => Y1.DATAB
+X2 => Y1.DATAA
+S1 => Y1.OUTPUTSELECT
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|TT1MUX:instance11
+X1 => Y1.DATAB
+X2 => Y1.DATAA
+S1 => Y1.OUTPUTSELECT
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|TT1MUX:instance12
+X1 => Y1.DATAB
+X2 => Y1.DATAA
+S1 => Y1.OUTPUTSELECT
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|TT1MUX:instance13
+X1 => Y1.DATAB
+X2 => Y1.DATAA
+S1 => Y1.OUTPUTSELECT
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|TT1MUX:instance14
+X1 => Y1.DATAB
+X2 => Y1.DATAA
+S1 => Y1.OUTPUTSELECT
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|TT1MUX:instance15
+X1 => Y1.DATAB
+X2 => Y1.DATAA
+S1 => Y1.OUTPUTSELECT
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|D_FF:instance16
+D => Q~reg0.DATAIN
+clock => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|D_FF:instance17
+D => Q~reg0.DATAIN
+clock => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|D_FF:instance18
+D => Q~reg0.DATAIN
+clock => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|D_FF:instance19
+D => Q~reg0.DATAIN
+clock => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|D_FF:instance20
+D => Q~reg0.DATAIN
+clock => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|D_FF:instance21
+D => Q~reg0.DATAIN
+clock => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|D_FF:instance22
+D => Q~reg0.DATAIN
+clock => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|D_FF:instance23
+D => Q~reg0.DATAIN
+clock => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|TT1MUX:instance24
+X1 => Y1.DATAB
+X2 => Y1.DATAA
+S1 => Y1.OUTPUTSELECT
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|TT1MUX:instance25
+X1 => Y1.DATAB
+X2 => Y1.DATAA
+S1 => Y1.OUTPUTSELECT
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|TT1MUX:instance26
+X1 => Y1.DATAB
+X2 => Y1.DATAA
+S1 => Y1.OUTPUTSELECT
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|TT1MUX:instance27
+X1 => Y1.DATAB
+X2 => Y1.DATAA
+S1 => Y1.OUTPUTSELECT
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|TT1MUX:instance28
+X1 => Y1.DATAB
+X2 => Y1.DATAA
+S1 => Y1.OUTPUTSELECT
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|TT1MUX:instance29
+X1 => Y1.DATAB
+X2 => Y1.DATAA
+S1 => Y1.OUTPUTSELECT
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|TT1MUX:instance30
+X1 => Y1.DATAB
+X2 => Y1.DATAA
+S1 => Y1.OUTPUTSELECT
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|LFSR:instance2|TT1MUX:instance31
+X1 => Y1.DATAB
+X2 => Y1.DATAA
+S1 => Y1.OUTPUTSELECT
+Y1 <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|SegDecoder:instance3
+D[0] => Y.IN1
+D[0] => Y.IN1
+D[0] => Y.IN1
+D[0] => Y.IN0
+D[0] => Y.IN0
+D[0] => Y.IN1
+D[0] => Y.IN1
+D[0] => Y.IN0
+D[0] => Y.IN1
+D[0] => Y.IN1
+D[0] => Y.IN0
+D[0] => Y.IN0
+D[0] => Y.IN1
+D[1] => Y.IN0
+D[1] => Y.IN1
+D[1] => Y.IN1
+D[1] => Y.IN0
+D[1] => Y.IN0
+D[1] => Y.IN0
+D[1] => Y.IN0
+D[1] => Y.IN1
+D[1] => Y.IN0
+D[1] => Y.IN1
+D[1] => Y.IN0
+D[1] => Y.IN1
+D[1] => Y.IN0
+D[1] => Y.IN1
+D[2] => Y.IN0
+D[2] => Y.IN1
+D[2] => Y.IN0
+D[2] => Y.IN1
+D[2] => Y.IN1
+D[2] => Y.IN1
+D[2] => Y.IN0
+D[2] => Y.IN1
+D[2] => Y.IN1
+D[2] => Y.IN0
+D[3] => Y.IN1
+D[3] => Y.IN1
+D[3] => Y.IN1
+D[3] => Y.IN1
+D[3] => Y.IN1
+D[3] => Y.IN1
+D[3] => Y.IN1
+D[3] => Y.IN1
+D[3] => Y.IN1
+D[3] => Y.IN1
+Y[0] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[1] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[2] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[3] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[4] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[5] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[6] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|SegDecoder:instance4
+D[0] => Y.IN1
+D[0] => Y.IN1
+D[0] => Y.IN1
+D[0] => Y.IN0
+D[0] => Y.IN0
+D[0] => Y.IN1
+D[0] => Y.IN1
+D[0] => Y.IN0
+D[0] => Y.IN1
+D[0] => Y.IN1
+D[0] => Y.IN0
+D[0] => Y.IN0
+D[0] => Y.IN1
+D[1] => Y.IN0
+D[1] => Y.IN1
+D[1] => Y.IN1
+D[1] => Y.IN0
+D[1] => Y.IN0
+D[1] => Y.IN0
+D[1] => Y.IN0
+D[1] => Y.IN1
+D[1] => Y.IN0
+D[1] => Y.IN1
+D[1] => Y.IN0
+D[1] => Y.IN1
+D[1] => Y.IN0
+D[1] => Y.IN1
+D[2] => Y.IN0
+D[2] => Y.IN1
+D[2] => Y.IN0
+D[2] => Y.IN1
+D[2] => Y.IN1
+D[2] => Y.IN1
+D[2] => Y.IN0
+D[2] => Y.IN1
+D[2] => Y.IN1
+D[2] => Y.IN0
+D[3] => Y.IN1
+D[3] => Y.IN1
+D[3] => Y.IN1
+D[3] => Y.IN1
+D[3] => Y.IN1
+D[3] => Y.IN1
+D[3] => Y.IN1
+D[3] => Y.IN1
+D[3] => Y.IN1
+D[3] => Y.IN1
+Y[0] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[1] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[2] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[3] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[4] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[5] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[6] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|PreScaler:instance5
 setSpeed[0] => encoder32:instance1.eIn[0]
 setSpeed[1] => encoder32:instance1.eIn[1]
 setSpeed[2] => encoder32:instance1.eIn[2]
-clkI => sTemp[0].CLK
-clkI => sTemp[1].CLK
-clkI => sTemp[2].CLK
-clkI => sTemp[3].CLK
-clkI => sTemp[4].CLK
-clkI => sTemp[5].CLK
-clkI => sTemp[6].CLK
-clkI => sTemp[7].CLK
-clkI => sTemp[8].CLK
-clkI => sTemp[9].CLK
-clkI => sTemp[10].CLK
-clkI => sTemp[11].CLK
-clkI => sTemp[12].CLK
-clkI => sTemp[13].CLK
-clkI => sTemp[14].CLK
-clkI => sTemp[15].CLK
-clkI => sTemp[16].CLK
-clkI => sTemp[17].CLK
-clkI => sTemp[18].CLK
-clkI => sTemp[19].CLK
-clkI => sTemp[20].CLK
-clkI => sTemp[21].CLK
-clkI => sTemp[22].CLK
-clkI => sTemp[23].CLK
 clkI => fTemp[0].CLK
 clkI => fTemp[1].CLK
 clkI => fTemp[2].CLK
@@ -167,10 +544,35 @@ clkI => nTemp[20].CLK
 clkI => nTemp[21].CLK
 clkI => nTemp[22].CLK
 clkI => nTemp[23].CLK
-clkO <= clkO$latch.DB_MAX_OUTPUT_PORT_TYPE
+clkI => clkO~reg0.CLK
+clkI => sTemp[0].CLK
+clkI => sTemp[1].CLK
+clkI => sTemp[2].CLK
+clkI => sTemp[3].CLK
+clkI => sTemp[4].CLK
+clkI => sTemp[5].CLK
+clkI => sTemp[6].CLK
+clkI => sTemp[7].CLK
+clkI => sTemp[8].CLK
+clkI => sTemp[9].CLK
+clkI => sTemp[10].CLK
+clkI => sTemp[11].CLK
+clkI => sTemp[12].CLK
+clkI => sTemp[13].CLK
+clkI => sTemp[14].CLK
+clkI => sTemp[15].CLK
+clkI => sTemp[16].CLK
+clkI => sTemp[17].CLK
+clkI => sTemp[18].CLK
+clkI => sTemp[19].CLK
+clkI => sTemp[20].CLK
+clkI => sTemp[21].CLK
+clkI => sTemp[22].CLK
+clkI => sTemp[23].CLK
+clkO <= clkO~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|React|PreScaler:PreScalar_instance|encoder32:instance1
+|ReactionTImerTop|PreScaler:instance5|encoder32:instance1
 eIn[0] => eout[0].OUTPUTSELECT
 eIn[0] => eout[1].IN1
 eIn[0] => comb.IN1
@@ -182,418 +584,7 @@ eout[0] <= eout[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
 eout[1] <= eout[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|React|StateDetermination:stateDet_instance
-Input[0] => Equal0.IN2
-Input[0] => Equal2.IN4
-Input[0] => Equal3.IN3
-Input[0] => Equal7.IN3
-Input[0] => Equal9.IN3
-Input[1] => Equal0.IN1
-Input[1] => Equal2.IN3
-Input[1] => Equal3.IN4
-Input[1] => Equal7.IN2
-Input[1] => Equal9.IN2
-Input[2] => Equal0.IN0
-Input[2] => Equal2.IN2
-Input[2] => Equal3.IN2
-Input[2] => Equal7.IN1
-Input[2] => Equal9.IN4
-Input[3] => Equal0.IN4
-Input[3] => Equal2.IN1
-Input[3] => Equal3.IN1
-Input[3] => Equal7.IN4
-Input[3] => Equal9.IN1
-Input[4] => Equal0.IN3
-Input[4] => Equal2.IN0
-Input[4] => Equal3.IN0
-Input[4] => Equal7.IN0
-Input[4] => Equal9.IN0
-State[0] <= StateTemp[0].DB_MAX_OUTPUT_PORT_TYPE
-State[1] <= StateTemp[1].DB_MAX_OUTPUT_PORT_TYPE
-State[2] <= StateTemp[2].DB_MAX_OUTPUT_PORT_TYPE
-
-
-|React|initialize:initialize_instance
-clock => LFSR:instance1.CLK
-button => HEX4[6].IN1
-state[0] => Equal0.IN2
-state[1] => Equal0.IN1
-state[2] => Equal0.IN0
-Target[0] <= BCDNum:instance4.Num[0]
-Target[1] <= BCDNum:instance4.Num[1]
-Target[2] <= BCDNum:instance4.Num[2]
-Target[3] <= BCDNum:instance4.Num[3]
-Target[4] <= BCDNum:instance4.Num[4]
-Target[5] <= BCDNum:instance4.Num[5]
-Target[6] <= BCDNum:instance4.Num[6]
-HEX4[0] <= HEX4[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX4[1] <= HEX4[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX4[2] <= HEX4[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX4[3] <= HEX4[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX4[4] <= HEX4[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX4[5] <= HEX4[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX4[6] <= HEX4[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX5[0] <= HEX5[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX5[1] <= HEX5[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX5[2] <= HEX5[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX5[3] <= HEX5[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX5[4] <= HEX5[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX5[5] <= HEX5[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX5[6] <= HEX5[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|React|initialize:initialize_instance|LFSR:instance1
-enable => inCLK.IN0
-CLK => inCLK.IN1
-LFSR_Reg[0] <= LFSR_Reg[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
-LFSR_Reg[1] <= LFSR_Reg[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
-LFSR_Reg[2] <= LFSR_Reg[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
-LFSR_Reg[3] <= LFSR_Reg[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
-LFSR_Reg[4] <= LFSR_Reg[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
-LFSR_Reg[5] <= LFSR_Reg[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
-LFSR_Reg[6] <= LFSR_Reg[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
-LFSR_Reg[7] <= LFSR_Reg[7]$latch.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|React|initialize:initialize_instance|LFSR:instance1|D_FF:instance0
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|React|initialize:initialize_instance|LFSR:instance1|D_FF:instance1
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|React|initialize:initialize_instance|LFSR:instance1|D_FF:instance2
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|React|initialize:initialize_instance|LFSR:instance1|D_FF:instance3
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|React|initialize:initialize_instance|LFSR:instance1|D_FF:instance4
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|React|initialize:initialize_instance|LFSR:instance1|D_FF:instance5
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|React|initialize:initialize_instance|LFSR:instance1|D_FF:instance6
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|React|initialize:initialize_instance|LFSR:instance1|D_FF:instance7
-D => Q~reg0.DATAIN
-clock => Q~reg0.CLK
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|React|initialize:initialize_instance|SegDecoder:instance2
-D[0] => Y.IN1
-D[0] => Y.IN1
-D[0] => Y.IN1
-D[0] => Y.IN0
-D[0] => Y.IN0
-D[0] => Y.IN1
-D[0] => Y.IN1
-D[0] => Y.IN0
-D[0] => Y.IN1
-D[0] => Y.IN1
-D[0] => Y.IN0
-D[0] => Y.IN0
-D[0] => Y.IN1
-D[1] => Y.IN0
-D[1] => Y.IN1
-D[1] => Y.IN1
-D[1] => Y.IN0
-D[1] => Y.IN0
-D[1] => Y.IN0
-D[1] => Y.IN0
-D[1] => Y.IN1
-D[1] => Y.IN0
-D[1] => Y.IN1
-D[1] => Y.IN0
-D[1] => Y.IN1
-D[1] => Y.IN0
-D[1] => Y.IN1
-D[2] => Y.IN0
-D[2] => Y.IN1
-D[2] => Y.IN0
-D[2] => Y.IN1
-D[2] => Y.IN1
-D[2] => Y.IN1
-D[2] => Y.IN0
-D[2] => Y.IN1
-D[2] => Y.IN1
-D[2] => Y.IN0
-D[3] => Y.IN1
-D[3] => Y.IN1
-D[3] => Y.IN1
-D[3] => Y.IN1
-D[3] => Y.IN1
-D[3] => Y.IN1
-D[3] => Y.IN1
-D[3] => Y.IN1
-D[3] => Y.IN1
-D[3] => Y.IN1
-Y[0] <= Y.DB_MAX_OUTPUT_PORT_TYPE
-Y[1] <= Y.DB_MAX_OUTPUT_PORT_TYPE
-Y[2] <= Y.DB_MAX_OUTPUT_PORT_TYPE
-Y[3] <= Y.DB_MAX_OUTPUT_PORT_TYPE
-Y[4] <= Y.DB_MAX_OUTPUT_PORT_TYPE
-Y[5] <= Y.DB_MAX_OUTPUT_PORT_TYPE
-Y[6] <= Y.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|React|initialize:initialize_instance|SegDecoder:instance3
-D[0] => Y.IN1
-D[0] => Y.IN1
-D[0] => Y.IN1
-D[0] => Y.IN0
-D[0] => Y.IN0
-D[0] => Y.IN1
-D[0] => Y.IN1
-D[0] => Y.IN0
-D[0] => Y.IN1
-D[0] => Y.IN1
-D[0] => Y.IN0
-D[0] => Y.IN0
-D[0] => Y.IN1
-D[1] => Y.IN0
-D[1] => Y.IN1
-D[1] => Y.IN1
-D[1] => Y.IN0
-D[1] => Y.IN0
-D[1] => Y.IN0
-D[1] => Y.IN0
-D[1] => Y.IN1
-D[1] => Y.IN0
-D[1] => Y.IN1
-D[1] => Y.IN0
-D[1] => Y.IN1
-D[1] => Y.IN0
-D[1] => Y.IN1
-D[2] => Y.IN0
-D[2] => Y.IN1
-D[2] => Y.IN0
-D[2] => Y.IN1
-D[2] => Y.IN1
-D[2] => Y.IN1
-D[2] => Y.IN0
-D[2] => Y.IN1
-D[2] => Y.IN1
-D[2] => Y.IN0
-D[3] => Y.IN1
-D[3] => Y.IN1
-D[3] => Y.IN1
-D[3] => Y.IN1
-D[3] => Y.IN1
-D[3] => Y.IN1
-D[3] => Y.IN1
-D[3] => Y.IN1
-D[3] => Y.IN1
-D[3] => Y.IN1
-Y[0] <= Y.DB_MAX_OUTPUT_PORT_TYPE
-Y[1] <= Y.DB_MAX_OUTPUT_PORT_TYPE
-Y[2] <= Y.DB_MAX_OUTPUT_PORT_TYPE
-Y[3] <= Y.DB_MAX_OUTPUT_PORT_TYPE
-Y[4] <= Y.DB_MAX_OUTPUT_PORT_TYPE
-Y[5] <= Y.DB_MAX_OUTPUT_PORT_TYPE
-Y[6] <= Y.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|React|initialize:initialize_instance|BCDNum:instance4
-BCD[0] => Equal0.IN3
-BCD[0] => Equal1.IN3
-BCD[0] => Equal2.IN2
-BCD[0] => Equal3.IN3
-BCD[0] => Equal4.IN2
-BCD[0] => Equal5.IN3
-BCD[0] => Equal6.IN1
-BCD[0] => Equal7.IN3
-BCD[0] => Equal8.IN2
-BCD[0] => Equal9.IN3
-BCD[1] => Equal0.IN2
-BCD[1] => Equal1.IN2
-BCD[1] => Equal2.IN3
-BCD[1] => Equal3.IN2
-BCD[1] => Equal4.IN1
-BCD[1] => Equal5.IN1
-BCD[1] => Equal6.IN3
-BCD[1] => Equal7.IN2
-BCD[1] => Equal8.IN1
-BCD[1] => Equal9.IN1
-BCD[2] => Equal0.IN1
-BCD[2] => Equal1.IN1
-BCD[2] => Equal2.IN1
-BCD[2] => Equal3.IN1
-BCD[2] => Equal4.IN3
-BCD[2] => Equal5.IN2
-BCD[2] => Equal6.IN2
-BCD[2] => Equal7.IN1
-BCD[2] => Equal8.IN0
-BCD[2] => Equal9.IN0
-BCD[3] => Equal0.IN0
-BCD[3] => Equal1.IN0
-BCD[3] => Equal2.IN0
-BCD[3] => Equal3.IN0
-BCD[3] => Equal4.IN0
-BCD[3] => Equal5.IN0
-BCD[3] => Equal6.IN0
-BCD[3] => Equal7.IN0
-BCD[3] => Equal8.IN3
-BCD[3] => Equal9.IN2
-BCD[4] => Equal10.IN3
-BCD[4] => Equal11.IN3
-BCD[4] => Equal12.IN2
-BCD[4] => Equal13.IN3
-BCD[4] => Equal14.IN2
-BCD[4] => Equal15.IN3
-BCD[4] => Equal16.IN1
-BCD[4] => Equal17.IN3
-BCD[4] => Equal18.IN2
-BCD[4] => Equal19.IN3
-BCD[5] => Equal10.IN2
-BCD[5] => Equal11.IN2
-BCD[5] => Equal12.IN3
-BCD[5] => Equal13.IN2
-BCD[5] => Equal14.IN1
-BCD[5] => Equal15.IN1
-BCD[5] => Equal16.IN3
-BCD[5] => Equal17.IN2
-BCD[5] => Equal18.IN1
-BCD[5] => Equal19.IN1
-BCD[6] => Equal10.IN1
-BCD[6] => Equal11.IN1
-BCD[6] => Equal12.IN1
-BCD[6] => Equal13.IN1
-BCD[6] => Equal14.IN3
-BCD[6] => Equal15.IN2
-BCD[6] => Equal16.IN2
-BCD[6] => Equal17.IN1
-BCD[6] => Equal18.IN0
-BCD[6] => Equal19.IN0
-BCD[7] => Equal10.IN0
-BCD[7] => Equal11.IN0
-BCD[7] => Equal12.IN0
-BCD[7] => Equal13.IN0
-BCD[7] => Equal14.IN0
-BCD[7] => Equal15.IN0
-BCD[7] => Equal16.IN0
-BCD[7] => Equal17.IN0
-BCD[7] => Equal18.IN3
-BCD[7] => Equal19.IN2
-Num[0] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[1] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[2] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[3] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[4] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[5] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[6] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[7] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[8] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[9] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[10] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[11] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[12] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[13] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[14] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[15] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[16] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[17] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[18] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[19] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[20] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[21] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[22] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[23] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[24] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[25] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[26] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[27] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[28] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[29] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[30] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-Num[31] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|React|player1Start:player1_instance
-clock => BCDCount2:instance1.clk
-button0 => BToggle.IN0
-reset => BCDCount2:instance1.rst
-state[0] => BToggle.IN1
-state[0] => BToggle.IN1
-state[0] => BToggle.IN1
-state[0] => BToggle.IN1
-state[0] => Equal0.IN1
-state[0] => Equal1.IN2
-state[0] => Equal2.IN1
-state[0] => Equal3.IN2
-state[0] => Equal4.IN0
-state[1] => BToggle.IN0
-state[1] => BToggle.IN0
-state[1] => BToggle.IN0
-state[1] => BToggle.IN0
-state[1] => Equal0.IN2
-state[1] => Equal1.IN1
-state[1] => Equal2.IN0
-state[1] => Equal3.IN0
-state[1] => Equal4.IN2
-state[2] => BToggle.IN1
-state[2] => BToggle.IN1
-state[2] => BToggle.IN1
-state[2] => BToggle.IN1
-state[2] => Equal0.IN0
-state[2] => Equal1.IN0
-state[2] => Equal2.IN2
-state[2] => Equal3.IN1
-state[2] => Equal4.IN1
-result1[0] <= result1[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
-result1[1] <= result1[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
-result1[2] <= result1[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
-result1[3] <= result1[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
-result1[4] <= result1[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
-result1[5] <= result1[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
-result1[6] <= result1[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
-result2[0] <= result2[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
-result2[1] <= result2[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
-result2[2] <= result2[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
-result2[3] <= result2[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
-result2[4] <= result2[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
-result2[5] <= result2[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
-result2[6] <= result2[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX0[0] <= HEX0[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX0[1] <= HEX0[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX0[2] <= HEX0[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX0[3] <= HEX0[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX0[4] <= HEX0[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX0[5] <= HEX0[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX0[6] <= HEX0[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX1[0] <= HEX1[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX1[1] <= HEX1[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX1[2] <= HEX1[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX1[3] <= HEX1[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX1[4] <= HEX1[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX1[5] <= HEX1[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX1[6] <= HEX1[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|React|player1Start:player1_instance|BCDCount2:instance1
+|ReactionTImerTop|BCDCount2:instance6
 enable => counter2[0].ENA
 enable => counter2[1].ENA
 enable => counter2[2].ENA
@@ -628,7 +619,7 @@ BCD_tens[2] <= counter2[2].DB_MAX_OUTPUT_PORT_TYPE
 BCD_tens[3] <= counter2[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|React|player1Start:player1_instance|SegDecoder:instance2
+|ReactionTImerTop|SegDecoder:instance7
 D[0] => Y.IN1
 D[0] => Y.IN1
 D[0] => Y.IN1
@@ -685,7 +676,7 @@ Y[5] <= Y.DB_MAX_OUTPUT_PORT_TYPE
 Y[6] <= Y.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|React|player1Start:player1_instance|SegDecoder:instance3
+|ReactionTImerTop|SegDecoder:instance8
 D[0] => Y.IN1
 D[0] => Y.IN1
 D[0] => Y.IN1
@@ -742,7 +733,7 @@ Y[5] <= Y.DB_MAX_OUTPUT_PORT_TYPE
 Y[6] <= Y.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|React|player1Start:player1_instance|BCDNum:instance4
+|ReactionTImerTop|BCDNum:instance9
 BCD[0] => Equal0.IN3
 BCD[0] => Equal1.IN3
 BCD[0] => Equal2.IN2
@@ -857,163 +848,402 @@ Num[30] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
 Num[31] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|React|displayWinner:displaywinner_instance
-state[0] => Equal2.IN0
-state[1] => Equal2.IN2
-state[2] => Equal2.IN1
-target[0] => LessThan0.IN7
-target[0] => Equal0.IN6
-target[0] => LessThan1.IN7
-target[0] => Add1.IN14
-target[0] => LessThan2.IN7
-target[0] => Equal1.IN6
-target[0] => LessThan3.IN7
-target[0] => Add3.IN14
-target[0] => Add2.IN7
-target[0] => Add0.IN7
-target[1] => LessThan0.IN6
-target[1] => Equal0.IN5
-target[1] => LessThan1.IN6
-target[1] => Add1.IN13
-target[1] => LessThan2.IN6
-target[1] => Equal1.IN5
-target[1] => LessThan3.IN6
-target[1] => Add3.IN13
-target[1] => Add2.IN6
-target[1] => Add0.IN6
-target[2] => LessThan0.IN5
-target[2] => Equal0.IN4
-target[2] => LessThan1.IN5
-target[2] => Add1.IN12
-target[2] => LessThan2.IN5
-target[2] => Equal1.IN4
-target[2] => LessThan3.IN5
-target[2] => Add3.IN12
-target[2] => Add2.IN5
-target[2] => Add0.IN5
-target[3] => LessThan0.IN4
-target[3] => Equal0.IN3
-target[3] => LessThan1.IN4
-target[3] => Add1.IN11
-target[3] => LessThan2.IN4
-target[3] => Equal1.IN3
-target[3] => LessThan3.IN4
-target[3] => Add3.IN11
-target[3] => Add2.IN4
-target[3] => Add0.IN4
-target[4] => LessThan0.IN3
-target[4] => Equal0.IN2
-target[4] => LessThan1.IN3
-target[4] => Add1.IN10
-target[4] => LessThan2.IN3
-target[4] => Equal1.IN2
-target[4] => LessThan3.IN3
-target[4] => Add3.IN10
-target[4] => Add2.IN3
-target[4] => Add0.IN3
-target[5] => LessThan0.IN2
-target[5] => Equal0.IN1
-target[5] => LessThan1.IN2
-target[5] => Add1.IN9
-target[5] => LessThan2.IN2
-target[5] => Equal1.IN1
-target[5] => LessThan3.IN2
-target[5] => Add3.IN9
-target[5] => Add2.IN2
-target[5] => Add0.IN2
-target[6] => LessThan0.IN1
-target[6] => Equal0.IN0
-target[6] => LessThan1.IN1
-target[6] => Add1.IN8
-target[6] => LessThan2.IN1
-target[6] => Equal1.IN0
-target[6] => LessThan3.IN1
-target[6] => Add3.IN8
-target[6] => Add2.IN1
-target[6] => Add0.IN1
-result1[0] => LessThan0.IN14
-result1[0] => Equal0.IN13
-result1[0] => Add0.IN14
-result1[0] => LessThan1.IN14
-result1[0] => Add1.IN7
-result1[1] => LessThan0.IN13
-result1[1] => Equal0.IN12
-result1[1] => Add0.IN13
-result1[1] => LessThan1.IN13
-result1[1] => Add1.IN6
-result1[2] => LessThan0.IN12
-result1[2] => Equal0.IN11
-result1[2] => Add0.IN12
-result1[2] => LessThan1.IN12
-result1[2] => Add1.IN5
-result1[3] => LessThan0.IN11
-result1[3] => Equal0.IN10
-result1[3] => Add0.IN11
-result1[3] => LessThan1.IN11
-result1[3] => Add1.IN4
-result1[4] => LessThan0.IN10
-result1[4] => Equal0.IN9
-result1[4] => Add0.IN10
-result1[4] => LessThan1.IN10
-result1[4] => Add1.IN3
-result1[5] => LessThan0.IN9
-result1[5] => Equal0.IN8
-result1[5] => Add0.IN9
-result1[5] => LessThan1.IN9
-result1[5] => Add1.IN2
-result1[6] => LessThan0.IN8
-result1[6] => Equal0.IN7
-result1[6] => Add0.IN8
-result1[6] => LessThan1.IN8
-result1[6] => Add1.IN1
-result2[0] => LessThan2.IN14
-result2[0] => Equal1.IN13
-result2[0] => Add2.IN14
-result2[0] => LessThan3.IN14
-result2[0] => Add3.IN7
-result2[1] => LessThan2.IN13
-result2[1] => Equal1.IN12
-result2[1] => Add2.IN13
-result2[1] => LessThan3.IN13
-result2[1] => Add3.IN6
-result2[2] => LessThan2.IN12
-result2[2] => Equal1.IN11
-result2[2] => Add2.IN12
-result2[2] => LessThan3.IN12
-result2[2] => Add3.IN5
-result2[3] => LessThan2.IN11
-result2[3] => Equal1.IN10
-result2[3] => Add2.IN11
-result2[3] => LessThan3.IN11
-result2[3] => Add3.IN4
-result2[4] => LessThan2.IN10
-result2[4] => Equal1.IN9
-result2[4] => Add2.IN10
-result2[4] => LessThan3.IN10
-result2[4] => Add3.IN3
-result2[5] => LessThan2.IN9
-result2[5] => Equal1.IN8
-result2[5] => Add2.IN9
-result2[5] => LessThan3.IN9
-result2[5] => Add3.IN2
-result2[6] => LessThan2.IN8
-result2[6] => Equal1.IN7
-result2[6] => Add2.IN8
-result2[6] => LessThan3.IN8
-result2[6] => Add3.IN1
-HEX2[0] <= HEX2[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX2[1] <= <GND>
-HEX2[2] <= HEX2[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX2[3] <= HEX2[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX2[4] <= HEX2[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX2[5] <= <VCC>
-HEX2[6] <= HEX2[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
-HEX3[0] <= <VCC>
-HEX3[1] <= <VCC>
-HEX3[2] <= <VCC>
-HEX3[3] <= <GND>
-HEX3[4] <= <GND>
-HEX3[5] <= <VCC>
-HEX3[6] <= <VCC>
+|ReactionTImerTop|BCDNum:instance10
+BCD[0] => Equal0.IN3
+BCD[0] => Equal1.IN3
+BCD[0] => Equal2.IN2
+BCD[0] => Equal3.IN3
+BCD[0] => Equal4.IN2
+BCD[0] => Equal5.IN3
+BCD[0] => Equal6.IN1
+BCD[0] => Equal7.IN3
+BCD[0] => Equal8.IN2
+BCD[0] => Equal9.IN3
+BCD[1] => Equal0.IN2
+BCD[1] => Equal1.IN2
+BCD[1] => Equal2.IN3
+BCD[1] => Equal3.IN2
+BCD[1] => Equal4.IN1
+BCD[1] => Equal5.IN1
+BCD[1] => Equal6.IN3
+BCD[1] => Equal7.IN2
+BCD[1] => Equal8.IN1
+BCD[1] => Equal9.IN1
+BCD[2] => Equal0.IN1
+BCD[2] => Equal1.IN1
+BCD[2] => Equal2.IN1
+BCD[2] => Equal3.IN1
+BCD[2] => Equal4.IN3
+BCD[2] => Equal5.IN2
+BCD[2] => Equal6.IN2
+BCD[2] => Equal7.IN1
+BCD[2] => Equal8.IN0
+BCD[2] => Equal9.IN0
+BCD[3] => Equal0.IN0
+BCD[3] => Equal1.IN0
+BCD[3] => Equal2.IN0
+BCD[3] => Equal3.IN0
+BCD[3] => Equal4.IN0
+BCD[3] => Equal5.IN0
+BCD[3] => Equal6.IN0
+BCD[3] => Equal7.IN0
+BCD[3] => Equal8.IN3
+BCD[3] => Equal9.IN2
+BCD[4] => Equal10.IN3
+BCD[4] => Equal11.IN3
+BCD[4] => Equal12.IN2
+BCD[4] => Equal13.IN3
+BCD[4] => Equal14.IN2
+BCD[4] => Equal15.IN3
+BCD[4] => Equal16.IN1
+BCD[4] => Equal17.IN3
+BCD[4] => Equal18.IN2
+BCD[4] => Equal19.IN3
+BCD[5] => Equal10.IN2
+BCD[5] => Equal11.IN2
+BCD[5] => Equal12.IN3
+BCD[5] => Equal13.IN2
+BCD[5] => Equal14.IN1
+BCD[5] => Equal15.IN1
+BCD[5] => Equal16.IN3
+BCD[5] => Equal17.IN2
+BCD[5] => Equal18.IN1
+BCD[5] => Equal19.IN1
+BCD[6] => Equal10.IN1
+BCD[6] => Equal11.IN1
+BCD[6] => Equal12.IN1
+BCD[6] => Equal13.IN1
+BCD[6] => Equal14.IN3
+BCD[6] => Equal15.IN2
+BCD[6] => Equal16.IN2
+BCD[6] => Equal17.IN1
+BCD[6] => Equal18.IN0
+BCD[6] => Equal19.IN0
+BCD[7] => Equal10.IN0
+BCD[7] => Equal11.IN0
+BCD[7] => Equal12.IN0
+BCD[7] => Equal13.IN0
+BCD[7] => Equal14.IN0
+BCD[7] => Equal15.IN0
+BCD[7] => Equal16.IN0
+BCD[7] => Equal17.IN0
+BCD[7] => Equal18.IN3
+BCD[7] => Equal19.IN2
+Num[0] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[1] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[2] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[3] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[4] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[5] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[6] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[7] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[8] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[9] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[10] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[11] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[12] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[13] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[14] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[15] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[16] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[17] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[18] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[19] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[20] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[21] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[22] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[23] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[24] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[25] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[26] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[27] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[28] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[29] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[30] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Num[31] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|Debouncer:instance11
+clk => btn_sync.CLK
+clk => COUNTER[0].CLK
+clk => COUNTER[1].CLK
+clk => COUNTER[2].CLK
+clk => COUNTER[3].CLK
+clk => COUNTER[4].CLK
+clk => COUNTER[5].CLK
+clk => COUNTER[6].CLK
+clk => COUNTER[7].CLK
+clk => COUNTER[8].CLK
+clk => COUNTER[9].CLK
+clk => COUNTER[10].CLK
+clk => COUNTER[11].CLK
+clk => COUNTER[12].CLK
+clk => COUNTER[13].CLK
+clk => COUNTER[14].CLK
+clk => COUNTER[15].CLK
+clk => COUNTER[16].CLK
+clk => COUNTER[17].CLK
+clk => COUNTER[18].CLK
+clk => COUNTER[19].CLK
+clk => COUNTER[20].CLK
+clk => COUNTER[21].CLK
+clk => COUNTER[22].CLK
+clk => COUNTER[23].CLK
+clk => COUNTER[24].CLK
+clk => COUNTER[25].CLK
+clk => COUNTER[26].CLK
+clk => COUNTER[27].CLK
+clk => COUNTER[28].CLK
+clk => COUNTER[29].CLK
+clk => COUNTER[30].CLK
+clk => COUNTER[31].CLK
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => process_0.IN1
+btn => btn_sync.DATAIN
+debounced_btn <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|Debouncer:instance12
+clk => btn_sync.CLK
+clk => COUNTER[0].CLK
+clk => COUNTER[1].CLK
+clk => COUNTER[2].CLK
+clk => COUNTER[3].CLK
+clk => COUNTER[4].CLK
+clk => COUNTER[5].CLK
+clk => COUNTER[6].CLK
+clk => COUNTER[7].CLK
+clk => COUNTER[8].CLK
+clk => COUNTER[9].CLK
+clk => COUNTER[10].CLK
+clk => COUNTER[11].CLK
+clk => COUNTER[12].CLK
+clk => COUNTER[13].CLK
+clk => COUNTER[14].CLK
+clk => COUNTER[15].CLK
+clk => COUNTER[16].CLK
+clk => COUNTER[17].CLK
+clk => COUNTER[18].CLK
+clk => COUNTER[19].CLK
+clk => COUNTER[20].CLK
+clk => COUNTER[21].CLK
+clk => COUNTER[22].CLK
+clk => COUNTER[23].CLK
+clk => COUNTER[24].CLK
+clk => COUNTER[25].CLK
+clk => COUNTER[26].CLK
+clk => COUNTER[27].CLK
+clk => COUNTER[28].CLK
+clk => COUNTER[29].CLK
+clk => COUNTER[30].CLK
+clk => COUNTER[31].CLK
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => process_0.IN1
+btn => btn_sync.DATAIN
+debounced_btn <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|Debouncer:instance13
+clk => btn_sync.CLK
+clk => COUNTER[0].CLK
+clk => COUNTER[1].CLK
+clk => COUNTER[2].CLK
+clk => COUNTER[3].CLK
+clk => COUNTER[4].CLK
+clk => COUNTER[5].CLK
+clk => COUNTER[6].CLK
+clk => COUNTER[7].CLK
+clk => COUNTER[8].CLK
+clk => COUNTER[9].CLK
+clk => COUNTER[10].CLK
+clk => COUNTER[11].CLK
+clk => COUNTER[12].CLK
+clk => COUNTER[13].CLK
+clk => COUNTER[14].CLK
+clk => COUNTER[15].CLK
+clk => COUNTER[16].CLK
+clk => COUNTER[17].CLK
+clk => COUNTER[18].CLK
+clk => COUNTER[19].CLK
+clk => COUNTER[20].CLK
+clk => COUNTER[21].CLK
+clk => COUNTER[22].CLK
+clk => COUNTER[23].CLK
+clk => COUNTER[24].CLK
+clk => COUNTER[25].CLK
+clk => COUNTER[26].CLK
+clk => COUNTER[27].CLK
+clk => COUNTER[28].CLK
+clk => COUNTER[29].CLK
+clk => COUNTER[30].CLK
+clk => COUNTER[31].CLK
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => process_0.IN1
+btn => btn_sync.DATAIN
+debounced_btn <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ReactionTImerTop|Debouncer:instance14
+clk => btn_sync.CLK
+clk => COUNTER[0].CLK
+clk => COUNTER[1].CLK
+clk => COUNTER[2].CLK
+clk => COUNTER[3].CLK
+clk => COUNTER[4].CLK
+clk => COUNTER[5].CLK
+clk => COUNTER[6].CLK
+clk => COUNTER[7].CLK
+clk => COUNTER[8].CLK
+clk => COUNTER[9].CLK
+clk => COUNTER[10].CLK
+clk => COUNTER[11].CLK
+clk => COUNTER[12].CLK
+clk => COUNTER[13].CLK
+clk => COUNTER[14].CLK
+clk => COUNTER[15].CLK
+clk => COUNTER[16].CLK
+clk => COUNTER[17].CLK
+clk => COUNTER[18].CLK
+clk => COUNTER[19].CLK
+clk => COUNTER[20].CLK
+clk => COUNTER[21].CLK
+clk => COUNTER[22].CLK
+clk => COUNTER[23].CLK
+clk => COUNTER[24].CLK
+clk => COUNTER[25].CLK
+clk => COUNTER[26].CLK
+clk => COUNTER[27].CLK
+clk => COUNTER[28].CLK
+clk => COUNTER[29].CLK
+clk => COUNTER[30].CLK
+clk => COUNTER[31].CLK
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => COUNTER.OUTPUTSELECT
+btn => process_0.IN1
+btn => btn_sync.DATAIN
+debounced_btn <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
 
 
