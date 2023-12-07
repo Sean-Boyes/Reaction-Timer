@@ -25,12 +25,18 @@ ENSC 252 Optional Project: Reaction Timer Tester
 - Usage: Creating a "random" 16 bit value
 - Reason: We need a value for the user to input at to get how well they reacted
 - How: A shift register with register(4, 5, 7, and 15) being xor'ed into the input of the register(0)
-## Clock Pre-Scaler (PreScaler.vhd)*
+## Clock 3-Speed-Pre-Scaler (PreScaler.vhd)
 - Input: Speed, inClock
 - Output: outClock
 - Usage: Creating a slower clock
-- Reason: Naking a section of the circut that is more usable for human interfaces
+- Reason: Making a section of the circut that is more usable for human interfaces
 - How: Depending on the speed inputed, the circut will output a clock cycle when a counter reaches a certain value
+## Clock FSM-Pre-Scaler (PreScale.vhd)
+- Input: inClock
+- Output: outClock
+- Usage: Creating a slower clock
+- Reason: Provide a slower clock to divice FSM state change by clock and prevent 2 adjacent state to change instataneously on the same input
+- How: The circut will output a clock cycle when a counter reaches a certain value
 ## Hex Display Driver (SegDecoder.vhd)
 - Input: Four bits
 - Output: Seven Bits
@@ -40,14 +46,14 @@ ENSC 252 Optional Project: Reaction Timer Tester
 ## Binary Coded Decimal Converter (BCDNum.vhd)
 - Input: Eight bit BCD number
 - Output: Binary number
-- Usage: Decoding the BCD counter into a comparable binary number to the LFSR random number
-- How: The BCD number is indexed to its corresponding binary number, then outputed
+- Usage: Decoding the BCD counter and LFSR output into equivalent binary numbers
+- How: The 8 bit BCD number is indexed to its corresponding integer number, then outputed
 ## Binary Coded Decimal Counter (BCDCount2.vhd)
 - Input: Enable, clock, and reset
 - Output: Ones and Tens
-- Usage: When Enable is high, the counter goes up by one every clock cycle in decimal
+- Usage: When Enable is high, the counter goes up by one every clock cycle and reset bit (0 to 3) and (4 to 7) seperately when they reach BCD equivalent of 9.
 - Reason: Humans count in decimal and not hex, multiple hex displays are needed to count properly in decimal
-- How: When the internal counter(ones) reaches 9, the next cycle will reset to 0 and cycle the next clock(tens) to 1. 
+- How: When the internal counter(ones) reaches 9, its next cycle will reset to 0 and clock(tens) will increment by 1. 
 ## Mux (TT1MUX.vhd)
 - Input: Two one bit values(x1 and x2), and one bit signal(y1)
 - Output: One bit signal
