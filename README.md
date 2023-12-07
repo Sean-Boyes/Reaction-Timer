@@ -67,4 +67,4 @@ ENSC 252 Optional Project: Reaction Timer Tester
 - Output: One bit value
 - Usage: Sets the output bit to the inputbit on the rising edge of the clock
 
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![alt text](https://github.com/[Sean-Boyes]/[Reaction-Timer]/blob/[main]/img/FSM.jpg?raw=true)
