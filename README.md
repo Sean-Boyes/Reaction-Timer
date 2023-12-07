@@ -66,5 +66,11 @@ ENSC 252 Optional Project: Reaction Timer Tester
 - Input: One bit value and clock
 - Output: One bit value
 - Usage: Sets the output bit to the inputbit on the rising edge of the clock
-
+# Top Level Wrapper & FSM (ReactionTimerTop)
+- Input: SW(17) and KEY(3 downto 0)
+- Output: HEX(7 downto 0)
+- Usage: Display HEX displays and reset counters based on current state determined by switch and Keys
+- How: Determines state with a synchronous FSM based on input. Toggles on internal signal appropriate to each state.
 ![FSM](https://github.com/Sean-Boyes/Reaction-Timer/blob/main/img/FSM.jpg?raw=true)
+## Display-Winner (DW)
+
